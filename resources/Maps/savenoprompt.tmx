@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="8" tileheight="8">
+ <tileset firstgid="1" name="1" tilewidth="8" tileheight="8">
+  <image source="../TileSets/Borders/1.png" width="72" height="8"/>
+ </tileset>
+ <tileset firstgid="10" name="dialogue" tilewidth="8" tileheight="8">
+  <image source="../TileSets/Borders/dialogue.png" width="136" height="8"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzUcOgEAMwMAsvXdY4P8PxW8IUi4bS3N2EJFMKRd9BUqlyr/+9a9/Db81GqX2xze1OvQYjIyYMGM3tiT4XbEZPg+cuBBxG3nw4gPgABDM
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,390 @@
+NAME,NATIONAL,KANTO,JOHTO,HOENN,TYPE 1,TYPE 2,SPECIES NAME,HEIGHT,WEIGHT,ABILITY 1,ABILITY 2,HIDDEN ABILITY,HP,ATK,DEF,SPATK,SPDEF,SPEED,CATCH,FRIENDLY,EXP GIVEN,GROWTH,EGG 1,EGG 2,GENDER,EGG CYCLES,BABY,HP,ATK,DEF,SPATK,SPDEF,SPEED,TOTAL,BODY,COLOR,DESCRIPTION,FEMALE SPRITE
+Bulbasaur,1,1,226,,Grass,Poison,Seed Pokémon,0.70,6.90,Overgrow,,Chlorophyll,0,0,0,1,0,0,45,70,64,MS,Monster,Plant,0.875,20,0,45,49,49,65,65,45,318,Quadruped,Green,,FALSE
+Ivysaur,2,2,227,,Grass,Poison,Seed Pokémon,1.00,13.00,Overgrow,,Chlorophyll,0,0,0,1,1,0,45,70,142,MS,Monster,Plant,0.875,20,0,60,62,63,80,80,60,405,Quadruped,Green,,FALSE
+Venusaur,3,3,228,,Grass,Poison,Seed Pokémon,2.00,100.00,Overgrow,,Chlorophyll,0,0,0,2,1,0,45,70,236,MS,Monster,Plant,0.875,20,0,80,82,83,100,100,80,525,Quadruped,Green,,TRUE
+Charmander,4,4,229,,Fire,,Lizard Pokémon,0.60,8.50,Blaze,,Solar Power,0,0,0,0,0,1,45,70,62,MS,Monster,Dragon,0.875,20,0,39,52,43,60,50,65,309,Androcaudal,Red,,FALSE
+Charmeleon,5,5,230,,Fire,,Flame Pokémon,1.10,19.00,Blaze,,Solar Power,0,0,0,1,0,1,45,70,142,MS,Monster,Dragon,0.875,20,0,58,64,58,80,65,80,405,Androcaudal,Red,,FALSE
+Charizard,6,6,231,,Fire,Flying,Flame Pokémon,1.70,90.50,Blaze,,Solar Power,0,0,0,3,0,0,45,70,240,MS,Monster,Dragon,0.875,20,0,78,84,78,109,85,100,534,Androcaudal,Red,,FALSE
+Squirtle,7,7,232,,Water,,Tiny Turtle Pokémon,0.50,9.00,Torrent,,Rain Dish,0,0,1,0,0,0,45,70,63,MS,Monster,Water1,0.875,20,0,44,48,65,50,64,43,314,Androcaudal,Blue,,FALSE
+Wartortle,8,8,233,,Water,,Turtle Pokémon,1.00,22.50,Torrent,,Rain Dish,0,0,1,0,1,0,45,70,142,MS,Monster,Water1,0.875,20,0,59,63,80,65,80,58,405,Androcaudal,Blue,,FALSE
+Blastoise,9,9,234,,Water,,Shellfish Pokémon,1.60,85.50,Torrent,,Rain Dish,0,0,0,0,3,0,45,70,239,MS,Monster,Water1,0.875,20,0,79,83,100,85,105,78,530,Androcaudal,Blue,,FALSE
+Caterpie,10,10,24,,Bug,,Worm Pokémon,0.30,2.90,Shield Dust,,Run Away,1,0,0,0,0,0,255,70,39,MF,Bug,,0.5,10,0,45,30,35,20,20,45,195,Serpentine,Green,,FALSE
+Metapod,11,11,25,,Bug,,Cocoon Pokémon,0.70,9.90,Shed Skin,,,0,0,2,0,0,0,120,70,72,MF,Bug,,0.5,10,0,50,20,55,25,25,30,205,Serpentine,Green,,FALSE
+Butterfree,12,12,26,,Bug,Flying,Butterfly Pokémon,1.10,32.00,Compound Eyes,,Tinted Lens,0,0,0,2,1,0,45,70,173,MF,Bug,,0.5,10,0,60,45,50,90,80,70,395,Polypterygotus,White,,TRUE
+Weedle,13,13,27,,Bug,Poison,Hairy Bug Pokémon,0.30,3.20,Shield Dust,,Run Away,0,0,0,0,0,1,255,70,39,MF,Bug,,0.5,10,0,40,35,30,20,20,50,195,Serpentine,Brown,,FALSE
+Kakuna,14,14,28,,Bug,Poison,Cocoon Pokémon,0.60,10.00,Shed Skin,,,0,0,2,0,0,0,120,70,72,MF,Bug,,0.5,10,0,45,25,50,25,25,35,205,Serpentine,Yellow,,FALSE
+Beedrill,15,15,29,,Bug,Poison,Poison Bee Pokémon,1.00,29.50,Swarm,,Sniper,0,2,0,0,1,0,45,70,173,MF,Bug,,0.5,10,0,65,90,40,45,80,75,395,Polypterygotus,Yellow,,FALSE
+Pidgey,16,16,10,,Flying,Normal,Tiny Bird Pokémon,0.30,1.80,Keen Eye,Tangled Feet,Big Pecks,0,0,0,0,0,1,255,70,50,MS,Flying,,0.5,15,0,40,45,40,35,35,56,251,Diplopterygotus,Brown,,FALSE
+Pidgeotto,17,17,11,,Flying,Normal,Bird Pokémon,1.10,30.00,Keen Eye,Tangled Feet,Big Pecks,0,0,0,0,0,2,120,70,122,MS,Flying,,0.5,15,0,63,60,55,50,50,71,349,Diplopterygotus,Brown,,FALSE
+Pidgeot,18,18,12,,Flying,Normal,Bird Pokémon,1.50,39.50,Keen Eye,Tangled Feet,Big Pecks,0,0,0,0,0,3,45,70,211,MS,Flying,,0.5,15,0,83,80,75,70,70,101,479,Diplopterygotus,Brown,,FALSE
+Rattata,19,19,17,,Normal,,Mouse Pokémon,0.30,3.50,Run Away,Guts,Hustle,0,0,0,0,0,1,255,70,51,MF,Ground,,0.5,15,0,30,56,35,25,35,72,253,Quadruped,Purple,,TRUE
+Raticate,20,20,18,,Normal,,Mouse Pokémon,0.70,18.50,Run Away,Guts,Hustle,0,0,0,0,0,2,127,70,145,MF,Ground,,0.5,15,0,55,81,60,50,70,97,413,Quadruped,Brown,,TRUE
+Spearow,21,21,13,,Flying,Normal,Tiny Bird Pokémon,0.30,2.00,Keen Eye,,Sniper,0,0,0,0,0,1,255,70,52,MF,Flying,,0.5,15,0,40,60,30,31,31,70,262,Diplopterygotus,Brown,,FALSE
+Fearow,22,22,14,,Flying,Normal,Beak Pokémon,1.20,38.00,Keen Eye,,Sniper,0,0,0,0,0,2,90,70,155,MF,Flying,,0.5,15,0,65,90,65,61,61,100,442,Diplopterygotus,Brown,,FALSE
+Ekans,23,23,50,,Poison,,Snake Pokémon,2.00,6.90,Intimidate,Shed Skin,Unnerve,0,1,0,0,0,0,255,70,58,MF,Ground,Dragon,0.5,20,0,35,60,44,40,54,55,288,Serpentine,Purple,,FALSE
+Arbok,24,24,51,,Poison,,Cobra Pokémon,3.50,65.00,Intimidate,Shed Skin,Unnerve,0,2,0,0,0,0,90,70,153,MF,Ground,Dragon,0.5,20,0,60,85,69,65,79,80,438,Serpentine,Purple,,FALSE
+Pikachu,25,25,22,156,Electric,,Mouse Pokémon,0.40,6.00,Static,,Lightning Rod,0,0,0,0,0,2,190,70,105,MF,Ground,Fairy,0.5,20,0,35,55,40,50,50,90,320,Quadruped,Yellow,,TRUE
+Raichu,26,26,23,157,Electric,,Mouse Pokémon,0.80,30.00,Static,,Lightning Rod,0,0,0,0,0,3,75,70,214,MF,Ground,Fairy,0.5,20,0,60,90,55,90,80,110,485,Androcaudal,Yellow,,TRUE
+Sandshrew,27,27,48,112,Ground,,Mouse Pokémon,0.60,12.00,Sand Veil,,Sand Rush,0,0,1,0,0,0,255,70,60,MF,Ground,,0.5,20,0,50,75,85,20,30,40,300,Androcaudal,Yellow,,FALSE
+Sandslash,28,28,49,113,Ground,,Mouse Pokémon,1.00,29.50,Sand Veil,,Sand Rush,0,0,2,0,0,0,90,70,158,MF,Ground,,0.5,20,0,75,100,110,45,55,65,450,Androcaudal,Yellow,,FALSE
+Nidoran♀,29,29,,,Poison,,Poison Pin Pokémon,0.40,7.00,Poison Point,Rivalry,Hustle,1,0,0,0,0,0,235,70,55,MS,Monster,Ground,0,20,0,55,47,52,40,40,41,275,Quadruped,Blue,,FALSE
+Nidorina,30,30,96,,Poison,,Poison Pin Pokémon,0.80,20.00,Poison Point,Rivalry,Hustle,2,0,0,0,0,0,120,70,128,MS,Undiscovered,,0,20,0,70,62,67,55,55,56,365,Quadruped,Blue,,FALSE
+Nidoqueen,31,31,97,,Ground,Poison,Drill Pokémon,1.30,60.00,Poison Point,Rivalry,Sheer Force,3,0,0,0,0,0,45,70,223,MS,Undiscovered,,0,20,0,90,92,87,75,85,76,505,Androcaudal,Blue,,FALSE
+Nidoran♂,32,32,,,Poison,,Poison Pin Pokémon,0.50,9.00,Poison Point,Rivalry,Hustle,0,1,0,0,0,0,235,70,55,MS,Monster,Ground,1,20,0,46,57,40,40,40,50,273,Quadruped,Purple,,FALSE
+Nidorino,33,33,99,,Poison,,Poison Pin Pokémon,0.90,19.50,Poison Point,Rivalry,Hustle,0,2,0,0,0,0,120,70,128,MS,Monster,Ground,1,20,0,61,72,57,55,55,65,365,Quadruped,Purple,,FALSE
+Nidoking,34,34,100,,Ground,Poison,Drill Pokémon,1.40,62.00,Poison Point,Rivalry,Sheer Force,0,3,0,0,0,0,45,70,223,MS,Monster,Ground,1,20,0,81,102,77,85,75,85,505,Androcaudal,Purple,,FALSE
+Clefairy,35,35,41,,Fairy,,Fairy Pokémon,0.60,7.50,Cute Charm,Magic Guard,Friend Guard,2,0,0,0,0,0,150,140,113,FA,Fairy,,0.25,20,0,70,45,48,60,65,35,323,Androcaudal,Pink,,FALSE
+Clefable,36,36,42,,Fairy,,Fairy Pokémon,1.30,40.00,Cute Charm,Magic Guard,Unaware,3,0,0,0,0,0,25,140,213,FA,Fairy,,0.25,20,0,95,70,73,95,90,60,483,Androcaudal,Pink,,FALSE
+Vulpix,37,37,125,153,Fire,,Fox Pokémon,0.60,9.90,Flash Fire,,Drought,0,0,0,0,0,1,190,70,60,MF,Ground,,0.25,20,0,38,41,40,50,65,65,299,Quadruped,Brown,,FALSE
+Ninetales,38,38,126,154,Fire,,Fox Pokémon,1.10,19.90,Flash Fire,,Drought,0,0,0,0,1,1,75,70,177,MF,Ground,,0.25,20,0,73,76,75,81,100,100,505,Quadruped,Yellow,,FALSE
+Jigglypuff,39,39,44,138,Fairy,Normal,Balloon Pokémon,0.50,5.50,Cute Charm,Competitive,Friend Guard,2,0,0,0,0,0,170,70,95,FA,Fairy,,0.25,20,0,115,45,20,45,25,20,270,Androform,Pink,,FALSE
+Wigglytuff,40,40,45,139,Fairy,Normal,Balloon Pokémon,1.00,12.00,Cute Charm,Competitive,Frisk,3,0,0,0,0,0,50,70,191,FA,Fairy,,0.25,20,0,140,70,45,85,50,45,435,Androform,Pink,,FALSE
+Zubat,41,41,37,63,Poison,Flying,Bat Pokémon,0.80,7.50,Inner Focus,,Infiltrator,0,0,0,0,0,1,255,70,49,MF,Flying,,0.5,15,0,40,45,35,30,40,55,245,Diplopterygotus,Purple,,TRUE
+Golbat,42,42,38,64,Poison,Flying,Bat Pokémon,1.60,55.00,Inner Focus,,Infiltrator,0,0,0,0,0,2,90,70,159,MF,Flying,,0.5,15,0,75,80,70,65,75,90,455,Diplopterygotus,Purple,,TRUE
+Oddish,43,43,83,88,Grass,Poison,Weed Pokémon,0.50,5.40,Chlorophyll,,Run Away,0,0,0,1,0,0,255,70,64,MS,Plant,,0.5,20,0,45,50,55,75,65,30,320,Asomaticcephalopod,Blue,,FALSE
+Gloom,44,44,84,89,Grass,Poison,Weed Pokémon,0.80,8.60,Chlorophyll,,Stench,0,0,0,2,0,0,120,70,138,MS,Plant,,0.5,20,0,60,65,70,85,75,40,395,Androform,Blue,,TRUE
+Vileplume,45,45,85,90,Grass,Poison,Flower Pokémon,1.20,18.60,Chlorophyll,,Effect Spore,0,0,0,3,0,0,45,70,216,MS,Plant,,0.5,20,0,75,80,85,110,90,50,490,Androform,Red,,TRUE
+Paras,46,46,70,,Grass,Bug,Mushroom Pokémon,0.30,5.40,Effect Spore,Dry Skin,Damp,0,1,0,0,0,0,190,70,57,MF,Bug,Plant,0.5,20,0,35,70,55,45,55,25,285,Insectoid,Red,,FALSE
+Parasect,47,47,71,,Grass,Bug,Mushroom Pokémon,1.00,29.50,Effect Spore,Dry Skin,Damp,0,2,1,0,0,0,75,70,142,MF,Bug,Plant,0.5,20,0,60,95,80,60,80,30,405,Insectoid,Red,,FALSE
+Venonat,48,48,108,,Bug,Poison,Insect Pokémon,1.00,30.00,Compound Eyes,Tinted Lens,Run Away,0,0,0,0,1,0,190,70,61,MF,Bug,,0.5,20,0,60,55,50,40,55,45,305,Androform,Purple,,FALSE
+Venomoth,49,49,109,,Bug,Poison,Poison Moth Pokémon,1.50,12.50,Shield Dust,Tinted Lens,Wonder Skin,0,0,0,1,0,1,75,70,158,MF,Bug,,0.5,20,0,70,65,60,90,75,90,450,Polypterygotus,Purple,,FALSE
+Diglett,50,50,132,,Ground,,Mole Pokémon,0.20,0.80,Sand Veil,Arena Trap,Sand Force,0,0,0,0,0,1,255,70,53,MF,Ground,,0.5,20,0,10,55,25,35,45,95,265,Somatoid,Brown,,FALSE
+Dugtrio,51,51,133,,Ground,,Mole Pokémon,0.70,33.30,Sand Veil,Arena Trap,Sand Force,0,0,0,0,0,2,50,70,142,MF,Ground,,0.5,20,0,35,80,50,50,70,120,405,Zooid,Brown,,FALSE
+Meowth,52,52,136,,Normal,,Scratch Cat Pokémon,0.40,4.20,Pickup,Technician,Unnerve,0,0,0,0,0,1,255,70,58,MF,Ground,,0.5,20,0,40,45,35,40,40,90,290,Quadruped,Yellow,,FALSE
+Persian,53,53,137,,Normal,,Classy Cat Pokémon,1.00,32.00,Limber,Technician,Unnerve,0,0,0,0,0,2,90,70,154,MF,Ground,,0.5,20,0,65,70,60,65,65,115,440,Quadruped,Yellow,,FALSE
+Psyduck,54,54,138,158,Water,,Duck Pokémon,0.80,19.60,Damp,Cloud Nine,Swift Swim,0,0,0,1,0,0,190,70,64,MF,Water1,Ground,0.5,20,0,50,52,48,65,50,55,320,Androcaudal,Yellow,,FALSE
+Golduck,55,55,139,159,Water,,Duck Pokémon,1.70,76.60,Damp,Cloud Nine,Swift Swim,0,0,0,2,0,0,75,70,175,MF,Water1,Ground,0.5,20,0,80,82,78,95,80,85,500,Androcaudal,Blue,,FALSE
+Mankey,56,56,134,,Fighting,,Pig Monkey Pokémon,0.50,28.00,Vital Spirit,Anger Point,Defiant,0,1,0,0,0,0,190,70,61,MF,Ground,,0.5,20,0,40,80,35,35,45,70,305,Androcaudal,Brown,,FALSE
+Primeape,57,57,135,,Fighting,,Pig Monkey Pokémon,1.00,32.00,Vital Spirit,Anger Point,Defiant,0,2,0,0,0,0,75,70,159,MF,Ground,,0.5,20,0,65,105,60,60,70,95,455,Androcaudal,Brown,,FALSE
+Growlithe,58,58,127,,Fire,,Puppy Pokémon,0.70,19.00,Intimidate,Flash Fire,Justified,0,1,0,0,0,0,190,70,70,SL,Ground,,0.75,20,0,55,70,45,70,50,60,350,Quadruped,Brown,,FALSE
+Arcanine,59,59,128,,Fire,,Legendary Pokémon,1.90,155.00,Intimidate,Flash Fire,Justified,0,2,0,0,0,0,75,70,194,SL,Ground,,0.75,20,0,90,110,80,100,80,95,555,Quadruped,Brown,,FALSE
+Poliwag,60,60,72,,Water,,Tadpole Pokémon,0.60,12.40,Water Absorb,Damp,Swift Swim,0,0,0,0,0,1,255,70,60,MS,Water1,,0.5,20,0,40,50,40,40,40,90,300,Asomaticcephalopod,Blue,,FALSE
+Poliwhirl,61,61,73,,Water,,Tadpole Pokémon,1.00,20.00,Water Absorb,Damp,Swift Swim,0,0,0,0,0,2,120,70,135,MS,Water1,,0.5,20,0,65,65,65,50,50,90,385,Androform,Blue,,FALSE
+Poliwrath,62,62,74,,Water,Fighting,Tadpole Pokémon,1.30,54.00,Water Absorb,Damp,Swift Swim,0,0,3,0,0,0,45,70,225,MS,Water1,,0.5,20,0,90,95,95,70,90,70,510,Androform,Blue,,FALSE
+Abra,63,63,89,39,Psychic,,Psi Pokémon,0.90,19.50,Synchronize,Inner Focus,Magic Guard,0,0,0,1,0,0,200,70,62,MS,Human-like,,0.75,20,0,25,20,15,105,55,90,310,Androcaudal,Brown,,FALSE
+Kadabra,64,64,90,40,Psychic,,Psi Pokémon,1.30,56.50,Synchronize,Inner Focus,Magic Guard,0,0,0,2,0,0,100,70,140,MS,Human-like,,0.75,20,0,40,35,30,120,70,105,400,Androcaudal,Brown,,TRUE
+Alakazam,65,65,91,41,Psychic,,Psi Pokémon,1.50,48.00,Synchronize,Inner Focus,Magic Guard,0,0,0,3,0,0,50,70,221,MS,Human-like,,0.75,20,0,55,50,45,135,95,120,500,Androform,Brown,,TRUE
+Machop,66,66,140,73,Fighting,,Superpower Pokémon,0.80,19.50,Guts,No Guard,Steadfast,0,1,0,0,0,0,180,70,61,MS,Human-like,,0.75,20,0,70,80,50,35,35,35,305,Androcaudal,Gray,,FALSE
+Machoke,67,67,141,74,Fighting,,Superpower Pokémon,1.50,70.50,Guts,No Guard,Steadfast,0,2,0,0,0,0,90,70,142,MS,Human-like,,0.75,20,0,80,100,70,50,60,45,405,Androform,Gray,,FALSE
+Machamp,68,68,142,75,Fighting,,Superpower Pokémon,1.60,130.00,Guts,No Guard,Steadfast,0,3,0,0,0,0,45,70,227,MS,Human-like,,0.75,20,0,90,130,80,65,85,55,505,Androform,Gray,,FALSE
+Bellsprout,69,69,64,,Grass,Poison,Flower Pokémon,0.70,4.00,Chlorophyll,,Gluttony,0,1,0,0,0,0,255,70,60,MS,Plant,,0.5,20,0,50,75,35,70,30,40,300,Androform,Green,,FALSE
+Weepinbell,70,70,65,,Grass,Poison,Flycatcher Pokémon,1.00,6.40,Chlorophyll,,Gluttony,0,2,0,0,0,0,120,70,137,MS,Plant,,0.5,20,0,65,90,50,85,45,55,390,Somatoid,Green,,FALSE
+Victreebel,71,71,66,,Grass,Poison,Flycatcher Pokémon,1.70,15.50,Chlorophyll,,Gluttony,0,3,0,0,0,0,45,70,216,MS,Plant,,0.5,20,0,80,105,65,100,70,70,490,Somatoid,Green,,FALSE
+Tentacool,72,72,162,66,Water,Poison,Jellyfish Pokémon,0.90,45.50,Clear Body,Liquid Ooze,Rain Dish,0,0,0,0,1,0,190,70,67,SL,Water3,,0.5,20,0,40,40,35,50,100,70,335,Cephalopod,Blue,,FALSE
+Tentacruel,73,73,163,67,Water,Poison,Jellyfish Pokémon,1.60,55.00,Clear Body,Liquid Ooze,Rain Dish,0,0,0,0,2,0,60,70,180,SL,Water3,,0.5,20,0,80,70,65,80,120,100,515,Cephalopod,Blue,,FALSE
+Geodude,74,74,34,57,Rock,Ground,Rock Pokémon,0.40,20.00,Rock Head,Sturdy,Sand Veil,0,0,1,0,0,0,255,70,60,MS,Mineral,,0.5,15,0,40,80,100,30,30,20,300,Brachiocephaloform,Brown,,FALSE
+Graveler,75,75,35,58,Rock,Ground,Rock Pokémon,1.00,105.00,Rock Head,Sturdy,Sand Veil,0,0,2,0,0,0,120,70,137,MS,Mineral,,0.5,15,0,55,95,115,45,45,35,390,Androform,Brown,,FALSE
+Golem,76,76,36,59,Rock,Ground,Megaton Pokémon,1.40,300.00,Rock Head,Sturdy,Sand Veil,0,0,3,0,0,0,45,70,218,MS,Mineral,,0.5,15,0,80,120,130,55,65,45,495,Androform,Brown,,FALSE
+Ponyta,77,77,201,,Fire,,Fire Horse Pokémon,1.00,30.00,Run Away,Flash Fire,Flame Body,0,0,0,0,0,1,190,70,82,MF,Ground,,0.5,20,0,50,85,55,65,65,90,410,Quadruped,Yellow,,FALSE
+Rapidash,78,78,202,,Fire,,Fire Horse Pokémon,1.70,95.00,Run Away,Flash Fire,Flame Body,0,0,0,0,0,2,60,70,175,MF,Ground,,0.5,20,0,65,100,70,80,80,105,500,Quadruped,Yellow,,FALSE
+Slowpoke,79,79,,,Psychic,Water,Dopey Pokémon,1.20,36.00,Oblivious,Own Tempo,Regenerator,1,0,0,0,0,0,190,70,63,MF,Monster,Water1,0.5,20,0,90,65,65,40,40,15,315,Quadruped,Pink,,FALSE
+Slowbro,80,80,,,Psychic,Water,Hermit Crab Pokémon,1.60,78.50,Oblivious,Own Tempo,Regenerator,0,0,2,0,0,0,75,70,172,MF,Monster,Water1,0.5,20,0,95,75,110,100,80,30,490,Androcaudal,Pink,,FALSE
+Magnemite,81,81,118,82,Electric,Steel,Magnet Pokémon,0.30,6.00,Magnet Pull,Sturdy,Analytic,0,0,0,1,0,0,190,70,65,MF,Mineral,,-1,20,0,25,35,70,95,55,45,325,Brachiocephaloform,Gray,,FALSE
+Magneton,82,82,119,83,Electric,Steel,Magnet Pokémon,1.00,60.00,Magnet Pull,Sturdy,Analytic,0,0,0,2,0,0,60,70,163,MF,Mineral,,-1,20,0,50,60,95,120,70,70,465,Zooid,Gray,,FALSE
+Farfetch'd,83,83,158,,Flying,Normal,Wild Duck Pokémon,0.80,15.00,Keen Eye,Inner Focus,Defiant,0,1,0,0,0,0,45,70,123,MF,Flying,Ground,0.5,20,0,52,65,55,58,62,60,352,Diplopterygotus,Brown,,FALSE
+Doduo,84,84,199,92,Flying,Normal,Twin Bird Pokémon,1.40,39.20,Run Away,Early Bird,Tangled Feet,0,1,0,0,0,0,190,70,62,MF,Flying,,0.5,20,0,35,85,45,35,35,75,310,Asomaticcephalopod,Brown,,TRUE
+Dodrio,85,85,200,93,Flying,Normal,Triple Bird Pokémon,1.80,85.20,Run Away,Early Bird,Tangled Feet,0,2,0,0,0,0,45,70,161,MF,Flying,,0.5,20,0,60,110,70,60,60,100,460,Asomaticcephalopod,Brown,,TRUE
+Seel,86,86,176,,Water,,Sea Lion Pokémon,1.10,90.00,Thick Fat,Hydration,Ice Body,0,0,0,0,1,0,190,70,65,MF,Water1,Ground,0.5,20,0,65,45,55,45,70,45,325,Pinniped,White,,FALSE
+Dewgong,87,87,177,,Ice,Water,Sea Lion Pokémon,1.70,120.00,Thick Fat,Hydration,Ice Body,0,0,0,0,2,0,75,70,166,MF,Water1,Ground,0.5,20,0,90,70,80,70,95,70,475,Pinniped,White,,FALSE
+Grimer,88,88,116,106,Poison,,Sludge Pokémon,0.90,30.00,Stench,Sticky Hold,Poison Touch,1,0,0,0,0,0,190,70,65,MF,Indeterminate,,0.5,20,0,80,80,50,40,50,25,325,Brachiocephaloform,Purple,,FALSE
+Muk,89,89,117,107,Poison,,Sludge Pokémon,1.20,30.00,Stench,Sticky Hold,Poison Touch,1,1,0,0,0,0,75,70,175,MF,Indeterminate,,0.5,20,0,105,105,75,65,100,50,500,Brachiocephaloform,Purple,,FALSE
+Shellder,90,90,169,,Water,,Bivalve Pokémon,0.30,4.00,Shell Armor,Skill Link,Overcoat,0,0,1,0,0,0,190,70,61,SL,Water3,,0.5,20,0,30,65,100,45,25,40,305,Cephaloform,Purple,,FALSE
+Cloyster,91,91,170,,Ice,Water,Bivalve Pokémon,1.50,132.50,Shell Armor,Skill Link,Overcoat,0,0,2,0,0,0,60,70,184,SL,Water3,,0.5,20,0,50,95,180,85,45,70,525,Cephaloform,Purple,,FALSE
+Gastly,92,92,58,,Ghost,Poison,Gas Pokémon,1.30,0.10,Levitate,,,0,0,0,1,0,0,190,70,62,MS,Indeterminate,,0.5,20,0,30,35,30,100,35,80,310,Cephaloform,Purple,,FALSE
+Haunter,93,93,59,,Ghost,Poison,Gas Pokémon,1.60,0.10,Levitate,,,0,0,0,2,0,0,90,70,142,MS,Indeterminate,,0.5,20,0,45,50,45,115,55,95,405,Brachiocephaloform,Purple,,FALSE
+Gengar,94,94,60,,Ghost,Poison,Shadow Pokémon,1.50,40.50,Levitate,,,0,0,0,3,0,0,45,70,225,MS,Indeterminate,,0.5,20,0,60,65,60,130,75,110,500,Androcaudal,Purple,,FALSE
+Onix,95,95,62,,Rock,Ground,Rock Snake Pokémon,8.80,210.00,Rock Head,Sturdy,Weak Armor,0,0,1,0,0,0,45,70,77,MF,Mineral,,0.5,25,0,35,45,160,30,45,70,385,Serpentine,Gray,,FALSE
+Drowzee,96,96,87,,Psychic,,Hypnosis Pokémon,1.00,32.40,Insomnia,Forewarn,Inner Focus,0,0,0,0,1,0,190,70,66,MF,Human-like,,0.5,20,0,60,48,45,43,90,42,328,Androform,Yellow,,FALSE
+Hypno,97,97,88,,Psychic,,Hypnosis Pokémon,1.60,75.60,Insomnia,Forewarn,Inner Focus,0,0,0,0,2,0,75,70,169,MF,Human-like,,0.5,20,0,85,73,70,73,115,67,483,Androform,Yellow,,TRUE
+Krabby,98,98,164,,Water,,River Crab Pokémon,0.40,6.50,Hyper Cutter,Shell Armor,Sheer Force,0,1,0,0,0,0,225,70,65,MF,Water3,,0.5,20,0,30,105,90,25,25,50,325,Insectoid,Red,,FALSE
+Kingler,99,99,165,,Water,,Pincer Pokémon,1.30,60.00,Hyper Cutter,Shell Armor,Sheer Force,0,2,0,0,0,0,60,70,166,MF,Water3,,0.5,20,0,55,130,115,50,50,75,475,Insectoid,Red,,FALSE
+Voltorb,100,100,120,84,Electric,,Ball Pokémon,0.50,10.40,Soundproof,Static,Aftermath,0,0,0,0,0,1,190,70,66,MF,Mineral,,-1,20,0,40,30,50,55,55,100,330,Cephaloform,Red,,FALSE
+Electrode,101,101,121,85,Electric,,Ball Pokémon,1.20,66.60,Soundproof,Static,Aftermath,0,0,0,0,0,2,60,70,168,MF,Mineral,,-1,20,0,60,50,70,80,80,140,480,Cephaloform,Red,,FALSE
+Exeggcute,102,102,104,,Psychic,Grass,Egg Pokémon,0.40,2.50,Chlorophyll,,Harvest,0,0,1,0,0,0,90,70,65,SL,Plant,,0.5,20,0,60,40,80,60,45,40,325,Zooid,Pink,,FALSE
+Exeggutor,103,103,105,,Psychic,Grass,Coconut Pokémon,2.00,120.00,Chlorophyll,,Harvest,0,0,0,2,0,0,45,70,182,SL,Plant,,0.5,20,0,95,95,85,125,65,55,520,Asomaticcephalopod,Yellow,,FALSE
+Cubone,104,104,203,,Ground,,Lonely Pokémon,0.40,6.50,Rock Head,Lightning Rod,Battle Armor,0,0,1,0,0,0,190,70,64,MF,Monster,,0.5,20,0,50,50,95,40,50,35,320,Androcaudal,Brown,,FALSE
+Marowak,105,105,204,,Ground,,Bone Keeper Pokémon,1.00,45.00,Rock Head,Lightning Rod,Battle Armor,0,0,2,0,0,0,75,70,149,MF,Monster,,0.5,20,0,60,80,110,50,80,45,425,Androcaudal,Brown,,FALSE
+Hitmonlee,106,106,144,,Fighting,,Kicking Pokémon,1.50,49.80,Limber,Reckless,Unburden,0,2,0,0,0,0,45,70,159,MF,Human-like,,1,25,0,50,120,53,35,110,87,455,Androform,Brown,,FALSE
+Hitmonchan,107,107,145,,Fighting,,Punching Pokémon,1.40,50.20,Keen Eye,Iron Fist,Inner Focus,0,0,0,0,2,0,45,70,159,MF,Human-like,,1,25,0,50,105,79,35,110,76,455,Androform,Brown,,FALSE
+Lickitung,108,108,178,,Normal, ,Licking Pokémon,1.20,65.50,Own Tempo,Oblivious,Cloud Nine,2,0,0,0,0,0,45,70,77,MF,Monster, ,0.5,20,0,90,55,75,60,75,30,385,Androcaudal,Pink,,FALSE
+Koffing,109,109,114,108,Poison,,Poison Gas Pokémon,0.60,1.00,Levitate,,,0,0,1,0,0,0,190,70,68,MF,Indeterminate,,0.5,20,0,40,65,95,60,45,35,340,Cephaloform,Purple,,FALSE
+Weezing,110,110,115,109,Poison,,Poison Gas Pokémon,1.20,9.50,Levitate,,,0,0,2,0,0,0,60,70,172,MF,Indeterminate,,0.5,20,0,65,90,120,85,70,60,490,Zooid,Purple,,FALSE
+Rhyhorn,111,111,206,169,Rock,Ground,Spikes Pokémon,1.00,115.00,Lightning Rod,Rock Head,Reckless,0,0,1,0,0,0,120,70,69,SL,Monster,Ground,0.5,20,0,80,85,95,30,30,25,345,Quadruped,Gray,,TRUE
+Rhydon,112,112,207,170,Rock,Ground,Drill Pokémon,1.90,120.00,Lightning Rod,Rock Head,Reckless,0,2,0,0,0,0,60,70,170,SL,Monster,Ground,0.5,20,0,105,130,120,45,45,40,485,Androcaudal,Gray,,TRUE
+Chansey,113,113,217,,Normal, ,Egg Pokémon,1.10,34.60,Natural Cure,Serene Grace,Healer,2,0,0,0,0,0,30,140,395,FA,Fairy, ,0,40,0,250,5,5,35,105,50,450,Androcaudal,Pink,,FALSE
+Tangela,114,114,179,,Grass, ,Vine Pokémon,1.00,35.00,Chlorophyll,Leaf Guard,Regenerator,0,0,1,0,0,0,45,70,87,MF,Plant, ,0.5,20,0,65,55,115,100,40,60,435,Asomaticcephalopod,Blue,,FALSE
+Kangaskhan,115,115,205,,Normal,,Parent Pokémon,2.20,80.00,Early Bird,Scrappy,Inner Focus,2,0,0,0,0,0,45,70,172,MF,Monster,,0,20,0,105,95,80,40,80,90,490,Androcaudal,Brown,,FALSE
+Horsea,116,116,186,184,Water,,Dragon Pokémon,0.40,8.00,Swift Swim,Sniper,Damp,0,0,0,1,0,0,225,70,59,MF,Water1,Dragon,0.5,20,0,30,40,70,70,25,60,295,Somatoid,Blue,,FALSE
+Seadra,117,117,187,185,Water,,Dragon Pokémon,1.20,25.00,Poison Point,Sniper,Damp,0,0,1,1,0,0,75,70,154,MF,Water1,Dragon,0.5,20,0,55,65,95,95,45,85,440,Somatoid,Blue,,FALSE
+Goldeen,118,118,78,50,Water,,Goldfish Pokémon,0.60,15.00,Swift Swim,Water Veil,Lightning Rod,0,1,0,0,0,0,225,70,64,MF,Water2,,0.5,20,0,45,67,60,35,50,63,320,Pinniped,Red,,TRUE
+Seaking,119,119,79,51,Water,,Goldfish Pokémon,1.30,39.00,Swift Swim,Water Veil,Lightning Rod,0,2,0,0,0,0,60,70,158,MF,Water2,,0.5,20,0,80,92,65,65,80,68,450,Pinniped,Red,,TRUE
+Staryu,120,120,167,143,Water,,Star Shape Pokémon,0.80,34.50,Illuminate,Natural Cure,Analytic,0,0,0,0,0,1,225,70,68,SL,Water3,,-1,20,0,30,45,55,70,55,85,340,Somatoid,Brown,,FALSE
+Starmie,121,121,168,144,Psychic,Water,Mysterious Pokémon,1.10,80.00,Illuminate,Natural Cure,Analytic,0,0,0,0,0,2,60,70,182,SL,Water3,,-1,20,0,60,75,85,100,85,115,520,Somatoid,Purple,,FALSE
+Mr. Mime,122,122,156,,Psychic,Fairy,Barrier Pokémon,1.30,54.50,Soundproof,Filter,Technician,0,0,0,0,2,0,45,70,161,MF,Human-like,,0.5,25,0,40,45,65,100,120,90,460,Androform,Pink,,FALSE
+Scyther,123,123,110,,Bug,Flying,Mantis Pokémon,1.50,56.00,Swarm,Technician,Steadfast,0,1,0,0,0,0,45,70,100,MF,Bug,,0.5,25,0,70,110,80,55,80,105,500,Polypterygotus,Green,,TRUE
+Jynx,124,124,153,,Psychic,Ice,Human Shape Pokémon,1.40,40.60,Oblivious,Forewarn,Dry Skin,0,0,0,2,0,0,45,70,159,MF,Human-like,,0,25,0,65,50,35,115,95,95,455,Androform,Red,,FALSE
+Electabuzz,125,125,155,,Electric,,Electric Pokémon,1.10,30.00,Static,,Vital Spirit,0,0,0,0,0,2,45,70,172,MF,Human-like,,0.75,25,0,65,83,57,95,85,105,490,Androcaudal,Yellow,,FALSE
+Magmar,126,126,151,,Fire,,Spitfire Pokémon,1.30,44.50,Flame Body,,Vital Spirit,0,0,0,2,0,0,45,70,173,MF,Human-like,,0.75,25,0,65,95,57,100,85,93,495,Androcaudal,Red,,FALSE
+Pinsir,127,127,112,167,Bug,,Stag Beetle Pokémon,1.50,55.00,Hyper Cutter,Mold Breaker,Moxie,0,2,0,0,0,0,45,70,175,SL,Bug,,0.5,25,0,65,125,100,55,70,85,500,Androform,Brown,,FALSE
+Tauros,128,128,148,,Normal,,Wild Bull Pokémon,1.40,88.40,Intimidate,Anger Point,Sheer Force,0,1,0,0,0,1,45,70,172,SL,Ground,,1,20,0,75,100,95,40,70,110,490,Quadruped,Brown,,FALSE
+Magikarp,129,129,76,52,Water,,Fish Pokémon,0.90,10.00,Swift Swim,,Rattled,0,0,0,0,0,1,255,70,40,SL,Water2,Dragon,0.5,5,0,20,10,55,15,20,80,200,Pinniped,Red,,TRUE
+Gyarados,130,130,77,53,Water,Flying,Atrocious Pokémon,6.50,235.00,Intimidate,,Moxie,0,2,0,0,0,0,45,70,189,SL,Water2,Dragon,0.5,5,0,95,125,79,60,100,81,540,Serpentine,Blue,,TRUE
+Lapras,131,131,219,,Ice,Water,Transport Pokémon,2.50,220.00,Water Absorb,Shell Armor,Hydration,2,0,0,0,0,0,45,70,187,SL,Monster,Water1,0.5,40,0,130,85,80,85,95,60,535,Pinniped,Blue,,FALSE
+Ditto,132,132,92,,Normal,,Transform Pokémon,0.30,4.00,Limber,,Imposter,1,0,0,0,0,0,35,70,101,MF,Ditto,,-1,20,0,48,48,48,48,48,48,288,Cephaloform,Purple,,FALSE
+Eevee,133,133,180,,Normal, ,Evolution Pokémon,0.30,6.50,Run Away,Adaptability,Anticipation,0,0,0,0,1,0,45,70,65,MF,Ground, ,0.875,35,0,55,55,50,45,65,55,325,Quadruped,Brown,,FALSE
+Vaporeon,134,134,181,,Water,,Bubble Jet Pokémon,1.00,29.00,Water Absorb,,Hydration,2,0,0,0,0,0,45,70,184,MF,Ground,,0.875,35,0,130,65,60,110,95,65,525,Quadruped,Blue,,FALSE
+Jolteon,135,135,182,,Electric,,Lightning Pokémon,0.80,24.50,Volt Absorb,,Quick Feet,0,0,0,0,0,2,45,70,184,MF,Ground,,0.875,35,0,65,65,60,110,95,130,525,Quadruped,Yellow,,FALSE
+Flareon,136,136,183,,Fire,,Flame Pokémon,0.90,25.00,Flash Fire,,Guts,0,2,0,0,0,0,45,70,184,MF,Ground,,0.875,35,0,65,130,60,95,110,65,525,Quadruped,Red,,FALSE
+Porygon,137,137,215,,Normal,,Virtual Pokémon,0.80,36.50,Trace,Download,Analytic,0,0,0,1,0,0,45,70,79,MF,Mineral,,-1,20,0,65,60,70,85,75,40,395,Asomaticcephalopod,Pink,,FALSE
+Omanyte,138,138,220,,Water,Rock,Spiral Pokémon,0.40,7.50,Swift Swim,Shell Armor,Weak Armor,0,0,1,0,0,0,45,70,71,MF,Water1,Water3,0.875,30,0,35,40,100,90,55,35,355,Cephalopod,Blue,,FALSE
+Omastar,139,139,221,,Water,Rock,Spiral Pokémon,1.00,35.00,Swift Swim,Shell Armor,Weak Armor,0,0,2,0,0,0,45,70,173,MF,Water1,Water3,0.875,30,0,70,60,125,115,70,55,495,Cephalopod,Blue,,FALSE
+Kabuto,140,140,222,,Water,Rock,Shellfish Pokémon,0.50,11.50,Swift Swim,Battle Armor,Weak Armor,0,0,1,0,0,0,45,70,71,MF,Water1,Water3,0.875,30,0,30,80,90,55,45,55,355,Insectoid,Brown,,FALSE
+Kabutops,141,141,223,,Water,Rock,Shellfish Pokémon,1.30,40.50,Swift Swim,Battle Armor,Weak Armor,0,2,0,0,0,0,45,70,173,MF,Water1,Water3,0.875,30,0,60,115,105,65,70,80,495,Androcaudal,Brown,,FALSE
+Aerodactyl,142,142,224,,Rock,Flying,Fossil Pokémon,1.80,59.00,Rock Head,Pressure,Unnerve,0,0,0,0,0,2,45,70,180,SL,Flying,,0.875,30,0,80,105,65,60,75,130,515,Diplopterygotus,Purple,,FALSE
+Snorlax,143,143,225,,Normal,,Sleeping Pokémon,2.10,460.00,Immunity,Thick Fat,Gluttony,2,0,0,0,0,0,25,70,189,SL,Monster,,0.875,40,0,160,110,65,65,110,30,540,Androform,Black,,FALSE
+Articuno,144,144,235,,Ice,Flying,Freeze Pokémon,1.70,55.40,Pressure,,Snow Cloak,0,0,0,0,3,0,3,35,261,SL,Undiscovered,,-1,80,0,90,85,100,95,125,85,580,Diplopterygotus,Blue,,FALSE
+Zapdos,145,145,236,,Electric,Flying,Electric Pokémon,1.60,52.60,Pressure,,Static,0,0,0,3,0,0,3,35,261,SL,Undiscovered,,-1,80,0,90,90,85,125,90,100,580,Diplopterygotus,Yellow,,FALSE
+Moltres,146,146,237,,Fire,Flying,Flame Pokémon,2.00,60.00,Pressure,,Flame Body,0,0,0,3,0,0,3,35,261,SL,Undiscovered,,-1,80,0,90,100,90,125,85,90,580,Diplopterygotus,Yellow,,FALSE
+Dratini,147,147,241,,Dragon,,Dragon Pokémon,1.80,3.30,Shed Skin,,Marvel Scale,0,1,0,0,0,0,45,35,60,SL,Water1,Dragon,0.5,40,0,41,64,45,50,50,50,300,Serpentine,Blue,,FALSE
+Dragonair,148,148,242,,Dragon,,Dragon Pokémon,4.00,16.50,Shed Skin,,Marvel Scale,0,2,0,0,0,0,45,35,147,SL,Water1,Dragon,0.5,40,0,61,84,65,70,70,70,420,Serpentine,Blue,,FALSE
+Dragonite,149,149,243,,Dragon,Flying,Dragon Pokémon,2.20,210.00,Inner Focus,,Multiscale,0,3,0,0,0,0,45,35,270,SL,Water1,Dragon,0.5,40,0,91,134,95,100,100,80,600,Androcaudal,Brown,,FALSE
+Mewtwo,150,150,249,,Psychic,,Genetic Pokémon,2.00,122.00,Pressure,,Unnerve,0,0,0,3,0,0,3,0,306,SL,Undiscovered,,-1,120,0,106,110,90,154,90,130,680,Androcaudal,Purple,,FALSE
+Mew,151,151,250,,Psychic,,New Species Pokémon,0.40,4.00,Synchronize,,,3,0,0,0,0,0,45,100,270,MS,Undiscovered,,-1,120,0,100,100,100,100,100,100,600,Androcaudal,Pink,,FALSE
+Chikorita,152,,1,,Grass,,Leaf Pokémon,0.90,6.40,Overgrow,,Leaf Guard,0,0,0,0,1,0,45,70,64,MS,Monster,Plant,0.875,20,0,45,49,65,49,65,45,318,Quadruped,Green,,FALSE
+Bayleef,153,,2,,Grass,,Leaf Pokémon,1.20,15.80,Overgrow,,Leaf Guard,0,0,1,0,1,0,45,70,142,MS,Monster,Plant,0.875,20,0,60,62,80,63,80,60,405,Quadruped,Green,,FALSE
+Meganium,154,,3,,Grass,,Herb Pokémon,1.80,100.50,Overgrow,,Leaf Guard,0,0,1,0,2,0,45,70,236,MS,Monster,Plant,0.875,20,0,80,82,100,83,100,80,525,Quadruped,Green,,TRUE
+Cyndaquil,155,,4,,Fire,,Fire Mouse Pokémon,0.50,7.90,Blaze,,Flash Fire,0,0,0,0,0,1,45,70,62,MS,Ground,,0.875,20,0,39,52,43,60,50,65,309,Androform,Yellow,,FALSE
+Quilava,156,,5,,Fire,,Volcano Pokémon,0.90,19.00,Blaze,,Flash Fire,0,0,0,1,0,1,45,70,142,MS,Ground,,0.875,20,0,58,64,58,80,65,80,405,Quadruped,Yellow,,FALSE
+Typhlosion,157,,6,,Fire,,Volcano Pokémon,1.70,79.50,Blaze,,Flash Fire,0,0,0,3,0,0,45,70,240,MS,Ground,,0.875,20,0,78,84,78,109,85,100,534,Quadruped,Yellow,,FALSE
+Totodile,158,,7,,Water,,Big Jaw Pokémon,0.60,9.50,Torrent,,Sheer Force,0,1,0,0,0,0,45,70,63,MS,Monster,Water1,0.875,20,0,50,65,64,44,48,43,314,Androcaudal,Blue,,FALSE
+Croconaw,159,,8,,Water,,Big Jaw Pokémon,1.10,25.00,Torrent,,Sheer Force,0,1,1,0,0,0,45,70,142,MS,Monster,Water1,0.875,20,0,65,80,80,59,63,58,405,Androcaudal,Blue,,FALSE
+Feraligatr,160,,9,,Water,,Big Jaw Pokémon,2.30,88.80,Torrent,,Sheer Force,0,2,1,0,0,0,45,70,239,MS,Monster,Water1,0.875,20,0,85,105,100,79,83,78,530,Androcaudal,Blue,,FALSE
+Sentret,161,,19,,Normal,,Scout Pokémon,0.80,6.00,Run Away,Keen Eye,Frisk,0,1,0,0,0,0,255,70,43,MF,Ground,,0.5,15,0,35,46,34,35,45,20,215,Quadruped,Brown,,FALSE
+Furret,162,,20,,Normal,,Long Body Pokémon,1.80,32.50,Run Away,Keen Eye,Frisk,0,0,0,0,0,2,90,70,145,MF,Ground,,0.5,15,0,85,76,64,45,55,90,415,Quadruped,Brown,,FALSE
+Hoothoot,163,,15,,Flying,Normal,Owl Pokémon,0.70,21.20,Insomnia,Keen Eye,Tinted Lens,1,0,0,0,0,0,255,70,52,MF,Flying,,0.5,15,0,60,30,30,36,56,50,262,Diplopterygotus,Brown,,FALSE
+Noctowl,164,,16,,Flying,Normal,Owl Pokémon,1.60,40.80,Insomnia,Keen Eye,Tinted Lens,2,0,0,0,0,0,90,70,155,MF,Flying,,0.5,15,0,100,50,50,76,96,70,442,Diplopterygotus,Brown,,FALSE
+Ledyba,165,,30,,Bug,Flying,Five Star Pokémon,1.00,10.80,Swarm,Early Bird,Rattled,0,0,0,0,1,0,255,70,53,FA,Bug,,0.5,15,0,40,20,30,40,80,55,265,Diplopterygotus,Red,,TRUE
+Ledian,166,,31,,Bug,Flying,Five Star Pokémon,1.40,35.60,Swarm,Early Bird,Iron Fist,0,0,0,0,2,0,90,70,137,FA,Bug,,0.5,15,0,55,35,50,55,110,85,390,Diplopterygotus,Red,,TRUE
+Spinarak,167,,32,,Bug,Poison,String Spit Pokémon,0.50,8.50,Swarm,Insomnia,Sniper,0,1,0,0,0,0,255,70,50,FA,Bug,,0.5,15,0,40,60,40,40,40,30,250,Insectoid,Green,,FALSE
+Ariados,168,,33,,Bug,Poison,Long Leg Pokémon,1.10,33.50,Swarm,Insomnia,Sniper,0,2,0,0,0,0,90,70,137,FA,Bug,,0.5,15,0,70,90,70,60,60,40,390,Insectoid,Red,,FALSE
+Crobat,169,,39,65,Poison,Flying,Bat Pokémon,1.80,75.00,Inner Focus,,Infiltrator,0,0,0,0,0,3,90,70,241,MF,Flying,,0.5,15,0,85,90,80,70,80,130,535,Polypterygotus,Purple,,FALSE
+Chinchou,170,,174,181,Electric,Water,Angler Pokémon,0.50,12.00,Volt Absorb,Illuminate,Water Absorb,1,0,0,0,0,0,190,70,66,SL,Water2,,0.5,20,0,75,38,38,56,56,67,330,Pinniped,Blue,,FALSE
+Lanturn,171,,175,182,Electric,Water,Light Pokémon,1.20,22.50,Volt Absorb,Illuminate,Water Absorb,2,0,0,0,0,0,75,70,161,SL,Water2,,0.5,20,0,125,58,58,76,76,67,460,Pinniped,Blue,,FALSE
+Pichu,172,,21,155,Electric,,Tiny Mouse Pokémon,0.30,2.00,Static,,Lightning Rod,0,0,0,0,0,1,190,70,41,MF,Undiscovered,,0.5,20,1,20,40,15,35,35,60,205,Quadruped,Yellow,,FALSE
+Cleffa,173,,40,,Fairy,,Star Shape Pokémon,0.30,3.00,Cute Charm,Magic Guard,Friend Guard,0,0,0,0,1,0,150,140,44,FA,Undiscovered,,0.25,20,1,50,25,28,45,55,15,218,Androcaudal,Pink,,FALSE
+Igglybuff,174,,43,137,Fairy,Normal,Balloon Pokémon,0.30,1.00,Cute Charm,Competitive,Friend Guard,1,0,0,0,0,0,170,70,42,FA,Undiscovered,,0.25,20,1,90,30,15,40,20,15,210,Androform,Pink,,FALSE
+Togepi,175,,46,,Fairy,,Spike Ball Pokémon,0.30,1.50,Hustle,Serene Grace,Super Luck,0,0,0,0,1,0,190,70,49,FA,Undiscovered,,0.875,10,1,35,20,65,40,65,20,245,Androform,White,,FALSE
+Togetic,176,,47,,Fairy,Flying,Happiness Pokémon,0.60,3.20,Hustle,Serene Grace,Super Luck,0,0,0,0,2,0,75,70,142,FA,Flying,Fairy,0.875,10,0,55,40,85,80,105,40,405,Androform,White,,FALSE
+Natu,177,,159,162,Psychic,Flying,Tiny Bird Pokémon,0.20,2.00,Synchronize,Early Bird,Magic Bounce,0,0,0,1,0,0,190,70,64,MF,Flying,,0.5,20,0,40,50,45,70,45,70,320,Diplopterygotus,Green,,FALSE
+Xatu,178,,160,163,Psychic,Flying,Mystic Pokémon,1.50,15.00,Synchronize,Early Bird,Magic Bounce,0,0,0,1,0,1,75,70,165,MF,Flying,,0.5,20,0,65,75,70,95,70,95,470,Diplopterygotus,Green,,TRUE
+Mareep,179,,53,,Electric,,Wool Pokémon,0.60,7.80,Static,,Plus,0,0,0,1,0,0,235,70,56,MS,Monster,Ground,0.5,20,0,55,40,40,65,45,35,280,Quadruped,White,,FALSE
+Flaaffy,180,,54,,Electric,,Wool Pokémon,0.80,13.30,Static,,Plus,0,0,0,2,0,0,120,70,128,MS,Monster,Ground,0.5,20,0,70,55,55,80,60,45,365,Androcaudal,Pink,,FALSE
+Ampharos,181,,55,,Electric,,Light Pokémon,1.40,61.50,Static,,Plus,0,0,0,3,0,0,45,70,225,MS,Monster,Ground,0.5,20,0,90,75,85,115,90,55,510,Androcaudal,Yellow,,FALSE
+Bellossom,182,,86,91,Grass,,Flower Pokémon,0.40,5.80,Chlorophyll,,Healer,0,0,0,0,3,0,45,70,216,MS,Plant,,0.5,20,0,75,80,95,90,100,50,490,Androform,Green,,FALSE
+Marill,183,,130,55,Fairy,Water,Aqua Mouse Pokémon,0.40,8.50,Thick Fat,Huge Power,Sap Sipper,2,0,0,0,0,0,190,70,88,FA,Water1,Fairy,0.5,10,0,70,20,50,20,50,40,250,Androcaudal,Blue,,FALSE
+Azumarill,184,,131,56,Fairy,Water,Aqua Rabbit Pokémon,0.80,28.50,Thick Fat,Huge Power,Sap Sipper,3,0,0,0,0,0,75,70,185,FA,Water1,Fairy,0.5,10,0,100,50,80,60,80,50,420,Androcaudal,Blue,,FALSE
+Sudowoodo,185,,106,,Rock,,Imitation Pokémon,1.20,38.00,Sturdy,Rock Head,Rattled,0,0,2,0,0,0,65,70,144,MF,Mineral,,0.5,20,0,70,100,115,30,65,30,410,Androform,Brown,,TRUE
+Politoed,186,,75,,Water,,Frog Pokémon,1.10,33.90,Water Absorb,Damp,Drizzle,0,0,0,0,3,0,45,70,225,MS,Water1,,0.5,20,0,90,75,75,90,100,70,500,Androform,Green,,TRUE
+Hoppip,187,,67,,Grass,Flying,Cottonweed Pokémon,0.40,0.50,Chlorophyll,Leaf Guard,Infiltrator,0,0,0,0,1,0,255,70,50,MS,Fairy,Plant,0.5,20,0,35,35,40,35,55,50,250,Androcaudal,Pink,,FALSE
+Skiploom,188,,68,,Grass,Flying,Cottonweed Pokémon,0.60,1.00,Chlorophyll,Leaf Guard,Infiltrator,0,0,0,0,0,2,120,70,119,MS,Fairy,Plant,0.5,20,0,55,45,50,45,65,80,340,Androcaudal,Green,,FALSE
+Jumpluff,189,,69,,Grass,Flying,Cottonweed Pokémon,0.80,3.00,Chlorophyll,Leaf Guard,Infiltrator,0,0,0,0,0,3,45,70,203,MS,Fairy,Plant,0.5,20,0,75,55,70,55,95,110,460,Androcaudal,Blue,,FALSE
+Aipom,190,,122,,Normal, ,Long Tail Pokémon,0.80,11.50,Run Away,Pickup,Skill Link,0,0,0,0,0,1,45,70,72,FA,Ground, ,0.5,20,0,55,70,55,40,55,85,360,Androcaudal,Purple,,TRUE
+Sunkern,191,,102,,Grass,,Seed Pokémon,0.30,1.80,Chlorophyll,Solar Power,Early Bird,0,0,0,1,0,0,235,70,36,MS,Plant,,0.5,20,0,30,30,30,30,30,30,180,Cephaloform,Yellow,,FALSE
+Sunflora,192,,103,,Grass,,Sun Pokémon,0.80,8.50,Chlorophyll,Solar Power,Early Bird,0,0,0,2,0,0,120,70,149,MS,Plant,,0.5,20,0,75,75,55,105,85,30,425,Androform,Yellow,,FALSE
+Yanma,193,,101,,Bug,Flying,Clear Wing Pokémon,1.20,38.00,Speed Boost,Compound Eyes,Frisk,0,0,0,0,0,1,75,70,78,MF,Bug, ,0.5,20,0,65,65,45,75,45,95,390,Polypterygotus,Red,,FALSE
+Wooper,194,,56,,Water,Ground,Water Fish Pokémon,0.40,8.50,Damp,Water Absorb,Unaware,1,0,0,0,0,0,255,70,42,MF,Water1,Ground,0.5,20,0,55,45,45,25,25,15,210,Asomaticcephalopod,Blue,,TRUE
+Quagsire,195,,57,,Water,Ground,Water Fish Pokémon,1.40,75.00,Damp,Water Absorb,Unaware,2,0,0,0,0,0,90,70,151,MF,Water1,Ground,0.5,20,0,95,85,85,65,65,35,430,Androcaudal,Blue,,TRUE
+Espeon,196,,184,,Psychic,,Sun Pokémon,0.90,26.50,Synchronize,,Magic Bounce,0,0,0,2,0,0,45,70,184,MF,Ground,,0.875,35,0,65,65,60,130,95,110,525,Quadruped,Purple,,FALSE
+Umbreon,197,,185,,Dark,,Moonlight Pokémon,1.00,27.00,Synchronize,,Inner Focus,0,0,0,0,2,0,45,35,184,MF,Ground,,0.875,35,0,95,65,110,60,130,65,525,Quadruped,Black,,FALSE
+Murkrow,198,,208,,Dark,Flying,Darkness Pokémon,0.50,2.10,Insomnia,Super Luck,Prankster,0,0,0,0,0,1,30,35,81,MS,Flying,,0.5,20,0,60,85,42,85,42,91,405,Diplopterygotus,Black,,TRUE
+Slowking,199,,,,Psychic,Water,Royal Pokémon,2.00,79.50,Oblivious,Own Tempo,Regenerator,0,0,0,0,3,0,70,70,172,MF,Monster,Water1,0.5,20,0,95,75,80,100,110,30,490,Androcaudal,Pink,,FALSE
+Misdreavus,200,,214,,Ghost,,Screech Pokémon,0.70,1.00,Levitate,,,0,0,0,0,1,0,45,35,87,FA,Indeterminate,,0.5,25,0,60,60,60,85,85,85,435,Cephaloform,Gray,,FALSE
+Unown,201,,61,,Psychic,,Symbol Pokémon,0.50,5.00,Levitate,,,0,1,0,1,0,0,225,70,118,MF,Undiscovered,,-1,40,0,48,72,48,72,48,48,336,Cephaloform,Black,,TRUE
+Wobbuffet,202,,107,161,Psychic,,Patient Pokémon,1.30,28.50,Shadow Tag,,Telepathy,2,0,0,0,0,0,45,70,142,MF,Indeterminate,,0.5,20,0,190,33,58,33,58,33,405,Somatoid,Blue,,TRUE
+Girafarig,203,,147,164,Psychic,Normal,Long Neck Pokémon,1.50,41.50,Inner Focus,Early Bird,Sap Sipper,0,0,0,2,0,0,60,70,159,MF,Ground,,0.5,20,0,70,80,65,90,65,85,455,Quadruped,Yellow,,TRUE
+Pineco,204,,93,,Bug,,Bagworm Pokémon,0.60,7.20,Sturdy,,Overcoat,0,0,1,0,0,0,190,70,58,MF,Bug,,0.5,20,0,50,65,90,35,35,15,290,Cephaloform,Gray,,FALSE
+Forretress,205,,94,,Steel,Bug,Bagworm Pokémon,1.20,125.80,Sturdy,,Overcoat,0,0,2,0,0,0,75,70,163,MF,Bug,,0.5,20,0,75,90,140,60,60,40,465,Cephaloform,Purple,,FALSE
+Dunsparce,206,,52,,Normal,,Land Snake Pokémon,1.50,14.00,Serene Grace,Run Away,Rattled,1,0,0,0,0,0,190,70,145,MF,Ground,,0.5,20,0,100,70,70,65,65,45,415,Serpentine,Yellow,,FALSE
+Gligar,207,,189,,Ground,Flying,Fly Scorpion Pokémon,1.10,64.80,Hyper Cutter,Sand Veil,Immunity,0,0,1,0,0,0,60,70,86,MS,Bug, ,0.5,20,0,65,75,105,35,65,85,430,Diplopterygotus,Purple,,TRUE
+Steelix,208,,63,,Steel,Ground,Iron Snake Pokémon,9.20,400.00,Rock Head,Sturdy,Sheer Force,0,0,2,0,0,0,25,70,179,MF,Mineral,,0.5,25,0,75,85,200,55,65,30,510,Serpentine,Gray,,TRUE
+Snubbull,209,,123,,Fairy,,Fairy Pokémon,0.60,7.80,Intimidate,Run Away,Rattled,0,1,0,0,0,0,190,70,60,FA,Ground,Fairy,0.25,20,0,60,80,50,40,40,30,300,Androform,Pink,,FALSE
+Granbull,210,,124,,Fairy,,Fairy Pokémon,1.40,48.70,Intimidate,Quick Feet,Rattled,0,2,0,0,0,0,75,70,158,FA,Ground,Fairy,0.25,20,0,90,120,75,60,60,45,450,Androcaudal,Purple,,FALSE
+Qwilfish,211,,161,,Water,Poison,Balloon Pokémon,0.50,3.90,Poison Point,Swift Swim,Intimidate,0,1,0,0,0,0,45,70,86,MF,Water2,,0.5,20,0,65,95,75,55,55,85,430,Pinniped,Gray,,FALSE
+Scizor,212,,111,,Steel,Bug,Pincer Pokémon,1.80,118.00,Swarm,Technician,Light Metal,0,2,0,0,0,0,25,70,175,MF,Bug,,0.5,25,0,70,130,100,55,80,65,500,Polypterygotus,Red,,TRUE
+Shuckle,213,,166,,Bug,Rock,Mold Pokémon,0.60,20.50,Sturdy,Gluttony,Contrary,0,0,1,0,1,0,190,70,177,MS,Bug,,0.5,20,0,20,10,230,10,230,5,505,Insectoid,Yellow,,FALSE
+Heracross,214,,113,168,Bug,Fighting,Single Horn Pokémon,1.50,54.00,Swarm,Guts,Moxie,0,2,0,0,0,0,45,70,175,SL,Bug,,0.5,25,0,80,125,75,40,95,85,500,Androform,Blue,,TRUE
+Sneasel,215,,213,,Dark,Ice,Sharp Claw Pokémon,0.90,28.00,Inner Focus,Keen Eye,Pickpocket,0,0,0,0,0,1,60,35,86,MS,Ground, ,0.5,20,0,55,95,55,35,75,115,430,Androcaudal,Black,,TRUE
+Teddiursa,216,,193,,Normal,,Little Bear Pokémon,0.60,8.80,Pickup,Quick Feet,Honey Gather,0,1,0,0,0,0,120,70,66,MF,Ground,,0.5,20,0,60,80,50,50,50,40,330,Androcaudal,Brown,,FALSE
+Ursaring,217,,194,,Normal,,Hibernator Pokémon,1.80,125.80,Guts,Quick Feet,Unnerve,0,2,0,0,0,0,60,70,175,MF,Ground,,0.5,20,0,90,130,75,75,75,55,500,Androcaudal,Brown,,TRUE
+Slugma,218,,211,103,Fire,,Lava Pokémon,0.70,35.00,Magma Armor,Flame Body,Weak Armor,0,0,0,1,0,0,190,70,50,MF,Indeterminate,,0.5,20,0,40,40,40,70,40,20,250,Serpentine,Red,,FALSE
+Magcargo,219,,212,104,Fire,Rock,Lava Pokémon,0.80,55.00,Magma Armor,Flame Body,Weak Armor,0,0,2,0,0,0,75,70,144,MF,Indeterminate,,0.5,20,0,50,50,120,80,80,30,410,Serpentine,Red,,FALSE
+Swinub,220,,191,,Ice,Ground,Pig Pokémon,0.40,6.50,Oblivious,Snow Cloak,Thick Fat,0,1,0,0,0,0,225,70,50,SL,Ground,,0.5,20,0,50,50,40,30,30,50,250,Quadruped,Brown,,FALSE
+Piloswine,221,,192,,Ice,Ground,Swine Pokémon,1.10,55.80,Oblivious,Snow Cloak,Thick Fat,1,1,0,0,0,0,75,70,158,SL,Ground, ,0.5,20,0,100,100,80,60,60,50,450,Quadruped,Brown,,TRUE
+Corsola,222,,171,180,Water,Rock,Coral Pokémon,0.60,5.00,Hustle,Natural Cure,Regenerator,0,0,1,0,1,0,60,70,133,FA,Water1,Water3,0.25,20,0,55,55,85,65,85,35,380,Insectoid,Pink,,FALSE
+Remoraid,223,,172,,Water,,Jet Pokémon,0.60,12.00,Hustle,Sniper,Moody,0,0,0,1,0,0,190,70,60,MF,Water1,Water2,0.5,20,0,35,65,35,65,35,65,300,Pinniped,Gray,,FALSE
+Octillery,224,,173,,Water,,Jet Pokémon,0.90,28.50,Suction Cups,Sniper,Moody,0,1,0,1,0,0,75,70,168,MF,Water1,Water2,0.5,20,0,75,105,75,105,75,45,480,Cephalopod,Red,,TRUE
+Delibird,225,,190,,Ice,Flying,Delivery Pokémon,0.90,16.00,Vital Spirit,Hustle,Insomnia,0,0,0,0,0,1,45,70,116,FA,Water1,Ground,0.5,20,0,45,55,45,65,45,75,330,Diplopterygotus,Red,,FALSE
+Mantine,226,,197,,Water,Flying,Kite Pokémon,2.10,220.00,Swift Swim,Water Absorb,Water Veil,0,0,0,0,2,0,25,70,163,SL,Water1,,0.5,25,0,65,40,70,80,140,70,465,Diplopterygotus,Purple,,FALSE
+Skarmory,227,,198,115,Steel,Flying,Armor Bird Pokémon,1.70,50.50,Keen Eye,Sturdy,Weak Armor,0,0,2,0,0,0,25,70,163,SL,Flying,,0.5,25,0,65,80,140,40,70,70,465,Diplopterygotus,Gray,,FALSE
+Houndour,228,,209,,Dark,Fire,Dark Pokémon,0.60,10.80,Early Bird,Flash Fire,Unnerve,0,0,0,1,0,0,120,35,66,SL,Ground,,0.5,20,0,45,60,30,80,50,65,330,Quadruped,Black,,FALSE
+Houndoom,229,,210,,Dark,Fire,Dark Pokémon,1.40,35.00,Early Bird,Flash Fire,Unnerve,0,0,0,2,0,0,45,35,175,SL,Ground,,0.5,20,0,75,90,50,110,80,95,500,Quadruped,Black,,TRUE
+Kingdra,230,,188,186,Dragon,Water,Dragon Pokémon,1.80,152.00,Swift Swim,Sniper,Damp,0,1,0,1,1,0,45,70,243,MF,Water1,Dragon,0.5,20,0,75,95,95,95,95,85,540,Somatoid,Blue,,FALSE
+Phanpy,231,,195,165,Ground,,Long Nose Pokémon,0.50,33.50,Pickup,,Sand Veil,1,0,0,0,0,0,120,70,66,MF,Ground,,0.5,20,0,90,60,60,40,40,40,330,Quadruped,Blue,,FALSE
+Donphan,232,,196,166,Ground,,Armor Pokémon,1.10,120.00,Sturdy,,Sand Veil,0,1,1,0,0,0,60,70,175,MF,Ground,,0.5,20,0,90,120,120,60,60,50,500,Quadruped,Gray,,TRUE
+Porygon2,233,,216,,Normal,,Virtual Pokémon,0.60,32.50,Trace,Download,Analytic,0,0,0,2,0,0,45,70,180,MF,Mineral,,-1,20,0,85,80,90,105,95,60,515,Asomaticcephalopod,Red,,FALSE
+Stantler,234,,129,,Normal,,Big Horn Pokémon,1.40,71.20,Intimidate,Frisk,Sap Sipper,0,1,0,0,0,0,45,70,163,SL,Ground,,0.5,20,0,73,95,62,85,65,85,465,Quadruped,Brown,,FALSE
+Smeargle,235,,157,,Normal,,Painter Pokémon,1.20,58.00,Own Tempo,Technician,Moody,0,0,0,0,0,1,45,70,88,FA,Ground,,0.5,20,0,55,20,35,20,45,75,250,Androcaudal,White,,FALSE
+Tyrogue,236,,143,,Fighting,,Scuffle Pokémon,0.70,21.00,Guts,Steadfast,Vital Spirit,0,1,0,0,0,0,75,70,42,MF,Undiscovered,,1,25,1,35,35,35,35,35,35,210,Androform,Purple,,FALSE
+Hitmontop,237,,146,,Fighting,,Handstand Pokémon,1.40,48.00,Intimidate,Technician,Steadfast,0,0,0,0,2,0,45,70,159,MF,Human-like,,1,25,0,50,95,95,35,110,70,455,Androcaudal,Brown,,FALSE
+Smoochum,238,,152,,Psychic,Ice,Kiss Pokémon,0.40,6.00,Oblivious,Forewarn,Hydration,0,0,0,1,0,0,45,70,61,MF,Undiscovered,,0,25,1,45,30,15,85,65,65,305,Androform,Pink,,FALSE
+Elekid,239,,154,,Electric,,Electric Pokémon,0.60,23.50,Static,,Vital Spirit,0,0,0,0,0,1,45,70,72,MF,Undiscovered,,0.75,25,1,45,63,37,65,55,95,360,Androform,Yellow,,FALSE
+Magby,240,,150,,Fire,,Live Coal Pokémon,0.70,21.40,Flame Body,,Vital Spirit,0,0,0,0,0,1,45,70,73,MF,Undiscovered,,0.75,25,1,45,75,37,70,55,83,365,Androcaudal,Red,,FALSE
+Miltank,241,,149,,Normal,,Milk Cow Pokémon,1.20,75.50,Thick Fat,Scrappy,Sap Sipper,0,0,2,0,0,0,45,70,172,SL,Ground,,0,20,0,95,80,105,40,70,100,490,Androcaudal,Pink,,FALSE
+Blissey,242,,218,,Normal,,Happiness Pokémon,1.50,46.80,Natural Cure,Serene Grace,Healer,3,0,0,0,0,0,30,140,608,FA,Fairy,,0,40,0,255,10,10,75,135,55,540,Androform,Pink,,FALSE
+Raikou,243,,238,,Electric,,Thunder Pokémon,1.90,178.00,Pressure,,Volt Absorb,0,0,0,1,0,2,3,35,261,SL,Undiscovered,,-1,80,0,90,85,75,115,100,115,580,Quadruped,Yellow,,FALSE
+Entei,244,,239,,Fire,,Volcano Pokémon,2.10,198.00,Pressure,,Flash Fire,1,2,0,0,0,0,3,35,261,SL,Undiscovered,,-1,80,0,115,115,85,90,75,100,580,Quadruped,Brown,,FALSE
+Suicune,245,,240,,Water,,Aurora Pokémon,2.00,187.00,Pressure,,Water Absorb,0,0,1,0,2,0,3,35,261,SL,Undiscovered,,-1,80,0,100,75,115,90,115,85,580,Quadruped,Blue,,FALSE
+Larvitar,246,,244,,Rock,Ground,Rock Skin Pokémon,0.60,72.00,Guts,,Sand Veil,0,1,0,0,0,0,45,35,60,SL,Monster,,0.5,40,0,50,64,50,45,50,41,300,Androcaudal,Green,,FALSE
+Pupitar,247,,245,,Rock,Ground,Hard Shell Pokémon,1.20,152.00,Shed Skin,,,0,2,0,0,0,0,45,35,144,SL,Monster,,0.5,40,0,70,84,70,65,70,51,410,Serpentine,Gray,,FALSE
+Tyranitar,248,,246,,Dark,Rock,Armor Pokémon,2.00,202.00,Sand Stream,,Unnerve,0,3,0,0,0,0,45,35,270,SL,Monster,,0.5,40,0,100,134,110,95,100,61,600,Androcaudal,Green,,FALSE
+Lugia,249,,247,,Psychic,Flying,Diving Pokémon,5.20,216.00,Pressure,,Multiscale,0,0,0,0,3,0,3,0,306,SL,Undiscovered,,-1,120,0,106,90,130,90,154,110,680,Diplopterygotus,White,,FALSE
+Ho-oh,250,,248,,Fire,Flying,Rainbow Pokémon,3.80,199.00,Pressure,,Regenerator,0,0,0,0,3,0,3,0,306,SL,Undiscovered,,-1,120,0,106,130,90,110,154,90,680,Diplopterygotus,Red,,FALSE
+Celebi,251,,251,,Psychic,Grass,Time Travel Pokémon,0.60,5.00,Natural Cure,,,3,0,0,0,0,0,45,100,270,MS,Undiscovered,,-1,120,0,100,100,100,100,100,100,600,Androform,Green,,FALSE
+Treecko,252,,,1,Grass,,Wood Gecko Pokémon,0.50,5.00,Overgrow,,Unburden,0,0,0,0,0,1,45,70,62,MS,Monster,Dragon,0.875,20,0,40,45,35,65,55,70,310,Androcaudal,Green,,FALSE
+Grovyle,253,,,2,Grass,,Wood Gecko Pokémon,0.90,21.60,Overgrow,,Unburden,0,0,0,0,0,2,45,70,142,MS,Monster,Dragon,0.875,20,0,50,65,45,85,65,95,405,Androcaudal,Green,,FALSE
+Sceptile,254,,,3,Grass,,Forest Pokémon,1.70,52.20,Overgrow,,Unburden,0,0,0,0,0,3,45,70,239,MS,Monster,Dragon,0.875,20,0,70,85,65,105,85,120,530,Androcaudal,Green,,FALSE
+Torchic,255,,,4,Fire,,Chick Pokémon,0.40,2.50,Blaze,,Speed Boost,0,0,0,1,0,0,45,70,62,MS,Ground,,0.875,20,0,45,60,40,70,50,45,310,Asomaticcephalopod,Red,,TRUE
+Combusken,256,,,5,Fire,Fighting,Young Fowl Pokémon,0.90,19.50,Blaze,,Speed Boost,0,1,0,1,0,0,45,70,142,MS,Ground,,0.875,20,0,60,85,60,85,60,55,405,Androcaudal,Red,,TRUE
+Blaziken,257,,,6,Fire,Fighting,Blaze Pokémon,1.90,52.00,Blaze,,Speed Boost,0,3,0,0,0,0,45,70,239,MS,Ground,,0.875,20,0,80,120,70,110,70,80,530,Androcaudal,Red,,TRUE
+Mudkip,258,,,7,Water,,Mud Fish Pokémon,0.40,7.60,Torrent,,Damp,0,1,0,0,0,0,45,70,62,MS,Monster,Water1,0.875,20,0,50,70,50,50,50,40,310,Quadruped,Blue,,FALSE
+Marshtomp,259,,,8,Water,Ground,Mud Fish Pokémon,0.70,28.00,Torrent,,Damp,0,2,0,0,0,0,45,70,142,MS,Monster,Water1,0.875,20,0,70,85,70,60,70,50,405,Androcaudal,Blue,,FALSE
+Swampert,260,,,9,Water,Ground,Mud Fish Pokémon,1.50,81.90,Torrent,,Damp,0,3,0,0,0,0,45,70,241,MS,Monster,Water1,0.875,20,0,100,110,90,85,90,60,535,Androcaudal,Blue,,FALSE
+Poochyena,261,,,10,Dark,,Bite Pokémon,0.50,13.60,Run Away,Quick Feet,Rattled,0,1,0,0,0,0,255,70,44,MF,Ground,,0.5,15,0,35,55,35,30,30,35,220,Quadruped,Gray,,FALSE
+Mightyena,262,,,11,Dark,,Bite Pokémon,1.00,37.00,Intimidate,Quick Feet,Moxie,0,2,0,0,0,0,127,70,147,MF,Ground,,0.5,15,0,70,90,70,60,60,70,420,Quadruped,Gray,,FALSE
+Zigzagoon,263,,,12,Normal,,Tiny Raccoon Pokémon,0.40,17.50,Pickup,Gluttony,Quick Feet,0,0,0,0,0,1,255,70,48,MF,Ground,,0.5,15,0,38,30,41,30,41,60,240,Quadruped,Brown,,FALSE
+Linoone,264,,,13,Normal,,Rushing Pokémon,0.50,32.50,Pickup,Gluttony,Quick Feet,0,0,0,0,0,2,90,70,147,MF,Ground,,0.5,15,0,78,70,61,50,61,100,420,Quadruped,White,,FALSE
+Wurmple,265,,,14,Bug,,Worm Pokémon,0.30,3.60,Shield Dust,,Run Away,1,0,0,0,0,0,255,70,39,MF,Bug,,0.5,15,0,45,45,35,20,30,20,195,Serpentine,Red,,FALSE
+Silcoon,266,,,15,Bug,,Cocoon Pokémon,0.60,10.00,Shed Skin,,,0,0,2,0,0,0,120,70,72,MF,Bug,,0.5,15,0,50,35,55,25,25,15,205,Cephaloform,White,,FALSE
+Beautifly,267,,,16,Bug,Flying,Butterfly Pokémon,1.00,28.40,Swarm,,Rivalry,0,0,0,3,0,0,45,70,173,MF,Bug,,0.5,15,0,60,70,50,100,50,65,395,Polypterygotus,Yellow,,TRUE
+Cascoon,268,,,17,Bug,,Cocoon Pokémon,0.70,11.50,Shed Skin,,,0,0,2,0,0,0,120,70,41,MF,Bug,,0.5,15,0,50,35,55,25,25,15,205,Cephaloform,Purple,,FALSE
+Dustox,269,,,18,Bug,Poison,Poison Moth Pokémon,1.20,31.60,Shield Dust,,Compound Eyes,0,0,0,0,3,0,45,70,135,MF,Bug,,0.5,15,0,60,50,70,50,90,65,385,Polypterygotus,Green,,TRUE
+Lotad,270,,,19,Grass,Water,Water Weed Pokémon,0.50,2.60,Swift Swim,Rain Dish,Own Tempo,0,0,0,0,1,0,255,70,44,MS,Water1,Plant,0.5,15,0,40,30,30,40,50,30,220,Insectoid,Green,,FALSE
+Lombre,271,,,20,Grass,Water,Jolly Pokémon,1.20,32.50,Swift Swim,Rain Dish,Own Tempo,0,0,0,0,2,0,120,70,119,MS,Water1,Plant,0.5,15,0,60,50,50,60,70,50,340,Androform,Green,,FALSE
+Ludicolo,272,,,21,Grass,Water,Carefree Pokémon,1.50,55.00,Swift Swim,Rain Dish,Own Tempo,0,0,0,0,3,0,45,70,216,MS,Water1,Plant,0.5,15,0,80,70,70,90,100,70,480,Androform,Green,,TRUE
+Seedot,273,,,22,Grass,,Acorn Pokémon,0.50,4.00,Chlorophyll,Early Bird,Pickpocket,0,0,1,0,0,0,255,70,44,MS,Ground,Plant,0.5,15,0,40,40,50,30,30,30,220,Asomaticcephalopod,Brown,,FALSE
+Nuzleaf,274,,,23,Dark,Grass,Wily Pokémon,1.00,28.00,Chlorophyll,Early Bird,Pickpocket,0,2,0,0,0,0,120,70,119,MS,Ground,Plant,0.5,15,0,70,70,40,60,40,60,340,Androform,Brown,,TRUE
+Shiftry,275,,,24,Dark,Grass,Wicked Pokémon,1.30,59.60,Chlorophyll,Early Bird,Pickpocket,0,3,0,0,0,0,45,70,216,MS,Ground,Plant,0.5,15,0,90,100,60,90,60,80,480,Androform,Brown,,TRUE
+Taillow,276,,,25,Flying,Normal,Tiny Swallow Pokémon,0.30,2.30,Guts,,Scrappy,0,0,0,0,0,1,200,70,54,MS,Flying,,0.5,15,0,40,55,30,30,30,85,270,Diplopterygotus,Blue,,FALSE
+Swellow,277,,,26,Flying,Normal,Swallow Pokémon,0.70,19.80,Guts,,Scrappy,0,0,0,0,0,2,45,70,151,MS,Flying,,0.5,15,0,60,85,60,50,50,125,430,Diplopterygotus,Blue,,FALSE
+Wingull,278,,,27,Water,Flying,Seagull Pokémon,0.60,9.50,Keen Eye,,Rain Dish,0,0,0,0,0,1,190,70,54,MF,Water1,Flying,0.5,20,0,40,30,30,55,30,85,270,Diplopterygotus,White,,FALSE
+Pelipper,279,,,28,Water,Flying,Water Bird Pokémon,1.20,28.00,Keen Eye,,Rain Dish,0,0,2,0,0,0,45,70,151,MF,Water1,Flying,0.5,20,0,60,50,100,85,70,65,430,Diplopterygotus,Yellow,,FALSE
+Ralts,280,,,29,Psychic,Fairy,Feeling Pokémon,0.40,6.60,Synchronize,Trace,Telepathy,0,0,0,1,0,0,235,35,40,SL,Indeterminate,,0.5,20,0,28,25,25,45,35,40,198,Androform,White,,FALSE
+Kirlia,281,,,30,Psychic,Fairy,Emotion Pokémon,0.80,20.20,Synchronize,Trace,Telepathy,0,0,0,2,0,0,120,35,97,SL,Indeterminate,,0.5,20,0,38,35,35,65,55,50,278,Androform,White,,FALSE
+Gardevoir,282,,,31,Psychic,Fairy,Embrace Pokémon,1.60,48.40,Synchronize,Trace,Telepathy,0,0,0,3,0,0,45,35,233,SL,Indeterminate,,0.5,20,0,68,65,65,125,115,80,518,Androform,White,,FALSE
+Surskit,283,,,32,Water,Bug,Pond Skater Pokémon,0.50,1.70,Swift Swim,,Rain Dish,0,0,0,0,0,1,200,70,54,MF,Water1,Bug,0.5,15,0,40,30,32,50,52,65,269,Insectoid,Blue,,FALSE
+Masquerain,284,,,33,Bug,Flying,Eyeball Pokémon,0.80,3.60,Intimidate,,Unnerve,0,0,0,1,1,0,75,70,145,MF,Water1,Bug,0.5,15,0,70,60,62,80,82,60,414,Polypterygotus,Blue,,FALSE
+Shroomish,285,,,34,Grass,,Mushroom Pokémon,0.40,4.50,Effect Spore,Poison Heal,Quick Feet,1,0,0,0,0,0,255,70,59,FL,Fairy,Plant,0.5,15,0,60,40,60,40,60,35,295,Asomaticcephalopod,Brown,,FALSE
+Breloom,286,,,35,Grass,Fighting,Mushroom Pokémon,1.20,39.20,Effect Spore,Poison Heal,Technician,0,2,0,0,0,0,90,70,161,FL,Fairy,Plant,0.5,15,0,60,130,80,60,60,70,460,Androcaudal,Green,,FALSE
+Slakoth,287,,,36,Normal,,Slacker Pokémon,0.80,24.00,Truant,,,1,0,0,0,0,0,255,70,56,SL,Ground,,0.5,15,0,60,60,60,35,35,30,280,Quadruped,Brown,,FALSE
+Vigoroth,288,,,37,Normal,,Wild Monkey Pokémon,1.40,46.50,Vital Spirit,,,0,0,0,0,0,2,120,70,154,SL,Ground,,0.5,15,0,80,80,80,55,55,90,440,Androcaudal,White,,FALSE
+Slaking,289,,,38,Normal,,Lazy Pokémon,2.00,130.50,Truant,,,3,0,0,0,0,0,45,70,252,SL,Ground,,0.5,15,0,150,160,100,95,65,100,670,Androform,Brown,,FALSE
+Nincada,290,,,42,Bug,Ground,Trainee Pokémon,0.50,5.50,Compound Eyes,,Run Away,0,0,1,0,0,0,255,70,53,ER,Bug,,0.5,15,0,31,45,90,30,30,40,266,Insectoid,Gray,,FALSE
+Ninjask,291,,,43,Bug,Flying,Ninja Pokémon,0.80,12.00,Speed Boost,,Infiltrator,0,0,0,0,0,2,120,70,160,ER,Bug,,0.5,15,0,61,90,45,50,50,160,456,Polypterygotus,Yellow,,FALSE
+Shedinja,292,,,44,Ghost,Bug,Shed Pokémon,0.80,1.20,Wonder Guard,,,2,0,0,0,0,0,45,70,83,ER,Mineral,,-1,15,0,1,90,45,30,30,40,236,Somatoid,Brown,,FALSE
+Whismur,293,,,45,Normal,,Whisper Pokémon,0.60,16.30,Soundproof,,Rattled,1,0,0,0,0,0,190,70,48,MS,Monster,Ground,0.5,20,0,64,51,23,51,23,28,240,Androcaudal,Pink,,FALSE
+Loudred,294,,,46,Normal,,Big Voice Pokémon,1.00,40.50,Soundproof,,Scrappy,2,0,0,0,0,0,120,70,126,MS,Monster,Ground,0.5,20,0,84,71,43,71,43,48,360,Androcaudal,Blue,,FALSE
+Exploud,295,,,47,Normal,,Loud Noise Pokémon,1.50,84.00,Soundproof,,Scrappy,3,0,0,0,0,0,45,70,216,MS,Monster,Ground,0.5,20,0,104,91,63,91,73,68,490,Androcaudal,Blue,,FALSE
+Makuhita,296,,,48,Fighting,,Guts Pokémon,1.00,86.40,Thick Fat,Guts,Sheer Force,1,0,0,0,0,0,180,70,47,FL,Human-like,,0.75,20,0,72,60,30,20,30,25,237,Androform,Yellow,,FALSE
+Hariyama,297,,,49,Fighting,,Arm Thrust Pokémon,2.30,253.80,Thick Fat,Guts,Sheer Force,2,0,0,0,0,0,200,70,166,FL,Human-like,,0.75,20,0,144,120,60,40,60,50,474,Androform,Brown,,FALSE
+Azurill,298,,,54,Normal,Fairy,Polka Dot Pokémon,0.20,2.00,Thick Fat,Huge Power,Sap Sipper,1,0,0,0,0,0,150,70,38,FA,Undiscovered, ,0.25,10,1,50,20,40,20,40,20,190,Asomaticcephalopod,Blue,,FALSE
+Nosepass,299,,,60,Rock, ,Compass Pokémon,1.00,97.00,Sturdy,Magnet Pull,Sand Force,0,0,1,0,0,0,255,70,75,MF,Mineral, ,0.5,20,0,30,45,135,45,90,30,375,Androform,Gray,,FALSE
+Skitty,300,,,61,Normal,,Kitten Pokémon,0.60,11.00,Cute Charm,Normalize,Wonder Skin,0,0,0,0,0,1,255,70,52,FA,Ground,Fairy,0.25,15,0,50,45,45,35,35,50,260,Quadruped,Pink,,FALSE
+Delcatty,301,,,62,Normal,,Prim Pokémon,1.10,32.60,Cute Charm,Normalize,Wonder Skin,1,0,0,0,0,1,60,70,133,FA,Ground,Fairy,0.25,15,0,70,65,65,55,55,70,380,Quadruped,Purple,,FALSE
+Sableye,302,,,68,Dark,Ghost,Darkness Pokémon,0.50,11.00,Keen Eye,Stall,Prankster,0,1,1,0,0,0,45,35,133,MS,Human-like,,0.5,25,0,50,75,75,65,65,50,380,Androform,Purple,,FALSE
+Mawile,303,,,69,Fairy,Steel,Deceiver Pokémon,0.60,11.50,Hyper Cutter,Intimidate,Sheer Force,0,1,1,0,0,0,45,70,133,FA,Ground,Fairy,0.5,20,0,50,85,85,55,55,50,380,Androform,Black,,FALSE
+Aron,304,,,70,Steel,Rock,Iron Armor Pokémon,0.40,60.00,Sturdy,Rock Head,Heavy Metal,0,0,1,0,0,0,180,35,66,SL,Monster,,0.5,35,0,50,70,100,40,40,30,330,Quadruped,Gray,,FALSE
+Lairon,305,,,71,Steel,Rock,Iron Armor Pokémon,0.90,120.00,Sturdy,Rock Head,Heavy Metal,0,0,2,0,0,0,90,35,151,SL,Monster,,0.5,35,0,60,90,140,50,50,40,430,Quadruped,Gray,,FALSE
+Aggron,306,,,72,Steel,Rock,Iron Armor Pokémon,2.10,360.00,Sturdy,Rock Head,Heavy Metal,0,0,3,0,0,0,45,35,239,SL,Monster,,0.5,35,0,70,110,180,60,60,50,530,Androcaudal,Gray,,FALSE
+Meditite,307,,,76,Psychic,Fighting,Meditate Pokémon,0.60,11.20,Pure Power,,Telepathy,0,0,0,0,0,1,180,70,56,MF,Human-like,,0.5,20,0,30,40,55,40,55,60,280,Androform,Blue,,TRUE
+Medicham,308,,,77,Psychic,Fighting,Meditate Pokémon,1.30,31.50,Pure Power,,Telepathy,0,0,0,0,0,2,90,70,144,MF,Human-like,,0.5,20,0,60,60,75,60,75,80,410,Androform,Red,,TRUE
+Electrike,309,,,78,Electric,,Lightning Pokémon,0.60,15.20,Static,Lightning Rod,Minus,0,0,0,0,0,1,120,70,59,SL,Ground,,0.5,20,0,40,45,40,65,40,65,295,Quadruped,Green,,FALSE
+Manectric,310,,,79,Electric,,Discharge Pokémon,1.50,40.20,Static,Lightning Rod,Minus,0,0,0,0,0,2,45,70,166,SL,Ground,,0.5,20,0,70,75,60,105,60,105,475,Quadruped,Yellow,,FALSE
+Plusle,311,,,80,Electric,,Cheering Pokémon,0.40,4.20,Plus,,Lightning Rod,0,0,0,0,0,1,200,70,142,MF,Fairy,,0.5,20,0,60,50,40,85,75,95,405,Androcaudal,Yellow,,FALSE
+Minun,312,,,81,Electric,,Cheering Pokémon,0.40,4.20,Minus,,Volt Absorb,0,0,0,0,0,1,200,70,142,MF,Fairy,,0.5,20,0,60,40,50,75,85,95,405,Androcaudal,Yellow,,FALSE
+Volbeat,313,,,86,Bug,,Firefly Pokémon,0.70,17.70,Illuminate,Swarm,Prankster,0,0,0,0,0,1,150,70,140,ER,Bug,Human-like,1,15,0,65,73,55,47,75,85,400,Androcaudal,Gray,,FALSE
+Illumise,314,,,87,Bug,,Firefly Pokémon,0.60,17.70,Oblivious,Tinted Lens,Prankster,0,0,0,0,0,1,150,70,140,FL,Bug,Human-like,0,15,0,65,47,55,73,75,85,400,Androform,Purple,,FALSE
+Roselia,315,,,94,Grass,Poison,Thorn Pokémon,0.30,2.00,Natural Cure,Poison Point,Leaf Guard,0,0,0,2,0,0,150,70,140,MS,Fairy,Plant,0.5,20,0,50,60,45,100,80,65,400,Androform,Green,,TRUE
+Gulpin,316,,,95,Poison,,Stomach Pokémon,0.40,10.30,Liquid Ooze,Sticky Hold,Gluttony,1,0,0,0,0,0,225,70,60,FL,Indeterminate,,0.5,20,0,70,43,53,43,53,40,302,Brachiocephaloform,Green,,TRUE
+Swalot,317,,,96,Poison,,Poison Bag Pokémon,1.70,80.00,Liquid Ooze,Sticky Hold,Gluttony,2,0,0,0,0,0,75,70,163,FL,Indeterminate,,0.5,20,0,100,73,83,73,83,55,467,Brachiocephaloform,Purple,,TRUE
+Carvanha,318,,,97,Dark,Water,Savage Pokémon,0.80,20.80,Rough Skin,,Speed Boost,0,1,0,0,0,0,225,35,61,SL,Water2,,0.5,20,0,45,90,20,65,20,65,305,Pinniped,Red,,FALSE
+Sharpedo,319,,,98,Dark,Water,Brutal Pokémon,1.80,88.80,Rough Skin,,Speed Boost,0,2,0,0,0,0,60,35,161,SL,Water2,,0.5,20,0,70,120,40,95,40,95,460,Pinniped,Blue,,FALSE
+Wailmer,320,,,99,Water,,Ball Whale Pokémon,2.00,130.00,Water Veil,Oblivious,Pressure,1,0,0,0,0,0,125,70,80,FL,Ground,Water2,0.5,40,0,130,70,35,70,35,60,400,Pinniped,Blue,,FALSE
+Wailord,321,,,100,Water,,Float Whale Pokémon,14.50,398.00,Water Veil,Oblivious,Pressure,2,0,0,0,0,0,60,70,175,FL,Ground,Water2,0.5,40,0,170,90,45,90,45,60,500,Pinniped,Blue,,FALSE
+Numel,322,,,101,Fire,Ground,Numb Pokémon,0.70,24.00,Oblivious,Simple,Own Tempo,0,0,0,1,0,0,255,70,61,MF,Ground,,0.5,20,0,60,60,40,65,45,35,305,Quadruped,Yellow,,TRUE
+Camerupt,323,,,102,Fire,Ground,Eruption Pokémon,1.90,220.00,Magma Armor,Solid Rock,Anger Point,0,1,0,1,0,0,150,70,161,MF,Ground,,0.5,20,0,70,100,70,105,75,40,460,Quadruped,Red,,TRUE
+Torkoal,324,,,105,Fire,,Coal Pokémon,0.50,80.40,White Smoke,,Shell Armor,0,0,2,0,0,0,90,70,165,MF,Ground,,0.5,20,0,70,85,140,85,70,20,470,Quadruped,Brown,,FALSE
+Spoink,325,,,110,Psychic,,Bounce Pokémon,0.70,30.60,Thick Fat,Own Tempo,Gluttony,0,0,0,0,1,0,255,70,66,FA,Ground,,0.5,20,0,60,25,35,70,80,60,330,Brachiocephaloform,Black,,FALSE
+Grumpig,326,,,111,Psychic,,Manipulate Pokémon,0.90,71.50,Thick Fat,Own Tempo,Gluttony,0,0,0,0,2,0,60,70,165,FA,Ground,,0.5,20,0,80,45,65,90,110,80,470,Androcaudal,Purple,,FALSE
+Spinda,327,,,114,Normal,,Spot Panda Pokémon,1.10,5.00,Own Tempo,Tangled Feet,Contrary,0,0,0,1,0,0,255,70,126,FA,Ground,Human-like,0.5,20,0,60,60,60,60,60,60,360,Androcaudal,Brown,,FALSE
+Trapinch,328,,,116,Ground,,Ant Pit Pokémon,0.70,15.00,Hyper Cutter,Arena Trap,Sheer Force,0,1,0,0,0,0,255,70,58,MS,Bug,,0.5,20,0,45,100,45,45,45,10,290,Insectoid,Brown,,FALSE
+Vibrava,329,,,117,Dragon,Ground,Vibration Pokémon,1.10,15.30,Levitate,,,0,1,0,0,0,1,120,70,119,MS,Bug,,0.5,20,0,50,70,50,50,50,70,340,Polypterygotus,Green,,FALSE
+Flygon,330,,,118,Dragon,Ground,Mystic Pokémon,2.00,82.00,Levitate,,,0,1,0,0,0,2,45,70,234,MS,Bug,,0.5,20,0,80,100,80,80,80,100,520,Diplopterygotus,Green,,FALSE
+Cacnea,331,,,119,Grass,,Cactus Pokémon,0.40,51.30,Sand Veil,,Water Absorb,0,0,0,1,0,0,190,35,67,MS,Plant,Human-like,0.5,20,0,50,85,40,85,40,35,335,Androform,Green,,FALSE
+Cacturne,332,,,120,Dark,Grass,Scarecrow Pokémon,1.30,77.40,Sand Veil,,Water Absorb,0,1,0,1,0,0,60,35,166,MS,Plant,Human-like,0.5,20,0,70,115,60,115,60,55,475,Androform,Green,,TRUE
+Swablu,333,,,121,Flying,Normal,Cotton Bird Pokémon,0.40,1.20,Natural Cure,,Cloud Nine,0,0,0,0,1,0,255,70,62,ER,Flying,Dragon,0.5,20,0,45,40,60,40,75,50,310,Diplopterygotus,Blue,,FALSE
+Altaria,334,,,122,Dragon,Flying,Humming Pokémon,1.10,20.60,Natural Cure,,Cloud Nine,0,0,0,0,2,0,45,70,172,ER,Flying,Dragon,0.5,20,0,75,70,90,70,105,80,490,Diplopterygotus,Blue,,FALSE
+Zangoose,335,,,123,Normal,,Cat Ferret Pokémon,1.30,40.30,Immunity,,Toxic Boost,0,2,0,0,0,0,90,70,160,ER,Ground,,0.5,20,0,73,115,60,60,60,90,458,Androcaudal,White,,FALSE
+Seviper,336,,,124,Poison,,Fang Snake Pokémon,2.70,52.50,Shed Skin,,Infiltrator,0,1,0,1,0,0,90,70,160,FL,Ground,Dragon,0.5,20,0,73,100,60,100,60,65,458,Serpentine,Black,,FALSE
+Lunatone,337,,,125,Psychic,Rock,Meteorite Pokémon,1.00,168.00,Levitate,,,0,0,0,2,0,0,45,70,154,FA,Mineral,,-1,25,0,70,55,65,95,85,70,440,Cephaloform,Yellow,,FALSE
+Solrock,338,,,126,Psychic,Rock,Meteorite Pokémon,1.20,154.00,Levitate,,,0,2,0,0,0,0,45,70,154,FA,Mineral,,-1,25,0,70,95,85,55,65,70,440,Cephaloform,Red,,FALSE
+Barboach,339,,,127,Water,Ground,Whiskers Pokémon,0.40,1.90,Oblivious,Anticipation,Hydration,1,0,0,0,0,0,190,70,58,MF,Water2,,0.5,20,0,50,48,43,46,41,60,288,Pinniped,Gray,,FALSE
+Whiscash,340,,,128,Water,Ground,Whiskers Pokémon,0.90,23.60,Oblivious,Anticipation,Hydration,2,0,0,0,0,0,75,70,164,MF,Water2,,0.5,20,0,110,78,73,76,71,60,468,Pinniped,Blue,,FALSE
+Corphish,341,,,129,Water,,Ruffian Pokémon,0.60,11.50,Hyper Cutter,Shell Armor,Adaptability,0,1,0,0,0,0,205,70,62,FL,Water3,Water1,0.5,20,0,43,80,65,50,35,35,308,Insectoid,Red,,FALSE
+Crawdaunt,342,,,130,Dark,Water,Rogue Pokémon,1.10,32.80,Hyper Cutter,Shell Armor,Adaptability,0,2,0,0,0,0,155,70,164,FL,Water3,Water1,0.5,20,0,63,120,85,90,55,55,468,Insectoid,Red,,FALSE
+Baltoy,343,,,131,Psychic,Ground,Clay Doll Pokémon,0.50,21.50,Levitate,,,0,0,0,0,1,0,255,70,60,MF,Mineral,,-1,20,0,40,40,55,40,70,55,300,Brachiocephaloform,Brown,,FALSE
+Claydol,344,,,132,Psychic,Ground,Clay Doll Pokémon,1.50,108.00,Levitate,,,0,0,0,0,2,0,90,70,175,MF,Mineral,,-1,20,0,60,70,105,70,120,75,500,Brachiocephaloform,Black,,FALSE
+Lileep,345,,,133,Grass,Rock,Sea Lily Pokémon,1.00,23.80,Suction Cups,,Storm Drain,0,0,0,0,1,0,45,70,71,ER,Water3,,0.875,30,0,66,41,77,61,87,23,355,Somatoid,Purple,,FALSE
+Cradily,346,,,134,Grass,Rock,Barnacle Pokémon,1.50,60.40,Suction Cups,,Storm Drain,0,0,0,0,2,0,45,70,173,ER,Water3,,0.875,30,0,86,81,97,81,107,43,495,Somatoid,Green,,FALSE
+Anorith,347,,,135,Bug,Rock,Old Shrimp Pokémon,0.70,12.50,Battle Armor,,Swift Swim,0,1,0,0,0,0,45,70,71,ER,Water3,,0.875,30,0,45,95,50,40,50,75,355,Insectoid,Gray,,FALSE
+Armaldo,348,,,136,Bug,Rock,Plate Pokémon,1.50,68.20,Battle Armor,,Swift Swim,0,2,0,0,0,0,45,70,173,ER,Water3,,0.875,30,0,75,125,100,70,80,45,495,Androcaudal,Gray,,FALSE
+Feebas,349,,,140,Water, ,Fish Pokémon,0.60,7.40,Swift Swim,Oblivious,Adaptability,0,0,0,0,0,1,255,70,40,ER,Dragon,Water1,0.5,20,0,20,15,20,10,55,80,200,Pinniped,Brown,,FALSE
+Milotic,350,,,141,Water,,Tender Pokémon,6.20,162.00,Marvel Scale,Competitive,Cute Charm,0,0,0,0,2,0,60,70,189,ER,Dragon,Water1,0.5,20,0,95,60,79,100,125,81,540,Serpentine,Pink,,TRUE
+Castform,351,,,142,Normal,,Weather Pokémon,0.30,0.80,Forecast,,,1,0,0,0,0,0,45,70,147,MF,Indeterminate,Fairy,0.5,25,0,70,70,70,70,70,70,420,Cephaloform,White,,FALSE
+Kecleon,352,,,145,Normal,,Color Swap Pokémon,1.00,22.00,Color Change,,Protean,0,0,0,0,1,0,200,70,154,MS,Ground,,0.5,20,0,60,90,70,60,120,40,440,Androcaudal,Green,,FALSE
+Shuppet,353,,,146,Ghost,,Puppet Pokémon,0.60,2.30,Insomnia,Frisk,Cursed Body,0,1,0,0,0,0,225,35,59,FA,Indeterminate,,0.5,25,0,44,75,35,63,33,45,295,Cephaloform,Black,,FALSE
+Banette,354,,,147,Ghost,,Marionette Pokémon,1.10,12.50,Insomnia,Frisk,Cursed Body,0,2,0,0,0,0,45,35,159,FA,Indeterminate,,0.5,25,0,64,115,65,83,63,65,455,Androcaudal,Black,,FALSE
+Duskull,355,,,148,Ghost,,Requiem Pokémon,0.80,15.00,Levitate,,Frisk,0,0,0,0,1,0,190,35,59,FA,Indeterminate,,0.5,25,0,20,40,90,30,90,25,295,Brachiocephaloform,Black,,FALSE
+Dusclops,356,,,149,Ghost,,Beckon Pokémon,1.60,30.60,Pressure,,Frisk,0,0,1,0,1,0,90,35,159,FA,Indeterminate,,0.5,25,0,40,70,130,60,130,25,455,Androform,Black,,FALSE
+Tropius,357,,,150,Grass,Flying,Fruit Pokémon,2.00,100.00,Chlorophyll,Solar Power,Harvest,2,0,0,0,0,0,200,70,161,SL,Plant,Monster,0.5,25,0,99,68,83,72,87,51,460,Quadruped,Green,,FALSE
+Chimecho,358,,,151,Psychic,,Wind Chime Pokémon,0.60,1.00,Levitate,,,0,0,0,1,1,0,45,70,149,FA,Indeterminate,,0.5,25,0,65,50,70,95,80,65,425,Brachiocephaloform,Blue,,FALSE
+Absol,359,,,152,Dark,,Disaster Pokémon,1.20,47.00,Pressure,Super Luck,Justified,0,2,0,0,0,0,30,35,163,MS,Ground,,0.5,25,0,65,130,60,75,60,75,465,Quadruped,White,,FALSE
+Wynaut,360,,,160,Psychic,,Bright Pokémon,0.60,14.00,Shadow Tag,,Telepathy,1,0,0,0,0,0,125,70,52,MF,Undiscovered,,0.5,20,1,95,23,48,23,48,23,260,Androcaudal,Blue,,FALSE
+Snorunt,361,,,171,Ice,,Snow Hat Pokémon,0.70,16.80,Inner Focus,Ice Body,Moody,1,0,0,0,0,0,190,70,60,MF,Mineral,Fairy,0.5,20,0,50,50,50,50,50,50,300,Androform,Gray,,FALSE
+Glalie,362,,,172,Ice,,Face Pokémon,1.50,256.50,Inner Focus,Ice Body,Moody,2,0,0,0,0,0,75,70,168,MF,Mineral,Fairy,0.5,20,0,80,80,80,80,80,80,480,Cephaloform,Gray,,FALSE
+Spheal,363,,,173,Ice,Water,Clap Pokémon,0.80,39.50,Thick Fat,Ice Body,Oblivious,1,0,0,0,0,0,255,70,58,MS,Ground,Water1,0.5,20,0,70,40,50,55,50,25,290,Pinniped,Blue,,FALSE
+Sealeo,364,,,174,Ice,Water,Ball Roll Pokémon,1.10,87.60,Thick Fat,Ice Body,Oblivious,2,0,0,0,0,0,120,70,144,MS,Ground,Water1,0.5,20,0,90,60,70,75,70,45,410,Pinniped,Blue,,FALSE
+Walrein,365,,,175,Ice,Water,Ice Break Pokémon,1.40,150.60,Thick Fat,Ice Body,Oblivious,3,0,0,0,0,0,45,70,239,MS,Ground,Water1,0.5,20,0,110,80,90,95,90,65,530,Quadruped,Blue,,FALSE
+Clamperl,366,,,176,Water,,Bivalve Pokémon,0.40,52.50,Shell Armor,,Rattled,0,0,1,0,0,0,255,70,69,ER,Water1,,0.5,20,0,35,64,85,74,55,32,345,Cephaloform,Blue,,FALSE
+Huntail,367,,,177,Water,,Deep Sea Pokémon,1.70,27.00,Swift Swim,,Water Veil,0,1,1,0,0,0,60,70,170,ER,Water1,,0.5,20,0,55,104,105,94,75,52,485,Serpentine,Blue,,FALSE
+Gorebyss,368,,,178,Water,,South Sea Pokémon,1.80,22.60,Swift Swim,,Hydration,0,0,0,2,0,0,60,70,170,ER,Water1,,0.5,20,0,55,84,105,114,75,52,485,Serpentine,Pink,,FALSE
+Relicanth,369,,,179,Water,Rock,Longevity Pokémon,1.00,23.40,Swift Swim,Rock Head,Sturdy,1,0,1,0,0,0,25,70,170,SL,Water2,Water1,0.875,40,0,100,90,130,45,65,55,485,Pinniped,Gray,,TRUE
+Luvdisc,370,,,183,Water,,Rendezvous Pokémon,0.60,8.70,Swift Swim,,Hydration,0,0,0,0,0,1,225,70,116,FA,Water2,,0.25,20,0,43,30,55,40,65,97,330,Pinniped,Pink,,FALSE
+Bagon,371,,,187,Dragon,,Rock Head Pokémon,0.60,42.10,Rock Head,,Sheer Force,0,1,0,0,0,0,45,35,60,SL,Dragon,,0.5,40,0,45,75,60,40,30,50,300,Androform,Blue,,FALSE
+Shelgon,372,,,188,Dragon,,Endurance Pokémon,1.10,110.50,Rock Head,,Overcoat,0,0,2,0,0,0,45,35,147,SL,Dragon,,0.5,40,0,65,95,100,60,50,50,420,Quadruped,White,,FALSE
+Salamence,373,,,189,Dragon,Flying,Dragon Pokémon,1.50,102.60,Intimidate,,Moxie,0,3,0,0,0,0,45,35,270,SL,Dragon,,0.5,40,0,95,135,80,110,80,100,600,Quadruped,Blue,,FALSE
+Beldum,374,,,190,Psychic,Steel,Iron Ball Pokémon,0.60,95.20,Clear Body,,Light Metal,0,0,1,0,0,0,3,35,60,SL,Mineral,,-1,40,0,40,55,80,35,60,30,300,Somatoid,Blue,,FALSE
+Metang,375,,,191,Psychic,Steel,Iron Claw Pokémon,1.20,202.50,Clear Body,,Light Metal,0,0,2,0,0,0,3,35,147,SL,Mineral,,-1,40,0,60,75,100,55,80,50,420,Brachiocephaloform,Blue,,FALSE
+Metagross,376,,,192,Psychic,Steel,Iron Leg Pokémon,1.60,550.00,Clear Body,,Light Metal,0,0,3,0,0,0,3,35,270,SL,Mineral,,-1,40,0,80,135,130,95,90,70,600,Zooid,Blue,,FALSE
+Regirock,377,,,193,Rock,,Rock Peak Pokémon,1.70,230.00,Clear Body,,Sturdy,0,0,3,0,0,0,3,35,261,SL,Undiscovered,,-1,80,0,80,100,200,50,100,50,580,Androform,Brown,,FALSE
+Regice,378,,,194,Ice,,Iceberg Pokémon,1.80,175.00,Clear Body,,Ice Body,0,0,0,0,3,0,3,35,261,SL,Undiscovered,,-1,80,0,80,50,100,100,200,50,580,Androform,Blue,,FALSE
+Registeel,379,,,195,Steel,,Iron Pokémon,1.90,205.00,Clear Body,,Light Metal,0,0,2,0,1,0,3,35,261,SL,Undiscovered,,-1,80,0,80,75,150,75,150,50,580,Androform,Gray,,FALSE
+Latias,380,,,196,Psychic,Dragon,Eon Pokémon,1.40,40.00,Levitate,,,0,0,0,0,3,0,3,90,270,SL,Undiscovered,,0,120,0,80,80,90,110,130,110,600,Diplopterygotus,Red,,FALSE
+Latios,381,,,197,Psychic,Dragon,Eon Pokémon,2.00,60.00,Levitate,,,0,0,0,3,0,0,3,90,270,SL,Undiscovered,,1,120,0,80,90,80,130,110,110,600,Diplopterygotus,Blue,,FALSE
+Kyogre,382,,,198,Water,,Sea Basin Pokémon,4.50,352.00,Drizzle,,,0,0,0,3,0,0,3,0,302,SL,Undiscovered,,-1,120,0,100,100,90,150,140,90,670,Pinniped,Blue,,FALSE
+Groudon,383,,,199,Ground,,Continent Pokémon,3.50,950.00,Drought,,,0,3,0,0,0,0,3,0,302,SL,Undiscovered,,-1,120,0,100,150,140,100,90,90,670,Androcaudal,Red,,FALSE
+Rayquaza,384,,,200,Dragon,Flying,Sky High Pokémon,7.00,206.50,Air Lock,,,0,2,0,1,0,0,45,0,306,SL,Undiscovered,,-1,120,0,105,150,90,150,90,95,680,Serpentine,Green,,FALSE
+Jirachi,385,,,201,Psychic,Steel,Wish Pokémon,0.30,1.10,Serene Grace,,,3,0,0,0,0,0,3,100,270,SL,Undiscovered,,-1,120,0,100,100,100,100,100,100,600,Androform,Yellow,,FALSE
+Deoxys,386,,,202,Psychic,,DNA Pokémon,1.70,60.80,Pressure,,,0,1,0,1,0,1,3,0,270,SL,Undiscovered,,-1,120,0,50,150,50,150,50,150,600,Androform,Red,,FALSE
+Deoxys,386,,,202,Psychic,,DNA Pokémon,1.70,60.80,Pressure,,,0,2,0,1,0,0,3,0,270,SL,Undiscovered,,-1,120,0,50,180,20,180,20,150,600,Androform,Red,,
+Deoxys,386,,,202,Psychic,,DNA Pokémon,1.70,60.80,Pressure,,,0,0,2,0,1,0,3,0,270,SL,Undiscovered,,-1,120,0,50,70,160,70,160,90,600,Androform,Red,,
+Deoxys,386,,,202,Psychic,,DNA Pokémon,1.70,60.80,Pressure,,,0,0,0,0,0,3,3,0,270,SL,Undiscovered,,-1,120,0,50,95,90,95,90,180,600,Androform,Red,,

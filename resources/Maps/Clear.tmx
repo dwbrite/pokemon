@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="36" height="32" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="MasterTileset" tilewidth="16" tileheight="16">
+  <image source="MasterTileset.png" width="320" height="3200"/>
+ </tileset>
+ <layer name="Floor" width="36" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3QsREAIAzEsIQdYP9RYQWqfKHC515dVevVId+vE/RpDz58+PBJ+bQHHz58+KR82oMPHz58Uj7twefvFxAF0BsAEgAA
+  </data>
+ </layer>
+ <layer name="Interactive" width="36" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3QsQ0AIAzEwEiMF3aA/acgK1C9CxeW++tVtaeG/EwX9LSHPvroow/laQ999NFHH8rTHvroo48+lKc99Pn7A8w3y9oAEgAA
+  </data>
+ </layer>
+ <layer name="Sky" width="36" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3QMREAAAjDwN6hCfxLQ0YzJEv2T1jtJDec02p76KOPPvpQTqvtoY8++uhDOa22hz766KMP5Q+3E3oPABIAAA==
+  </data>
+ </layer>
+</map>
