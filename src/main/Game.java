@@ -33,7 +33,7 @@ public class Game extends BasicGame {
 			m.selectTarget();
 			m.execute();
 			GameStateManager.init(gc);
-			Resources.INSTANCE.setReady(true);
+			Resources.setReady(true);
 		} else {
 			GameStateManager.update(gc);
 		}

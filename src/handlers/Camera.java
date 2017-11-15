@@ -28,7 +28,7 @@ public class Camera {
 		if (followingCharacter) {
 			Camera.setPosition(characterToFollow.getX() - (Main.WIDTH / 2 - 8), characterToFollow.getY() - (Main.HEIGHT / 2 - 8));
 		}
-		RegionManager.getCurrentArea().setPosition(-x, -y);
+		RegionManager.INSTANCE.getCurrentArea().setPosition(-x, -y);
 	}
 	
 	public static boolean isEntityInBounds(AbstractEntity entity) {

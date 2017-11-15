@@ -1,6 +1,5 @@
 package entities.objectEntities
 
-import area.AbstractArea.*
 import entities.AbstractEntity
 import entities.Animation
 import entities.particles.NormalGrassParticle
@@ -12,6 +11,7 @@ import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.Image
 import region.RegionManager
+import region.area.Area.Collide
 
 open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x, y) {
 
@@ -126,12 +126,12 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
 
     protected fun checkCollisions() {
         when (direction) {
-            Direction.UP -> forwardCollisionType = RegionManager.getCurrentArea().getCollisionValue((x + xMapOffset) / 16, Math.ceil((y + yMapOffset) / 16.0).toInt() - 1)
-            Direction.DOWN -> forwardCollisionType = RegionManager.getCurrentArea().getCollisionValue((x + xMapOffset) / 16, Math.floor((y + yMapOffset) / 16.0).toInt() + 1)
-            Direction.LEFT -> forwardCollisionType = RegionManager.getCurrentArea().getCollisionValue(Math.ceil((x + xMapOffset) / 16.0).toInt() - 1, (y + yMapOffset) / 16)
-            Direction.RIGHT -> forwardCollisionType = RegionManager.getCurrentArea().getCollisionValue(Math.floor((x + xMapOffset) / 16.0).toInt() + 1, (y + yMapOffset) / 16)
+            Direction.UP -> forwardCollisionType = RegionManager.currentArea.getCollisionValue((x + xMapOffset) / 16, Math.ceil((y + yMapOffset) / 16.0).toInt() - 1)
+            Direction.DOWN -> forwardCollisionType = RegionManager.currentArea.getCollisionValue((x + xMapOffset) / 16, Math.floor((y + yMapOffset) / 16.0).toInt() + 1)
+            Direction.LEFT -> forwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.ceil((x + xMapOffset) / 16.0).toInt() - 1, (y + yMapOffset) / 16)
+            Direction.RIGHT -> forwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.floor((x + xMapOffset) / 16.0).toInt() + 1, (y + yMapOffset) / 16)
         }
-        blocked = !(forwardCollisionType == COLLIDE_NONE || forwardCollisionType == COLLIDE_GRASS || forwardCollisionType == COLLIDE_DARK_GRASS)
+        blocked = !(forwardCollisionType == Collide.NONE.ordinal || forwardCollisionType == Collide.GRASS.ordinal || forwardCollisionType == Collide.DARK_GRASS.ordinal)
     }
 
     protected fun checkInput() {
@@ -230,7 +230,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     private fun checkGrassCollision() {
         if (currentAction == Action.MOVING) {
             //step
-            if (forwardCollisionType == COLLIDE_GRASS) {
+            if (forwardCollisionType == Collide.GRASS.ordinal) {
                 var xOffset = 0
                 var yOffset = 0
                 if (currentAction == Action.MOVING) {
@@ -296,11 +296,11 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
             } else if (n == 15) {
                 var tempForwardCollisionType = 0
                 when (direction) {
-                    Direction.DOWN -> tempForwardCollisionType = RegionManager.getCurrentArea().getCollisionValue(x / 16, Math.floor(y / 16.0).toInt() + 2)
-                    Direction.LEFT -> tempForwardCollisionType = RegionManager.getCurrentArea().getCollisionValue(Math.ceil(x / 16.0).toInt() - 2, y / 16)
-                    Direction.RIGHT -> tempForwardCollisionType = RegionManager.getCurrentArea().getCollisionValue(Math.floor(x / 16.0).toInt() + 2, y / 16)
+                    Direction.DOWN -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(x / 16, Math.floor(y / 16.0).toInt() + 2)
+                    Direction.LEFT -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.ceil(x / 16.0).toInt() - 2, y / 16)
+                    Direction.RIGHT -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.floor(x / 16.0).toInt() + 2, y / 16)
                 }
-                if (tempForwardCollisionType == COLLIDE_GRASS) {
+                if (tempForwardCollisionType == Collide.GRASS.ordinal) {
                     var xOffset = 0
                     var yOffset = 0
                     when (direction) {
@@ -482,7 +482,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     }
 
     override fun render(gc: GameContainer, g: Graphics) {
-        currentImage.draw((x - 8 + xMapOffset + RegionManager.getCurrentArea().x).toFloat(), (y - 16 + yMapOffset + RegionManager.getCurrentArea().y).toFloat())
+        currentImage.draw((x - 8 + xMapOffset + RegionManager.currentArea.x).toFloat(), (y - 16 + yMapOffset + RegionManager.currentArea.y).toFloat())
     }
 
     protected fun processTurn() {
@@ -509,7 +509,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         }
 
         if (frameNum >= animationFrames * animations) {
-            if (RegionManager.getCurrentArea().getCollisionValue(x / 16, y / 16) == 2) {
+            if (RegionManager.currentArea.getCollisionValue(x / 16, y / 16) == 2) {
                 //TODO: wild battle, player only
             }
             frameNum = 0

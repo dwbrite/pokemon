@@ -37,16 +37,16 @@ public class ParticleManager {
 		
 		switch (direction) {
 			case UP:
-				yOffset = (RegionManager.getCurrentArea().getHeight()) * 16;
+				yOffset = (RegionManager.INSTANCE.getCurrentArea().getHeight()) * 16;
 				break;
 			case DOWN:
-				yOffset = -RegionManager.getNorthArea().getHeight() * 16;
+				yOffset = -RegionManager.INSTANCE.getNorthArea().getHeight() * 16;
 				break;
 			case LEFT:
-				xOffset = RegionManager.getWestArea().getHeight() * 16;
+				xOffset = RegionManager.INSTANCE.getWestArea().getHeight() * 16;
 				break;
 			case RIGHT:
-				xOffset = -RegionManager.getCurrentArea().getHeight() * 16;
+				xOffset = -RegionManager.INSTANCE.getCurrentArea().getHeight() * 16;
 				break;
 		}
 		

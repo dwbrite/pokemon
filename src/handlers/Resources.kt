@@ -19,10 +19,6 @@ object Resources {
     @JvmStatic val CSV: HashMap<String, List<CSVRecord>> = HashMap()
 
     @JvmStatic lateinit var splashImage: Image
-    /*by lazy {
-        Image("Splash.png", false, Image.FILTER_NEAREST)
-        //TODO: Note: this can cause an exception to occur.
-    }*/
 
     @JvmStatic fun init() {
         splashImage = Image("Splash.png", false, Image.FILTER_NEAREST)

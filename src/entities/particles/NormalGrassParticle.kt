@@ -42,7 +42,7 @@ class NormalGrassParticle(x: Int, y: Int, private val parent: GameCharacter) : P
 
             if (f < 0.1) {
                 //Enters a Pokemon Battle
-                val mon = Pokemon.generateWildPokemon(0, RegionManager.getCurrentArea().wildlifeData)
+                val mon = Pokemon.generateWildPokemon(0, RegionManager.currentArea.wildlifeData)
                 BattleManager.currentBattle = WildBattle(Resources.ARENA["Grass 2"], mon, EntityManager.getEntity("player") as Trainer)
                 println(mon)
                 val transition = 0

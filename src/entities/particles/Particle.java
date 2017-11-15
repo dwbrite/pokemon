@@ -46,7 +46,7 @@ public class Particle extends AbstractEntity {
 	}
 	
 	public void render(GameContainer gc, Graphics g) {
-		currentImage.draw(x + RegionManager.getCurrentArea().getX(), y + RegionManager.getCurrentArea().getY());
+		currentImage.draw(x + RegionManager.INSTANCE.getCurrentArea().getX(), y + RegionManager.INSTANCE.getCurrentArea().getY());
 	}
 	
 	@Override

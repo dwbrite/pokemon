@@ -61,10 +61,10 @@ public abstract class AbstractEntity {
 			int x2 = (x + xMapOffset + (width - 1)) / 16;
 			int y2 = (y + yMapOffset + (height - 1)) / 16;
 			
-			RegionManager.getCurrentArea().setCollisionValue(x1, y1, collisionType);
-			RegionManager.getCurrentArea().setCollisionValue(x1, y2, collisionType);
-			RegionManager.getCurrentArea().setCollisionValue(x2, y1, collisionType);
-			RegionManager.getCurrentArea().setCollisionValue(x2, y2, collisionType);
+			RegionManager.INSTANCE.getCurrentArea().setCollisionValue(x1, y1, collisionType);
+			RegionManager.INSTANCE.getCurrentArea().setCollisionValue(x1, y2, collisionType);
+			RegionManager.INSTANCE.getCurrentArea().setCollisionValue(x2, y1, collisionType);
+			RegionManager.INSTANCE.getCurrentArea().setCollisionValue(x2, y2, collisionType);
 		}
 	}
 	
