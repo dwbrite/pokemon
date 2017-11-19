@@ -12,10 +12,10 @@ import region.RegionManager
 class InGameState : AbstractGameState() {
     init {
         //TODO: (re)move this?
-        EntityManager.add("player", Player(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!))
+        EntityManager.initAdd("player", Player(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!))
         Controls.givePriority(EntityManager.getEntity("player")!!)
 
-        Camera.followCharacter(EntityManager.getEntity("player"))
+        Camera.followEntity(EntityManager.getEntity("player")!!)
     }
 
     override fun render(gc: GameContainer, g: Graphics) {

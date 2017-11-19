@@ -20,7 +20,6 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     var currentAction = Action.IDLING
     var busy = false
     var direction = DOWN
-        protected set
 
     // Animations
     protected var walk = arrayOfNulls<Animation>(4)

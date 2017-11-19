@@ -40,7 +40,7 @@ object Kanto {
         addArea(Area(Pair(kanto, "Pallet Town"), "Maps/PalletTown.tmx", "resources/Kanto Region - Route 1.csv",
                 Pair(kanto, "Route 01"), Pair(kanto, "Route 24"), Pair(kanto, "Clear"), Pair(kanto, "Clear"))) //Pallet
 
-        entities.EntityManager.add("Bob", NPC(256+64, 48, Resources.SPRITESHEET["Player Brendan"]!!))
+        entities.EntityManager.initAdd("Bob", NPC(256+64, 48, Resources.SPRITESHEET["Player Brendan"]!!))
         RegionManager.getArea(Pair("Kanto","Pallet Town")).addEntity("Bob2", entities.EntityManager.getEntity("Bob")!!)
 
         addArea(Area(Pair(kanto, "Viridian City"), "Maps/PalletTown.tmx", "resources/Kanto Region - Route 1.csv")) //Viridian

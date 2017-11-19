@@ -2,7 +2,9 @@ package region.area
 
 import entities.AbstractEntity
 import entities.EntityManager
-import entities.characters.Player
+import entities.characters.GameCharacter
+import handlers.Controls.InputDir.*
+import handlers.Camera
 import handlers.Misc
 import main.Main
 import org.apache.commons.csv.CSVFormat
@@ -18,8 +20,6 @@ import java.io.File
 import java.nio.charset.Charset
 import java.util.ArrayList
 import java.util.HashMap
-
-import handlers.Controls.InputDir.*
 
 class Area(var areaKey: Pair<String, String>,
            path: String,
@@ -205,29 +205,18 @@ class Area(var areaKey: Pair<String, String>,
     }
 
     private fun checkAreaSwitch() {
-        val player = EntityManager.getEntity("player") as Player
-        // Parameters: xdif, ydif, nextArea,
-        if (player.direction === UP && player.y < 0) {
-            areaSwitch(player.x + northOffsetX, player.y + RegionManager.getArea(northArea).height * 16, getArea(northArea))
-        } else if (player.direction === DOWN && player.y > (RegionManager.currentArea.height - 1) * 16) {
-            areaSwitch(player.x + southOffsetX, player.y - RegionManager.currentArea.height * 16, getArea(southArea))
-        } else if (player.direction === LEFT && player.x < 0) {
-            //TODO: Calculate xpos
-            areaSwitch(5, player.y + westOffsetY, getArea(westArea))
-        } else if (player.direction === RIGHT && player.x > (RegionManager.currentArea.width - 1) * 16) {
-            areaSwitch(5, player.y + eastOffsetY, getArea(eastArea))
+        val entity = (Camera.followedEntity!! as? GameCharacter)!!
+        when (entity.direction) {
+            UP -> if (entity.y < 0) areaSwitch(getArea(northArea))
+            DOWN -> if (entity.y > (RegionManager.currentArea.height - 1) * 16) areaSwitch(getArea(southArea))
+            LEFT -> if (entity.x < 0) areaSwitch(getArea(westArea))
+            RIGHT -> if (entity.x > (RegionManager.currentArea.width - 1) * 16) areaSwitch(getArea(eastArea))
         }
     }
 
-    private fun areaSwitch(xpos: Int, ypos: Int, nextArea: Area) {
-        val player = EntityManager.getEntity("player") as Player
-        //resetEntityRenderPositions()
-        EntityManager.clear()
+    private fun areaSwitch(nextArea: Area) {
         RegionManager.currentArea = nextArea
-        player.setPosition(xpos, ypos)
-        EntityManager.areaSwitch(player)
-        //EntityManager.areaSwitch(player)
-        EntityManager.add("player", player)
+        EntityManager.areaSwitch((Camera.followedEntity!! as? GameCharacter)!!.direction)
     }
 
     fun getTileId(x: Int, y: Int, layer: Int): Int {
