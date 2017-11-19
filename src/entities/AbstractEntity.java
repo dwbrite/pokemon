@@ -26,7 +26,7 @@ public abstract class AbstractEntity {
 		height = 16;
 	}
 	
-	protected abstract void uniqueUpdates();
+	protected void uniqueUpdates() {}
 	
 	public abstract void update(GameContainer gc);
 	
@@ -73,7 +73,7 @@ public abstract class AbstractEntity {
 		yMapOffset = yOffset;
 	}
 	
-	public void setSpritesheet(Image spriteSheet) {
+	public void setSpriteSheet(Image spriteSheet) {
 		this.spriteSheet = spriteSheet;
 	}
 	

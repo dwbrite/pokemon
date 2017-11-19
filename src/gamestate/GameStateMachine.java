@@ -1,4 +1,4 @@
-package gameState;
+package gamestate;
 
 import main.Main;
 import org.newdawn.slick.GameContainer;
@@ -7,7 +7,7 @@ import region.RegionManager;
 
 import java.util.ArrayList;
 
-public class GameStateManager {
+public class GameStateMachine {
 	public static final int EFFECT_GRASS_A = 0;
 	
 	public static final int EFFECT_GRASS_B = 1;

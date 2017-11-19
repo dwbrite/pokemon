@@ -1,4 +1,4 @@
-package gameState;
+package gamestate;
 
 import gui.GuiManager;
 import org.newdawn.slick.GameContainer;

@@ -1,7 +1,7 @@
 package battle;
 
 import entities.Animation;
-import entities.objectEntities.Trainer;
+import entities.characters.Trainer;
 import entities.pokemon.Pokemon;
 import org.newdawn.slick.BigImage;
 import org.newdawn.slick.Image;

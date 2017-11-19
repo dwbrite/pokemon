@@ -1,23 +1,25 @@
-package entities.objectEntities
+package entities.characters
 
 import entities.AbstractEntity
 import entities.Animation
-import entities.particles.NormalGrassParticle
-import entities.particles.Particle
-import entities.particles.ParticleManager
-import handlers.Resources
-import main.Main
+import entities.EntityManager
+import entities.particles.*
+import handlers.ControlMap
+import handlers.Controls
+import handlers.Controls.InputDir
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.Image
 import region.RegionManager
 import region.area.Area.Collide
+import handlers.Controls.InputDir.*
+import javax.swing.text.html.parser.Entity
 
 open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x, y) {
 
     var currentAction = Action.IDLING
-    var canControl = true
-    var direction = Direction.DOWN
+    var busy = false
+    var direction = DOWN
         protected set
 
     // Animations
@@ -34,25 +36,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     protected var transportMode = TransportMode.WALK
 
     // Controls
-    protected var upActive: Boolean = false
-    protected var downActive: Boolean = false
-    protected var leftActive: Boolean = false
-    protected var rightActive: Boolean = false
-    protected var bActive: Boolean = false
-    protected var aActive: Boolean = false
-    protected var selectActive: Boolean = false
-    protected var startActive: Boolean = false
-    protected var lActive: Boolean = false
-    protected var rActive: Boolean = false
-
-    protected var aReleased = true
-    protected var bReleased = true
-    protected var selectReleased = true
-    protected var startReleased = true
-    protected var lReleased = true
-    protected var rReleased = true
-
-    protected var paused = false
+    protected var controls = ControlMap()
 
     // Collisions
     protected var blocked = false
@@ -62,8 +46,8 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     protected var belowCollisionType: Int = 0
 
     init {
-        setMapOffset(0, 0)
-        setSpritesheet(spritesheet)
+        //setMapOffset(0, 0)
+        setSpriteSheet(spritesheet)
 
         val standardFrames = intArrayOf(0, 1, 0, 2)
         val walking = standardAnimation(0, 32, 32)
@@ -88,12 +72,13 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
             swim[i] = Animation(swimFrames, *swimming[i])
         }
 
+        //TODO: Fishing! Should this only apply to the player? No... There are fishermen, right?
         //final Image[][] fishing = standardAnimation(0, 32, 32);
         //for(int i = 0; i < 4; i++) {
         //	fish[i] = new Animation(standardFrames, fishing[i]);
         //}
 
-        currentAnimation = walk[Direction.DOWN.ordinal]
+        currentAnimation = walk[DOWN.ordinal]
         currentAnimation?.setFrame(0)
         currentImage = currentAnimation?.currentFrame
     }
@@ -125,95 +110,39 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     }
 
     protected fun checkCollisions() {
-        when (direction) {
-            Direction.UP -> forwardCollisionType = RegionManager.currentArea.getCollisionValue((x + xMapOffset) / 16, Math.ceil((y + yMapOffset) / 16.0).toInt() - 1)
-            Direction.DOWN -> forwardCollisionType = RegionManager.currentArea.getCollisionValue((x + xMapOffset) / 16, Math.floor((y + yMapOffset) / 16.0).toInt() + 1)
-            Direction.LEFT -> forwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.ceil((x + xMapOffset) / 16.0).toInt() - 1, (y + yMapOffset) / 16)
-            Direction.RIGHT -> forwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.floor((x + xMapOffset) / 16.0).toInt() + 1, (y + yMapOffset) / 16)
+        forwardCollisionType = when (direction) {
+            UP -> RegionManager.currentArea.getCollisionValue((x + xMapOffset) / 16, Math.ceil((y + yMapOffset) / 16.0).toInt() - 1)
+            DOWN -> RegionManager.currentArea.getCollisionValue((x + xMapOffset) / 16, Math.floor((y + yMapOffset) / 16.0).toInt() + 1)
+            LEFT -> RegionManager.currentArea.getCollisionValue(Math.ceil((x + xMapOffset) / 16.0).toInt() - 1, (y + yMapOffset) / 16)
+            RIGHT -> RegionManager.currentArea.getCollisionValue(Math.floor((x + xMapOffset) / 16.0).toInt() + 1, (y + yMapOffset) / 16)
         }
         blocked = !(forwardCollisionType == Collide.NONE.ordinal || forwardCollisionType == Collide.GRASS.ordinal || forwardCollisionType == Collide.DARK_GRASS.ordinal)
     }
 
     protected fun checkInput() {
-
-        if (canControl) {
-            //System.out.println("ok");
-            if (upActive) {
-                if (direction != Direction.UP && currentAction == Action.IDLING) {
-                    direction = Direction.UP
-                    currentAction = Action.TURNING
-                } else {
-                    direction = Direction.UP
-                    checkCollisions()
-                    currentAction = Action.MOVING
-                }
-            } else if (downActive) {
-                if (direction != Direction.DOWN && currentAction == Action.IDLING) {
-                    direction = Direction.DOWN
-                    currentAction = Action.TURNING
-                } else {
-                    direction = Direction.DOWN
-                    checkCollisions()
-                    if (forwardCollisionType == 6) {
-                        currentAction = Action.JUMPING
+        if (!busy) {
+            var controlled = false
+            for(dir in InputDir.values()){
+                if(controls[dir]) {
+                    controlled = true
+                    direction = dir
+                    currentAction = if (direction != dir && currentAction == Action.IDLING) {
+                        Action.TURNING
                     } else {
-                        currentAction = Action.MOVING
+                        checkCollisions()
+                        if (controls[DOWN] && forwardCollisionType == 6) {
+                            Action.JUMPING
+                        } else {
+                            Action.MOVING
+                        }
                     }
                 }
+            }
 
-            } else if (leftActive) {
-                if (direction != Direction.LEFT && currentAction == Action.IDLING) {
-                    direction = Direction.LEFT
-                    currentAction = Action.TURNING
-                } else {
-                    direction = Direction.LEFT
-                    checkCollisions()
-                    currentAction = Action.MOVING
-                }
-            } else if (rightActive) {
-                if (direction != Direction.RIGHT && currentAction == Action.IDLING) {
-                    direction = Direction.RIGHT
-                    currentAction = Action.TURNING
-                } else {
-                    direction = Direction.RIGHT
-                    checkCollisions()
-                    currentAction = Action.MOVING
-                }
+            if (controlled) {
+                frameNum = 0
             } else {
                 currentAction = Action.IDLING
-            }
-
-            if (bActive && currentAction != Action.IDLING && currentAction != Action.TURNING) {
-                if (transportMode == TransportMode.WALK) {
-                    transportMode = TransportMode.RUN
-                }
-            } else if (transportMode == TransportMode.RUN) {
-                transportMode = TransportMode.WALK
-            }
-
-            if (aReleased && aActive) {
-                //TODO: check front block and pull up dialogue check
-                aReleased = false
-            }
-            if (!aActive) {
-                aReleased = true
-            }
-
-            if (selectReleased && selectActive) {
-                //TODO: toggle registered item
-                if (transportMode == TransportMode.WALK) {
-                    transportMode = TransportMode.BIKE
-                } else if (transportMode == TransportMode.BIKE) {
-                    transportMode = TransportMode.WALK
-                }
-                selectReleased = false
-            }
-            if (!selectActive) {
-                selectReleased = true
-            }
-
-            if (currentAction != Action.IDLING) {
-                frameNum = 0
             }
         }
     }
@@ -235,15 +164,15 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
                 var yOffset = 0
                 if (currentAction == Action.MOVING) {
                     when (direction) {
-                        Direction.UP -> yOffset = -16
-                        Direction.DOWN -> yOffset = 16
-                        Direction.LEFT -> xOffset = -16
-                        Direction.RIGHT -> xOffset = 16
+                        UP -> yOffset = -16
+                        DOWN -> yOffset = 16
+                        LEFT -> xOffset = -16
+                        RIGHT -> xOffset = 16
                     }
 
                     if (frameNum == 0) {
                         val temp = NormalGrassParticle(x + xOffset, y + yOffset, this)
-                        ParticleManager.add(temp.toString(), temp)
+                        EntityManager.add(temp.toString(), temp)
                     }
                 }
             }
@@ -258,20 +187,20 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         }
 
         when (direction) {
-            Direction.UP -> {
-                currentAnimation = current[Direction.UP.ordinal]
+            UP -> {
+                currentAnimation = current[UP.ordinal]
                 y -= if (blocked) 0 else moveSpeed
             }
-            Direction.DOWN -> {
-                currentAnimation = current[Direction.DOWN.ordinal]
+            DOWN -> {
+                currentAnimation = current[DOWN.ordinal]
                 y += if (blocked && currentAction != Action.JUMPING) 0 else moveSpeed
             }
-            Direction.LEFT -> {
-                currentAnimation = current[Direction.LEFT.ordinal]
+            LEFT -> {
+                currentAnimation = current[LEFT.ordinal]
                 x -= if (blocked) 0 else moveSpeed
             }
-            Direction.RIGHT -> {
-                currentAnimation = current[Direction.RIGHT.ordinal]
+            RIGHT -> {
+                currentAnimation = current[RIGHT.ordinal]
                 x += if (blocked) 0 else moveSpeed
             }
         }
@@ -282,89 +211,30 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
             val n = frameNum
 
             if (n == 0) {
-                val particleParent = this
-
-                val temp = object : Particle(x, y, Resources.PARTICLE["Jump Shadow"], -1.0) {
-                    override fun uniqueUpdates() {
-                        this.x = particleParent.getX()
-                        this.y = particleParent.getY()
-                        checkDeathCondition()
-                    }
-                }
-                temp.setTickLimit(16)
-                ParticleManager.add(temp.toString(), temp)
+                EntityManager.add(JumpShadow(this))
             } else if (n == 15) {
                 var tempForwardCollisionType = 0
                 when (direction) {
-                    Direction.DOWN -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(x / 16, Math.floor(y / 16.0).toInt() + 2)
-                    Direction.LEFT -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.ceil(x / 16.0).toInt() - 2, y / 16)
-                    Direction.RIGHT -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.floor(x / 16.0).toInt() + 2, y / 16)
+                    DOWN -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(x / 16, Math.floor(y / 16.0).toInt() + 2)
+                    LEFT -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.ceil(x / 16.0).toInt() - 2, y / 16)
+                    RIGHT -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.floor(x / 16.0).toInt() + 2, y / 16)
                 }
                 if (tempForwardCollisionType == Collide.GRASS.ordinal) {
                     var xOffset = 0
                     var yOffset = 0
                     when (direction) {
-                        Direction.DOWN -> yOffset = 16
-                        Direction.LEFT -> xOffset = -16
-                        Direction.RIGHT -> xOffset = 16
+                        DOWN -> yOffset = 16
+                        LEFT -> xOffset = -16
+                        RIGHT -> xOffset = 16
                     }
-                    val particleParent = this
 
-                    val temp = object : Particle(x + xOffset, y + yOffset, Resources.PARTICLE["Grass Jump"], 0.1) {
-                        private var isStepOffActivated = false
-
-                        private var stepOffTick: Long = 0
-
-                        override fun deathCondition(): Boolean {
-
-                            if (Main.ticks - startingTick >= 56 && !isStepOffActivated && (particleParent.getX() != x || particleParent.getY() != y)) {
-                                stepOffTick = Main.ticks + 11
-                                isStepOffActivated = true
-                            }
-
-                            return Main.ticks >= stepOffTick && isStepOffActivated
-                        }
-
-                        override fun uniqueUpdates() {
-                            val tickDifference = Main.ticks - startingTick
-                            if (tickDifference <= 56 && tickDifference != 0L) {
-                                if (tickDifference == 16L) {
-                                    animation.nextFrame()
-                                } else if (tickDifference > 16 && tickDifference % 8 == 0L && tickDifference < 56) {
-                                    animation.nextFrame()
-                                }
-                            }
-                            checkDeathCondition()
-                        }
-                    }
-                    ParticleManager.add(temp.toString(), temp)
+                    EntityManager.add(GrassJump(x+xOffset, y+yOffset, this))
                 } else {
-                    val particleParent = this
-
-                    val temp = object : Particle(x, y, Resources.PARTICLE["Dirt Jump"], -1.0) {
-                        override fun uniqueUpdates() {
-                            if (Main.ticks - startingTick < 16) {
-                                this.x = particleParent.getX()
-                                this.y = particleParent.getY()
-                            } else {
-                                if (Main.ticks - startingTick == 16L) {
-                                    this.x = particleParent.getX()
-                                    this.y = particleParent.getY()
-                                }
-                                this.depthOffset = 0.1
-                                if ((Main.ticks - startingTick) % 8 == 0L) {
-                                    this.animation.nextFrame()
-                                }
-                            }
-                            checkDeathCondition()
-                        }
-                    }
-                    temp.setTickLimit(32)
-                    ParticleManager.add(temp.toString(), temp)
+                    EntityManager.add(DirtJump(x,y,this))
                 }
             }
 
-            if (transportMode == TransportMode.BIKE) {
+            if (transportMode == TransportMode.BIKE) { //This is effectively +32/6 per frame (rounded down)
                 if (n == 0 || n == 5 || n == 10 || n == 16 || n == 21 || n == 26) {
                     currentAnimation?.nextFrame()
                 }
@@ -395,7 +265,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     }
 
     protected fun processCliffJump() {
-        canControl = false
+        busy = true
 
         val animationFrames = 8
         val animations = 4
@@ -414,7 +284,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
 
         if (frameNum >= animationFrames * animations) {
             frameNum = 0
-            canControl = true
+            busy = false
         }
     }
 
@@ -431,7 +301,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     }
 
     protected fun processMovement() {
-        canControl = false
+        busy = true
         var animationFrames = 8
         var animations = 2
         var moveSpeed = 1
@@ -466,18 +336,18 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         if (blocked) {
             if (frameNum >= animationFrames * animations) {
                 frameNum = 0
-                canControl = true
-            } else if (direction == Direction.UP && (downActive || leftActive || rightActive)
-                    || direction == Direction.DOWN && (upActive || leftActive || rightActive)
-                    || direction == Direction.LEFT && (upActive || downActive || rightActive)
-                    || direction == Direction.RIGHT && (upActive || downActive || leftActive)) {
+                busy = false
+            } else if (direction == UP && (controls[DOWN] || controls[LEFT] || controls[RIGHT])
+                    || direction == DOWN && (controls[UP] || controls[LEFT] || controls[RIGHT])
+                    || direction == LEFT && (controls[UP] || controls[DOWN] || controls[RIGHT])
+                    || direction == RIGHT && (controls[UP] || controls[DOWN] || controls[LEFT])) {
                 frameNum = 0
-                canControl = true
+                busy = false
                 currentAnimation?.setFrame(0)
             }
         } else if (frameNum >= animationFrames * animations) {
             frameNum = 0
-            canControl = true
+            busy = false
         }
     }
 
@@ -486,7 +356,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     }
 
     protected fun processTurn() {
-        canControl = false
+        busy = true
 
         var animationFrames = 4
         var animations = 2
@@ -513,27 +383,16 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
                 //TODO: wild battle, player only
             }
             frameNum = 0
-            canControl = true
+            busy = false
         }
     }
 
     override fun update(gc: GameContainer) {
         uniqueUpdates()
-        if (!paused) {
-            checkInput()
-            identifyAction()
-        }
+        checkInput()
+        identifyAction()
         currentImage = currentAnimation?.currentFrame
         depth = y / 16.0
-    }
-
-    override fun uniqueUpdates() {}
-
-    enum class Direction {
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT
     }
 
     enum class Action {

@@ -1,32 +1,25 @@
 package entities.particles
 
-import battle.BattleManager
-import battle.WildBattle
-import entities.EntityManager
-import entities.objectEntities.GameCharacter
-import entities.objectEntities.Player
-import entities.objectEntities.Trainer
-import entities.pokemon.Pokemon
-import gameState.GameStateManager
+import entities.characters.GameCharacter
 import handlers.Resources
 import main.Main
-import region.RegionManager
 
 /**
  * Created by dwbrite on 5/15/16.
  */
-class NormalGrassParticle(x: Int, y: Int, private val parent: GameCharacter) : Particle(x, y, Resources.PARTICLE["Grass"], -1.0) {
+class NormalGrassParticle(x: Int, y: Int, private val parent: GameCharacter) : Particle(x, y, Resources.PARTICLE["Grass"]!!, -1.0) {
 
     private var hasParentFinishedStep = false
     private var isStepOffActivated = false
     private var stepOffTick: Long = 0
     private var pokemonChecked = false
 
-    override fun deathCondition(): Boolean {
+    override fun isDead(): Boolean {
         if (parent.x == x && parent.y == y) {
             hasParentFinishedStep = true
         }
 
+        /* TODO: Remove this. This __should__ be elsewhere - probably in the gamestatemachine?
         if (parent is Player && hasParentFinishedStep && !pokemonChecked) {
             /* TODO: create transition effects
 	         * Water: Wave Distort
@@ -38,6 +31,7 @@ class NormalGrassParticle(x: Int, y: Int, private val parent: GameCharacter) : P
              */
 
             pokemonChecked = true
+
             val f = Math.random()
 
             if (f < 0.1) {
@@ -46,11 +40,12 @@ class NormalGrassParticle(x: Int, y: Int, private val parent: GameCharacter) : P
                 BattleManager.currentBattle = WildBattle(Resources.ARENA["Grass 2"], mon, EntityManager.getEntity("player") as Trainer)
                 println(mon)
                 val transition = 0
-                GameStateManager.transitionToBattle(transition)
-                parent.canControl = false
+                GameStateMachine.transitionToBattle(transition)
+                parent.busy = true
                 parent.currentAction = GameCharacter.Action.IDLING
             }
         }
+        */
 
         if (Main.ticks - startingTick >= 52 && !isStepOffActivated && (parent.x != x || parent.y != y)) {
             stepOffTick = Main.ticks + 11
@@ -71,6 +66,5 @@ class NormalGrassParticle(x: Int, y: Int, private val parent: GameCharacter) : P
                 depthOffset = 0.1
             }
         }
-        checkDeathCondition()
     }
 }

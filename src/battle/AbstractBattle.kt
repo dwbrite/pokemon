@@ -1,7 +1,7 @@
 package battle
 
 import entities.Animation
-import entities.objectEntities.Trainer
+import entities.characters.Trainer
 import entities.pokemon.Pokemon
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
@@ -87,7 +87,6 @@ abstract class AbstractBattle {
      *      repeat action choice for opponent (attack, use item, switch mon, ((AI)?" ":"run"))
      *
      *  //Now we have to animate the actions
-     *      //# Maybe assign a value for speed to each "battle action"
      *      check which pokemon should go first based on the action done.
      *          {
      *              If the action was a bag, switch, or run, attempt that first. Player first, then opponent
@@ -108,7 +107,7 @@ abstract class AbstractBattle {
      *  Done this turn. Repeat.
     //*/
 /**
- * GuiManager guiman1 = GameStateManager.getGameState(1).getGuiManager();
+ * GuiManager guiman1 = GameStateMachine.getGameState(1).getGuiManager();
  * GuiBattleWildMon wildMonBox = new GuiBattleWildMon(battle.enemyPokemon[0], battle.allyTrainers[0]);
  */
 }

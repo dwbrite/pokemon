@@ -4,10 +4,10 @@ import handlers.Resources
 import kotlin.reflect.full.functions
 
 
-class Move {
+class Move(private var id: Int) {
     enum class Column {
-        ID,
-        OID,
+        GAME_ID,
+        INTERNAL_ID,
         INTERNAL_NAME,
         NAME,
         GENERATION,
@@ -48,34 +48,14 @@ class Move {
         PARALLEL
     }
 
-    private var id: Int
-
-    constructor(id: Int) {
-        this.id = id
-    }
-
     fun execute() {
-        this::class.functions.find {
+        EffectCategory::class.functions.find {
             it.name == Resources.CSV["Moves"]!![id][Column.PRIMARY_FUNCTION.ordinal]
-        }?.call(this)
+        }?.call(EffectCategory)
     }
 
     fun selectTarget() {
         var target: Target = Target.valueOf(Resources.CSV["Moves"]!![id][Column.TARGET.ordinal])
         println(target)
-    }
-
-    fun status() {
-        println(":D")
-    }
-
-    fun attack() {
-        println(":D!")
-        //Battle.damage()
-        //Battle.raise(Pokemon.STAT, n)
-    }
-
-    fun arena() {
-        println("D:")
     }
 }

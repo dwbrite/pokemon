@@ -1,6 +1,6 @@
 package gui.battle;
 
-import gameState.GameStateManager;
+import gamestate.GameStateMachine;
 import gui.GuiMenu;
 import gui.childElements.GuiBox;
 import gui.childElements.GuiMenuOption;
@@ -12,7 +12,7 @@ import gui.childElements.GuiTextBuilder;
 public class GuiBattleMenu extends GuiMenu {
 	public GuiBattleMenu(GuiBox box, GuiMenuOption[][] options) {
 		super(box, options);
-		this.setGuiManager(GameStateManager.getGameState(1).getGuiManager());
+		this.setGuiManager(GameStateMachine.getGameState(1).getGuiManager());
 	}
 
 	@Override

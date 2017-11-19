@@ -1,6 +1,6 @@
 package gui.battle;
 
-import gameState.GameStateManager;
+import gamestate.GameStateMachine;
 import gui.childElements.GuiBox;
 import gui.childElements.GuiElement;
 import gui.childElements.GuiTextBuilder;
@@ -37,7 +37,7 @@ public class GuiBattleText extends GuiElement {
 		guitext.setPosition(x + 12, y + 10);
 		this.text = text;
 		this.finishTimer = finishTimer;
-		this.setGuiManager(GameStateManager.getGameState(1).getGuiManager());
+		this.setGuiManager(GameStateMachine.getGameState(1).getGuiManager());
 	}
 	
 	@Override

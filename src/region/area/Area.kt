@@ -2,9 +2,7 @@ package region.area
 
 import entities.AbstractEntity
 import entities.EntityManager
-import entities.objectEntities.GameCharacter
-import entities.objectEntities.Player
-import entities.particles.ParticleManager
+import entities.characters.Player
 import handlers.Misc
 import main.Main
 import org.apache.commons.csv.CSVFormat
@@ -20,6 +18,8 @@ import java.io.File
 import java.nio.charset.Charset
 import java.util.ArrayList
 import java.util.HashMap
+
+import handlers.Controls.InputDir.*
 
 class Area(var areaKey: Pair<String, String>,
            path: String,
@@ -207,34 +207,27 @@ class Area(var areaKey: Pair<String, String>,
     private fun checkAreaSwitch() {
         val player = EntityManager.getEntity("player") as Player
         // Parameters: xdif, ydif, nextArea,
-        if (player.direction === GameCharacter.Direction.UP && player.y < 0) {
+        if (player.direction === UP && player.y < 0) {
             areaSwitch(player.x + northOffsetX, player.y + RegionManager.getArea(northArea).height * 16, getArea(northArea))
-        } else if (player.direction === GameCharacter.Direction.DOWN && player.y > (RegionManager.currentArea.height - 1) * 16) {
+        } else if (player.direction === DOWN && player.y > (RegionManager.currentArea.height - 1) * 16) {
             areaSwitch(player.x + southOffsetX, player.y - RegionManager.currentArea.height * 16, getArea(southArea))
-        } else if (player.direction === GameCharacter.Direction.LEFT && player.x < 0) {
+        } else if (player.direction === LEFT && player.x < 0) {
             //TODO: Calculate xpos
             areaSwitch(5, player.y + westOffsetY, getArea(westArea))
-        } else if (player.direction === GameCharacter.Direction.RIGHT && player.x > (RegionManager.currentArea.width - 1) * 16) {
+        } else if (player.direction === RIGHT && player.x > (RegionManager.currentArea.width - 1) * 16) {
             areaSwitch(5, player.y + eastOffsetY, getArea(eastArea))
         }
     }
 
     private fun areaSwitch(xpos: Int, ypos: Int, nextArea: Area) {
         val player = EntityManager.getEntity("player") as Player
-        resetEntityRenderPositions()
+        //resetEntityRenderPositions()
         EntityManager.clear()
         RegionManager.currentArea = nextArea
         player.setPosition(xpos, ypos)
-        ParticleManager.areaSwitch(player.direction.ordinal)
+        EntityManager.areaSwitch(player)
+        //EntityManager.areaSwitch(player)
         EntityManager.add("player", player)
-    }
-
-    private fun resetEntityRenderPositions() {
-        for (i in entityList.indices) {
-            val name = entityList[i]
-            val entity = entities[name]
-            entity!!.setMapOffset(0, 0)
-        }
     }
 
     fun getTileId(x: Int, y: Int, layer: Int): Int {

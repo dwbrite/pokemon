@@ -1,4 +1,4 @@
-package entities.objectEntities
+package entities.characters
 
 import org.newdawn.slick.Image
 

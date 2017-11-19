@@ -1,8 +1,7 @@
-package gameState
+package gamestate
 
 import entities.EntityManager
-import entities.objectEntities.Player
-import entities.pokemon.Pokemon
+import entities.characters.Player
 import handlers.Camera
 import handlers.Controls
 import handlers.Resources
@@ -12,11 +11,9 @@ import region.RegionManager
 
 class InGameState : AbstractGameState() {
     init {
+        //TODO: (re)move this?
         EntityManager.add("player", Player(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!))
         Controls.givePriority(EntityManager.getEntity("player")!!)
-        val mew = Pokemon(150 + 1, intArrayOf(31, 31, 31, 31, 31, 31), false, true, 105, 0, Pokemon.Gender.GENDERLESS, Pokemon.Nature.BASHFUL)
-        println(mew)
-        (EntityManager.getEntity("player") as Player).setPartyMember(0, mew)
 
         Camera.followCharacter(EntityManager.getEntity("player"))
     }

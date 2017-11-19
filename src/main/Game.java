@@ -1,7 +1,7 @@
 package main;
 
 import entities.pokemon.Move;
-import gameState.GameStateManager;
+import gamestate.GameStateMachine;
 import handlers.Resources;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -18,7 +18,7 @@ public class Game extends BasicGame {
 		if (!Resources.isReady()) {
 			Resources.getSplashImage().draw();
 		} else {
-			GameStateManager.render(gc, g);
+			GameStateMachine.render(gc, g);
 		}
 	}
 	
@@ -32,10 +32,10 @@ public class Game extends BasicGame {
 			Move m = new Move(8);
 			m.selectTarget();
 			m.execute();
-			GameStateManager.init(gc);
+			GameStateMachine.init(gc);
 			Resources.setReady(true);
 		} else {
-			GameStateManager.update(gc);
+			GameStateMachine.update(gc);
 		}
 		Main.ticks++;
 	}

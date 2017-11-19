@@ -1,6 +1,6 @@
 package entities.pokemon
 
-import entities.objectEntities.Player
+import entities.characters.Player
 import entities.pokemon.status.nonVt.NonVolatileStatus
 import entities.pokemon.status.volatileStatus.VolatileStatus
 import entities.pokemon.status.vtBattle.VolatileBattleStatus
@@ -12,8 +12,6 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
     // Species
     var species: Int = 0
         protected set
-
-    protected var speciesName: String //TODO: replace occurences with CSV species name from species ID
 
     // Contest stat
     protected var contestValue = IntArray(5)
@@ -27,14 +25,12 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         protected set
 
     // ?? Individual stats
-    var exp: Int = 0
-        protected set
+    protected var exp: Int = 0
     protected var individualForm: Int = 0
     protected var individualFriendship: Int = 0
     protected var individualHeight: Int = 0
     protected var individualWeight: Int = 0
-    var level: Int = 0
-        protected set
+    protected var level: Int = 0
     protected var individualMoves = IntArray(4)
     var nickname: String? = null
     protected var individualPokeball: Int = 0
@@ -45,12 +41,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
     protected var isEgg: Boolean = false
 
     // Markers
-    protected var markerHeart: Boolean = false
-    protected var markerTriangle: Boolean = false
-    protected var markerSquare: Boolean = false
-    protected var markerStar: Boolean = false
-    protected var markerCircle: Boolean = false
-    protected var markerDiamond: Boolean = false
+    protected var marker = HashMap<Marker, Boolean>()
 
     // First contact
     protected var contactLevel: Int = 0
@@ -125,7 +116,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         }
 
     val name: String
-        get() = nickname?:speciesName
+        get() = nickname?:Species.getData(species, Species.Column.POKEMON_NAME)
 
     init {
         this.species = species
@@ -143,7 +134,6 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
 
         updateAbility()
         updateStats()
-        speciesName = Species.getData(species, Species.Column.POKEMON_NAME)
     }
 
     fun catchPokemon(p: Player) {
@@ -287,7 +277,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
 
     override fun toString(): String {
         val sb = StringBuilder()
-        sb.append(speciesName)
+        sb.append(Species.getData(species, Species.Column.POKEMON_NAME))
         sb.append((if (isShiny) "*" else "") + if (nickname != null) " \"" + nickname + "\"" else "")
 
         sb.append(" lv $level | ")
@@ -381,6 +371,15 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         ANDROFORM, // Pokemon with a bipedal, tailless form.
         POLYPTERYGOTUS, // Pokemon with two or more pairs of wings.
         INSECTOID    // Pokemon with an insectoid body.
+    }
+
+    enum class Marker {
+        HEART,
+        TRIANGLE,
+        SQUARE,
+        STAR,
+        CIRCLE,
+        DIAMOND
     }
 
     companion object {

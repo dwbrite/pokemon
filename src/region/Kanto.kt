@@ -1,11 +1,9 @@
 package region
 
-import entities.EntityManager
-import entities.objectEntities.NPC
+import entities.characters.NPC
 import handlers.Resources
 import region.area.Area
 import region.RegionManager.addArea
-import javax.swing.plaf.synth.Region
 
 object Kanto {
     //TODO: Hmmm... Can this be done better?
@@ -43,7 +41,7 @@ object Kanto {
                 Pair(kanto, "Route 01"), Pair(kanto, "Route 24"), Pair(kanto, "Clear"), Pair(kanto, "Clear"))) //Pallet
 
         entities.EntityManager.add("Bob", NPC(256+64, 48, Resources.SPRITESHEET["Player Brendan"]!!))
-        RegionManager.getArea(Pair("Kanto","Pallet Town")).addEntity("Bob2", entities.EntityManager.getEntity("Bob"))
+        RegionManager.getArea(Pair("Kanto","Pallet Town")).addEntity("Bob2", entities.EntityManager.getEntity("Bob")!!)
 
         addArea(Area(Pair(kanto, "Viridian City"), "Maps/PalletTown.tmx", "resources/Kanto Region - Route 1.csv")) //Viridian
         addArea(Area(Pair(kanto, "Pewter City"), "Maps/PalletTown.tmx", "resources/Kanto Region - Route 1.csv")) //Pewter

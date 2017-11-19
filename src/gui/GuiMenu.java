@@ -1,6 +1,6 @@
 package gui;
 
-import gameState.GameStateManager;
+import gamestate.GameStateMachine;
 import gui.childElements.GuiBox;
 import gui.childElements.GuiElement;
 import gui.childElements.GuiMenuOption;
@@ -96,7 +96,7 @@ public class GuiMenu extends GuiElement {
 		} else {
 			// if it's allowed to go back... ie: in battles you can't go back from the first menu
 			// TODO: Find more cases
-			if (GameStateManager.getGameState() == GameStateManager.getGameState(GameStateManager.battleState)) {
+			if (GameStateMachine.getGameState() == GameStateMachine.getGameState(GameStateMachine.battleState)) {
 				remove();
 			}
 			//smile and wave

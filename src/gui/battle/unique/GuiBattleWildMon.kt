@@ -1,10 +1,10 @@
 package gui.battle.unique
 
-import entities.objectEntities.GameCharacter
-import entities.objectEntities.Player
+import entities.characters.GameCharacter
+import entities.characters.Player
 import entities.pokemon.Pokemon
 import entities.pokemon.Species
-import gameState.GameStateManager
+import gamestate.GameStateMachine
 import gui.GuiTextBox
 import gui.battle.GuiBattleText
 import gui.childElements.GuiBox
@@ -15,7 +15,7 @@ import gui.childElements.GuiBox
 class GuiBattleWildMon(mon: Pokemon, private val parent: GameCharacter) : GuiTextBox("A wild " + Species.getData(mon.species, Species.Column.POKEMON_NAME) + " has appeared!", GuiBox.BORDER_BATTLE) {
 
     init {
-        this.setGuiManager(GameStateManager.getGameState(1).guiManager)
+        this.setGuiManager(GameStateMachine.getGameState(1).guiManager)
     }
 
     override fun activate() {
@@ -26,6 +26,6 @@ class GuiBattleWildMon(mon: Pokemon, private val parent: GameCharacter) : GuiTex
             }
         }
         remove()
-        btext.setGuiManager(GameStateManager.getGameState(1).guiManager)
+        btext.setGuiManager(GameStateMachine.getGameState(1).guiManager)
     }
 }
