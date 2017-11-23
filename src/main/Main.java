@@ -17,7 +17,7 @@ public class Main {
 	
 	public static int scale = 1;
 	
-	private static AppGameContainer app;
+	public static AppGameContainer app;
 	
 	public static void main(String[] args) {
 		System.setProperty("org.lwjgl.librarypath", new File(new File(System.getProperty("user.dir"), "native"), LWJGLUtil.getPlatformName()).getAbsolutePath());

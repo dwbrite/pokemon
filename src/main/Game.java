@@ -1,6 +1,6 @@
 package main;
 
-import entities.pokemon.Move;
+import battle.Move;
 import gamestate.GameStateMachine;
 import handlers.Resources;
 import org.newdawn.slick.BasicGame;

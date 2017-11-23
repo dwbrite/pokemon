@@ -1,9 +1,9 @@
-package entities.pokemon.status.vtBattle;
+package battle.status.volatileStatus;
 
 /**
  * Created by dwbrite on 4/16/16.
  */
-public abstract class VolatileBattleStatus {
+public abstract class VolatileStatus {
 	public abstract void update();
 	
 	public abstract void init();

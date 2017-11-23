@@ -1,4 +1,4 @@
-package entities.pokemon.status.nonVt
+package battle.status.nonVt
 
 import entities.pokemon.Pokemon
 
@@ -13,12 +13,12 @@ class nvtsSleep : NonVolatileStatus {
 
     constructor(self: Pokemon) {
         this.self = self
-        this.status = NonVolatileStatus.STATUS_ASLEEP
+        this.status = STATUS_ASLEEP
     }
 
     constructor(self: Pokemon, numSleepTurns: Int) {
         this.self = self
-        this.status = NonVolatileStatus.STATUS_ASLEEP
+        this.status = STATUS_ASLEEP
         this.numSleepTurns = numSleepTurns
     }
 

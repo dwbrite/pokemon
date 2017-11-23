@@ -1,4 +1,4 @@
-package entities.pokemon.status.nonVt
+package battle.status.nonVt
 
 import entities.pokemon.Pokemon
 

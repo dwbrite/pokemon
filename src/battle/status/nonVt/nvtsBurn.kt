@@ -1,8 +1,6 @@
-package entities.pokemon.status.nonVt
+package battle.status.nonVt
 
 import entities.pokemon.Pokemon
-
-import entities.pokemon.Interaction.TYPE_FIRE
 
 /**
  * Created by dwbrite on 4/16/16.
@@ -13,7 +11,7 @@ class nvtsBurn(self: Pokemon) : NonVolatileStatus() {
 
     init {
         this.self = self
-        this.status = NonVolatileStatus.STATUS_BURNED
+        this.status = STATUS_BURNED
     }
 
     override fun endTurnUpdate() {

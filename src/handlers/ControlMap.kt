@@ -1,8 +1,8 @@
 package handlers
 
 class ControlMap() {
-    var inputDir = HashMap<Enum<Controls.InputDir>, Boolean>()
-    var inputKey = HashMap<Enum<Controls.InputKey>, Boolean>()
+    private var inputDir = HashMap<Enum<Controls.InputDir>, Boolean>()
+    private var inputKey = HashMap<Enum<Controls.InputKey>, Boolean>()
 
     init {
         for (key in handlers.Controls.InputDir.values()) { this[key] = false }

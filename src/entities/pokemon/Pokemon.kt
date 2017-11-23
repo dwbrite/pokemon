@@ -1,9 +1,9 @@
 package entities.pokemon
 
 import entities.characters.Player
-import entities.pokemon.status.nonVt.NonVolatileStatus
-import entities.pokemon.status.volatileStatus.VolatileStatus
-import entities.pokemon.status.vtBattle.VolatileBattleStatus
+import battle.status.nonVt.NonVolatileStatus
+import battle.status.volatileStatus.VolatileStatus
+import battle.status.vtBattle.VolatileBattleStatus
 import org.apache.commons.csv.CSVRecord
 
 import java.util.ArrayList

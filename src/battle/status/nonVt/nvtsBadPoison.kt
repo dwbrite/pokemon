@@ -1,9 +1,6 @@
-package entities.pokemon.status.nonVt
+package battle.status.nonVt
 
 import entities.pokemon.Pokemon
-
-import entities.pokemon.Interaction.TYPE_POISON
-import entities.pokemon.Interaction.TYPE_STEEL
 
 /**
  * Created by dwbrite on 4/27/16.
@@ -15,7 +12,7 @@ class nvtsBadPoison(self: Pokemon) : NonVolatileStatus() {
 
     init {
         this.self = self
-        this.status = NonVolatileStatus.STATUS_BADLYPOISONED
+        this.status = STATUS_BADLYPOISONED
     }
 
     override fun endTurnUpdate() {

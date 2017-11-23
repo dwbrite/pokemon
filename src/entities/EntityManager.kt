@@ -1,17 +1,11 @@
 package entities
 
-import entities.characters.GameCharacter
 import entities.particles.Particle
 import handlers.Camera
-import handlers.Controls
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import region.RegionManager
 import handlers.Controls.InputDir.*
-
-import java.util.ArrayList
-import java.util.Collections
-import java.util.HashMap
 
 object EntityManager {
     private val entityMap = EntityMap()

@@ -1,8 +1,6 @@
-package entities.pokemon.status.nonVt
+package battle.status.nonVt
 
 import entities.pokemon.Pokemon
-
-import entities.pokemon.Interaction.TYPE_ICE
 
 /**
  * Created by dwbrite on 4/27/16.
@@ -11,7 +9,7 @@ class nvtsFreeze(self: Pokemon) : NonVolatileStatus() {
 
     init {
         this.self = self
-        this.status = NonVolatileStatus.STATUS_FROZEN
+        this.status = STATUS_FROZEN
     }
 
     override fun beginTurnUpdate() {
