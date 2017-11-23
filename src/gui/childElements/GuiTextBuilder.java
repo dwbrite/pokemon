@@ -1,6 +1,6 @@
 package gui.childElements;
 
-import handlers.KeyList;
+import handlers.controls.KeyList;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;

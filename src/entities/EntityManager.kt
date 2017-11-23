@@ -2,10 +2,11 @@ package entities
 
 import entities.particles.Particle
 import handlers.Camera
+import handlers.controls.Controls
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import region.RegionManager
-import handlers.Controls.InputDir.*
+import handlers.controls.Controls.InputDir.*
 
 object EntityManager {
     private val entityMap = EntityMap()
@@ -45,7 +46,7 @@ object EntityManager {
 
     fun getEntity(name: String) = entityMap[name]
 
-    fun areaSwitch(direction: handlers.Controls.InputDir) {
+    fun areaSwitch(direction: Controls.InputDir) {
         var yOffset = when (direction) {
             UP -> RegionManager.currentArea.height * 16
             DOWN -> -RegionManager.northArea.height * 16

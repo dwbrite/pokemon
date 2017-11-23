@@ -3,8 +3,8 @@ package gui
 import gui.childElements.GuiBox
 import gui.childElements.GuiElement
 import gui.childElements.GuiTextBuilder
-import handlers.Controls
-import handlers.Controls.InputKey.*
+import handlers.controls.Controls
+import handlers.controls.Controls.InputKey.*
 import main.Main
 import org.newdawn.slick.SpriteSheet
 
@@ -36,13 +36,14 @@ open class GuiTextBox(private val text: String, border: SpriteSheet) : GuiElemen
     }
 
     override fun render() {
+        /*
         box.draw()
         guitext.draw()
         val newx = x + (text.length - 1) * 6
         val newy = y + 8
         if (textHasFinished) {
             val ttb = GuiTextBuilder("")//TODO: wtf man... wtf... This file was broken in the recovery.
-        } else if (Controls.getInput(B, this)) {
+        } else if (Controls.getInput(this, B)) {
             guitext.setString(text)
             textHasFinished = true
         } else {
@@ -53,6 +54,7 @@ open class GuiTextBox(private val text: String, border: SpriteSheet) : GuiElemen
                 textHasFinished = true
             }
         }
+        */
     }
 
     override fun uniqueUpdate() {

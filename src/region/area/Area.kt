@@ -3,7 +3,7 @@ package region.area
 import entities.AbstractEntity
 import entities.EntityManager
 import entities.characters.GameCharacter
-import handlers.Controls.InputDir.*
+import handlers.controls.Controls.InputDir.*
 import handlers.Camera
 import handlers.Misc
 import main.Main

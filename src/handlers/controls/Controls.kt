@@ -1,4 +1,4 @@
-package handlers
+package handlers.controls
 
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Input.*
@@ -14,7 +14,6 @@ object Controls {
         L,
         R
     }
-
     enum class InputDir {
         UP,
         DOWN,
@@ -23,8 +22,8 @@ object Controls {
     }
 
     private val input = ControlMap()
-
-    private val controlPriority = ArrayList<Any>()
+    private val controlPriority = ArrayList<Controller>()
+    val controllers = HashMap<String, Controller>()
 
     // TODO: Is it __really__ dirty if it's this neat?
     fun update(gc: GameContainer) {
@@ -38,15 +37,19 @@ object Controls {
         input[InputKey.START] = gc.input.isKeyDown(KEY_ENTER)
         input[InputKey.L] = gc.input.isKeyDown(KEY_A)
         input[InputKey.R] = gc.input.isKeyDown(KEY_S)
+
+        for (controller in controllers.values) {
+            controller.update(gc)
+        }
     }
 
-    fun getInput(button: InputKey, obj: Any): Boolean = hasPriority(obj) && input[button]
-    fun getInput(button: InputDir, obj: Any): Boolean = hasPriority(obj) && input[button]
+    fun getInput(obj: Controller, button: InputKey): Boolean = hasPriority(obj) && input[button]
+    fun getInput(obj: Controller, button: InputDir): Boolean = hasPriority(obj) && input[button]
 
-    fun hasPriority(obj: Any): Boolean = controlPriority[0] === obj
-    fun givePriority(obj: Any) { controlPriority.add(0, obj) }
+    fun hasPriority(obj: Controller): Boolean = controlPriority[0] === obj
+    fun givePriority(obj: Controller) { controlPriority.add(0, obj) }
 
-    fun removePriority(obj: Any) {
+    fun removePriority(obj: Controller) {
 
         if (controlPriority.contains(obj)) {
             controlPriority.remove(obj)

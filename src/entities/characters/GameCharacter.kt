@@ -4,22 +4,23 @@ import entities.AbstractEntity
 import entities.Animation
 import entities.EntityManager
 import entities.particles.*
-import handlers.ControlMap
-import handlers.Controls
-import handlers.Controls.InputDir
+import handlers.controls.ControlMap
+import handlers.controls.Controls.InputDir
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.Image
 import region.RegionManager
 import region.area.Area.Collide
-import handlers.Controls.InputDir.*
-import javax.swing.text.html.parser.Entity
+import handlers.controls.Controls.InputDir.*
 
 open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x, y) {
 
     var currentAction = Action.IDLING
     var busy = false
     var direction = DOWN
+
+    // Controls
+    var controls = ControlMap()
 
     // Animations
     protected var walk = arrayOfNulls<Animation>(4)
@@ -31,17 +32,12 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     protected var currentAnimation: Animation?
 
     protected var frameNum = 0
-
     protected var transportMode = TransportMode.WALK
 
-    // Controls
-    protected var controls = ControlMap()
 
     // Collisions
     protected var blocked = false
-
     protected var forwardCollisionType: Int = 0
-
     protected var belowCollisionType: Int = 0
 
     init {
@@ -182,6 +178,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         checkGrassCollision()
 
         if (frameNum == 0 && !blocked) {
+            //TODO: This may not be being used for anything.
             belowCollisionType = forwardCollisionType
         }
 

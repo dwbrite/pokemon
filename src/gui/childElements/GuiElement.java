@@ -1,7 +1,7 @@
 package gui.childElements;
 
 import gui.GuiManager;
-import handlers.Controls;
+import handlers.controls.Controls;
 
 /**
  * Created by dwbrite on 5/12/16.
@@ -11,7 +11,7 @@ public abstract class GuiElement {
 	
 	public GuiElement(boolean controlPriority) {
 		if (controlPriority) {
-			Controls.INSTANCE.givePriority(this);
+			//Controls.INSTANCE.givePriority(this);
 		}
 	}
 	
@@ -27,7 +27,7 @@ public abstract class GuiElement {
 	public abstract void uniqueUpdate();
 	
 	public void remove() {
-		Controls.INSTANCE.removePriority(this);
+		//Controls.INSTANCE.removePriority(this);
 		guiman.removeGuiElement(this);
 	}
 	

@@ -1,12 +1,12 @@
-package handlers
+package handlers.controls
 
 class ControlMap() {
     private var inputDir = HashMap<Enum<Controls.InputDir>, Boolean>()
     private var inputKey = HashMap<Enum<Controls.InputKey>, Boolean>()
 
     init {
-        for (key in handlers.Controls.InputDir.values()) { this[key] = false }
-        for (key in handlers.Controls.InputKey.values()) { this[key] = false }
+        for (key in Controls.InputDir.values()) { this[key] = false }
+        for (key in Controls.InputKey.values()) { this[key] = false }
     }
 
     operator fun get(key: Controls.InputDir): Boolean = inputDir[key]!!
