@@ -4,20 +4,20 @@ import handlers.Resources
 
 object Species {
     fun getData(pkmn_id: Int, `val`: Column): String {
-        return Resources.CSV["Pokemon"]!![pkmn_id][`val`.ordinal]
+        return Resources.CSV["Pokemon"]!![pkmn_id][`val`.ordinal].trim()
     }
 
     fun getEvolutionCondition(pkmn_id: Int, condition_id: Int): String {
-        return Resources.CSV["Evolutions"]!![pkmn_id][4 + condition_id * 2]
+        return Resources.CSV["Evolutions"]!![pkmn_id][4 + condition_id * 2].trim()
     }
 
     fun getEvolutionSpecies(pkmn_id: Int, condition_id: Int): String {
-        return Resources.CSV["Evolutions"]!![pkmn_id][3 + condition_id * 2]
+        return Resources.CSV["Evolutions"]!![pkmn_id][3 + condition_id * 2].trim()
     }
 
     fun getIdFromName(name: String): Int {
         for (i in 1 until Resources.CSV["Pokemon"]!!.size) {
-            if (Resources.CSV["Pokemon"]!![i][0] == name) {
+            if (Resources.CSV["Pokemon"]!![i][0].trim() == name) {
                 return i
             }
         }

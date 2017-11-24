@@ -29,9 +29,9 @@ public class Game extends BasicGame {
 	public void update(GameContainer gc, int delta) throws SlickException {
 		if (!Resources.isReady()) {
 			Resources.initPool();
-			/*Move m = new Move(8);
+			Move m = new Move(8);
 			m.selectTarget();
-			m.execute();*/
+			m.execute();
 			GameStateMachine.init(gc);
 			Resources.setReady(true);
 		} else {

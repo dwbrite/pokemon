@@ -51,12 +51,12 @@ class Move(private var id: Int) {
 
     fun execute() {
         EffectCategory::class.functions.find {
-            it.name == Resources.CSV["Moves"]!![id][Column.PRIMARY_FUNCTION.ordinal]
+            it.name == Resources.CSV["Moves"]!![id][Column.PRIMARY_FUNCTION.ordinal].trim()
         }?.call(EffectCategory)
     }
 
     fun selectTarget() {
-        var target: Target = Target.valueOf(Resources.CSV["Moves"]!![id][Column.TARGET.ordinal])
+        var target: Target = Target.valueOf(Resources.CSV["Moves"]!![id][Column.TARGET.ordinal].trim())
         println(target)
     }
 }
