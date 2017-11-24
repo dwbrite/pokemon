@@ -39,7 +39,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     var animations = 0
     var moveSpeed = 0
     var transportMode = TransportMode.WALK
-
+        set(value) { if(!busy) field = value }
 
     // Collisions
     var blocked = false
