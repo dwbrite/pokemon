@@ -26,7 +26,7 @@ abstract class NonVolatileStatus {
 
     abstract fun remove()
 
-    // TODO: Devin, what the fuck. Why can't you just make enums like a sane person?
+    // TODO("Convert status conditions to enums.")
     companion object {
         var STATUS_NONE = 0
         var STATUS_BURNED = 1

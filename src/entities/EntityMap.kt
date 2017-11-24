@@ -1,8 +1,6 @@
 package entities
 
-import java.util.ArrayList
-import java.util.Collections
-import java.util.HashMap
+import java.util.*
 
 class EntityMap {
     private val entities = HashMap<String, AbstractEntity>()

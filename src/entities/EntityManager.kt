@@ -3,18 +3,29 @@ package entities
 import entities.particles.Particle
 import handlers.Camera
 import handlers.controls.Controls
+import handlers.controls.Controls.InputDir.*
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import region.RegionManager
-import handlers.controls.Controls.InputDir.*
 
 object EntityManager {
     private val entityMap = EntityMap()
 
-    fun add(particle: Particle) { entityMap.add(particle.toString(), particle) }
-    fun add(name: String, entity: AbstractEntity) { entityMap.add(name, entity) }
-    fun remove(name: String) { entityMap.remove(name) }
-    fun clear() { entityMap.clear() }
+    fun add(particle: Particle) {
+        entityMap.add(particle.toString(), particle)
+    }
+
+    fun add(name: String, entity: AbstractEntity) {
+        entityMap.add(name, entity)
+    }
+
+    fun remove(name: String) {
+        entityMap.remove(name)
+    }
+
+    fun clear() {
+        entityMap.clear()
+    }
 
     fun initAdd(name: String, entity: AbstractEntity) {
         add(name, entity)
@@ -27,6 +38,7 @@ object EntityManager {
                 entityMap[key]!!.setCollision()
             }
         }
+
         for (key in entityMap.entityList) {
             if (entityMap[key] is Particle || Camera.isEntityInBounds(entityMap[key]!!)) {
                 entityMap[key]!!.update(gc)
@@ -62,8 +74,8 @@ object EntityManager {
         for (key in entityMap.entityList) {
             var temp = entityMap[key]!!
             temp.setPosition(temp.getX() + xOffset, temp.getY() + yOffset)
+            temp.updateDepth()
         }
-
         entityMap.update()
     }
 }

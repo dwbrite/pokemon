@@ -1,7 +1,6 @@
 package gui.childElements;
 
 import gui.GuiManager;
-import handlers.controls.Controls;
 
 /**
  * Created by dwbrite on 5/12/16.
@@ -33,6 +32,6 @@ public abstract class GuiElement {
 	
 	public void setGuiManager(GuiManager guiman) {
 		this.guiman = guiman;
-		guiman.addGuiElement(this);//TODO: this shit //future note: maybe not?
+		guiman.addGuiElement(this);
 	}
 }

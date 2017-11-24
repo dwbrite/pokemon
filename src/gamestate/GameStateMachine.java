@@ -1,5 +1,6 @@
 package gamestate;
 
+import handlers.controls.Controls;
 import main.Main;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -24,7 +25,7 @@ public class GameStateMachine {
 	
 	public static final int battleState = 1;
 	
-	private static ArrayList<AbstractGameState> gameStates = new ArrayList<AbstractGameState>();
+	private static ArrayList<AbstractGameState> gameStates = new ArrayList<>();
 	
 	private static int currentState;
 	
@@ -36,13 +37,14 @@ public class GameStateMachine {
 	
 	public static void update(GameContainer gc) {
 		gameStates.get(currentState).update(gc);
+		Controls.INSTANCE.update(gc);
 		if (battleTransitioning) {
 			if (Main.ticks >= transitionStartTicks + 32 + 128) {
 				//Done transitioning
-				battleTransitioning = false; //TODO: Maybe use more bools to show which part of the transition we're in
+				battleTransitioning = false; //TODO(" Maybe use more bools to show which part of the transition we're in")
 			} else if (Main.ticks >= transitionStartTicks + 128) {
-				//Transition In
-			} else if (Main.ticks >= transitionStartTicks + 64) {//TODO: Set proper transition effect
+				//TODO(" Transition In")
+			} else if (Main.ticks >= transitionStartTicks + 64) {//TODO(" Set proper transition effect")
 				//Transition Out
 				setGameState(battleState);
 			}
@@ -52,6 +54,7 @@ public class GameStateMachine {
 	public static void render(GameContainer gc, Graphics g) {
 		gameStates.get(currentState).render(gc, g);
 		if (battleTransitioning) {
+			//TODO(" battle transition")
 			//draw transition image
 			//something like "TransitionAnimation" + transitionEffect + ".gif"
 			//using transitionStartTicks - Main.ticks to get the animation frame

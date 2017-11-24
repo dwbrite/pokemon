@@ -3,8 +3,6 @@ package gui
 import gui.childElements.GuiBox
 import gui.childElements.GuiElement
 import gui.childElements.GuiTextBuilder
-import handlers.controls.Controls
-import handlers.controls.Controls.InputKey.*
 import main.Main
 import org.newdawn.slick.SpriteSheet
 
@@ -31,7 +29,7 @@ open class GuiTextBox(private val text: String, border: SpriteSheet) : GuiElemen
 
     init {
         box = GuiBox(x, y, width, height, border)
-        guitext = GuiTextBuilder("") //TODO: fix
+        guitext = GuiTextBuilder("") //TODO(" fix")
         guitext.setPosition(x + 12, y + 10)
     }
 
@@ -42,7 +40,7 @@ open class GuiTextBox(private val text: String, border: SpriteSheet) : GuiElemen
         val newx = x + (text.length - 1) * 6
         val newy = y + 8
         if (textHasFinished) {
-            val ttb = GuiTextBuilder("")//TODO: wtf man... wtf... This file was broken in the recovery.
+            val ttb = GuiTextBuilder("")//TODO(" wtf man... wtf... This file was broken in the recovery.")
         } else if (Controls.getInput(this, B)) {
             guitext.setString(text)
             textHasFinished = true

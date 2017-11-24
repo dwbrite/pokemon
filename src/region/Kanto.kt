@@ -2,14 +2,14 @@ package region
 
 import entities.characters.NPC
 import handlers.Resources
-import region.area.Area
 import region.RegionManager.addArea
+import region.area.Area
 
 object Kanto {
-    //TODO: Hmmm... Can this be done better?
+    //TODO(" Hmmm... Can this be done better?")
     @JvmStatic
     fun init() {
-        var kanto = "Kanto"
+        val kanto = "Kanto"
         addArea(Area(Pair(kanto, "Clear"), "Maps/Clear.tmx", "resources/Kanto Region - Route 1.csv"))
         addArea(Area(Pair(kanto, "Route 01"), "Maps/Route1.tmx", "resources/Kanto Region - Route 1.csv",
                 Pair(kanto, "Viridian City"), Pair(kanto, "Pallet Town"), Pair(kanto, "Clear"), Pair(kanto, "Clear")))
@@ -40,8 +40,8 @@ object Kanto {
         addArea(Area(Pair(kanto, "Pallet Town"), "Maps/PalletTown.tmx", "resources/Kanto Region - Route 1.csv",
                 Pair(kanto, "Route 01"), Pair(kanto, "Route 24"), Pair(kanto, "Clear"), Pair(kanto, "Clear"))) //Pallet
 
-        entities.EntityManager.initAdd("Bob", NPC(256+64, 48, Resources.SPRITESHEET["Player Brendan"]!!))
-        RegionManager.getArea(Pair("Kanto","Pallet Town")).addEntity("Bob2", entities.EntityManager.getEntity("Bob")!!)
+        entities.EntityManager.initAdd("Bob", NPC(256 + 64, 48, Resources.SPRITESHEET["Player Brendan"]!!))
+        RegionManager.getArea(Pair("Kanto", "Pallet Town")).addEntity("Bob2", entities.EntityManager.getEntity("Bob")!!)
 
         addArea(Area(Pair(kanto, "Viridian City"), "Maps/PalletTown.tmx", "resources/Kanto Region - Route 1.csv")) //Viridian
         addArea(Area(Pair(kanto, "Pewter City"), "Maps/PalletTown.tmx", "resources/Kanto Region - Route 1.csv")) //Pewter

@@ -4,27 +4,31 @@ import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import org.apache.commons.csv.CSVRecord
 import org.newdawn.slick.Image
-import org.newdawn.slick.SlickException
-import org.newdawn.slick.SpriteSheet
-
 import java.io.File
 import java.nio.charset.Charset
 
 object Resources {
-    //TODO: Do we REALLY have to do this??? (@JvmStatic)
-    @JvmStatic var isReady = false
-    @JvmStatic val SPRITESHEET: HashMap<String, Image> = HashMap()
-    @JvmStatic val PARTICLE: HashMap<String, Image> = HashMap()
-    @JvmStatic val ARENA: HashMap<String, Image> = HashMap()
-    @JvmStatic val CSV: HashMap<String, List<CSVRecord>> = HashMap()
+    //TODO(" Remove @JvmStatic after conversion to Kotlin is complete.")
+    @JvmStatic
+    var isReady = false
+    @JvmStatic
+    val SPRITESHEET: HashMap<String, Image> = HashMap()
+    @JvmStatic
+    val PARTICLE: HashMap<String, Image> = HashMap()
+    @JvmStatic
+    val ARENA: HashMap<String, Image> = HashMap()
+    @JvmStatic
+    val CSV: HashMap<String, List<CSVRecord>> = HashMap()
 
     @JvmStatic lateinit var splashImage: Image
 
-    @JvmStatic fun init() {
+    @JvmStatic
+    fun init() {
         splashImage = Image("Splash.png", false, Image.FILTER_NEAREST)
     }
 
-    @JvmStatic fun initPool() {
+    @JvmStatic
+    fun initPool() {
         try {
             SPRITESHEET["Player Brendan"] = Image("TileSets/Sprites/Player/player.gif", false, Image.FILTER_NEAREST)
             PARTICLE["Grass"] = Image("TileSets/Sprites/grassRustle.gif", false, Image.FILTER_NEAREST)
@@ -52,23 +56,23 @@ object Resources {
             ARENA["Test 2"] = Image("TileSets/Arenas/bgtest2.png", false, Image.FILTER_NEAREST)
             //*/
 
-            //TODO: Correct csv data
+            //TODO(" Correct csv data")
             var csvData = File("resources/Pokemon - Species Data.csv")
             var parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.EXCEL)
             CSV["Pokemon"] = parser.records
             parser.close()
 
-            csvData = File("resources/Pokemon - Species Data.csv") //TODO: "Evolution Data.csv"
+            csvData = File("resources/Pokemon - Species Data.csv") //TODO(" "Evolution Data.csv"")
             parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.EXCEL)
             CSV["Evolutions"] = parser.records
             parser.close()
 
-            csvData = File("resources/Pokemon - Species Data.csv") //TODO: "Type Data.csv"
+            csvData = File("resources/Pokemon - Species Data.csv") //TODO(" "Type Data.csv"")
             parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.EXCEL)
             CSV["Types"] = parser.records
             parser.close()
 
-            csvData = File("resources/Pokemon - Move Data.csv") //TODO: "Type Data.csv"
+            csvData = File("resources/Pokemon - Move Data.csv") //TODO(" "Type Data.csv"")
             parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.EXCEL)
             CSV["Moves"] = parser.records
             parser.close()

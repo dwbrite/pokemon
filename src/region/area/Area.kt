@@ -3,9 +3,9 @@ package region.area
 import entities.AbstractEntity
 import entities.EntityManager
 import entities.characters.GameCharacter
-import handlers.controls.Controls.InputDir.*
 import handlers.Camera
 import handlers.Misc
+import handlers.controls.Controls.InputDir.*
 import main.Main
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
@@ -15,11 +15,9 @@ import org.newdawn.slick.Graphics
 import org.newdawn.slick.tiled.TiledMap
 import region.RegionManager
 import region.RegionManager.getArea
-
 import java.io.File
 import java.nio.charset.Charset
-import java.util.ArrayList
-import java.util.HashMap
+import java.util.*
 
 class Area(var areaKey: Pair<String, String>,
            path: String,

@@ -23,7 +23,7 @@ class nvtsPoison(self: Pokemon) : NonVolatileStatus() {
     }
 
     override fun init() {
-        /* TODO: ...
+        /*
         if (self.getType1() === TYPE_POISON || self.getType2() === TYPE_POISON ||
                 self.getType1() === TYPE_STEEL || self.getType2() === TYPE_STEEL
                 || self.ability == "Immunity") {

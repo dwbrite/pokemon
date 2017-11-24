@@ -56,7 +56,7 @@ public class GuiMenu extends GuiElement {
 
 	}
 
-//TODO: fix
+//TODO(" fix")
     /*/
         if(true) {
             //        = 0; // Presumably optionsY = 0;
@@ -95,7 +95,7 @@ public class GuiMenu extends GuiElement {
 			}
 		} else {
 			// if it's allowed to go back... ie: in battles you can't go back from the first menu
-			// TODO: Find more cases
+			// TODO(" Find more cases")
 			if (GameStateMachine.getGameState() == GameStateMachine.getGameState(GameStateMachine.battleState)) {
 				remove();
 			}

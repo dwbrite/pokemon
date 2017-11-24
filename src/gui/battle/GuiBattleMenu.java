@@ -18,6 +18,6 @@ public class GuiBattleMenu extends GuiMenu {
 	@Override
 	public void render() {
 		box.draw();
-		GuiTextBuilder tb = new GuiTextBuilder(""); //TODO: wtf man :/ everything is beaned dude.
+		GuiTextBuilder tb = new GuiTextBuilder(""); //TODO(" wtf man :/ everything is beaned dude.")
 	}
 }

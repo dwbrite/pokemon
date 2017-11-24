@@ -4,22 +4,24 @@ import entities.EntityManager
 import entities.characters.GameCharacter
 import entities.characters.Player
 import handlers.Camera
-import handlers.controls.Controls
 import handlers.Resources
-import handlers.controls.Controller
+import handlers.controls.Controls
 import handlers.controls.PlayerController
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import region.RegionManager
+import java.util.*
 
 class InGameState : AbstractGameState() {
-    init {
-        //TODO: (re)move this?
-        EntityManager.initAdd("player", Player(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!))
-        Controls.controllers.put("player", PlayerController(EntityManager.getEntity("player")!! as GameCharacter))
-        Controls.givePriority(Controls.controllers["player"]!!)
+    var player: Player
 
-        Camera.followEntity(EntityManager.getEntity("player")!!)
+    init {
+        //TODO(" (re)move this?")
+        player = Player(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!)
+        EntityManager.initAdd("player", player)
+        Controls.controllers.put("player", PlayerController(player as GameCharacter))
+        Controls.givePriority(Controls.controllers["player"]!!)
+        Camera.followEntity(player)
     }
 
     override fun render(gc: GameContainer, g: Graphics) {
@@ -31,7 +33,23 @@ class InGameState : AbstractGameState() {
         RegionManager.update(gc)
         Camera.update()
         guiman.update(gc)
-        Controls.update(gc)
+
+        fun ClosedRange<Int>.random() = Random().nextInt(endInclusive - start) + start
+
+        if (player.frameNum == 0 && player.currentAction != GameCharacter.Action.IDLING) {
+            when (player.forwardCollisionType) {
+                2 -> {
+                    //TODO(" implement proper RNG")
+                    if ((1..32).random() == 1) {
+                        println("battle")
+                        player.frameNum = 0
+                        player.busy = true
+                        player.currentAction = GameCharacter.Action.IDLING
+                    }
+                }
+            }
+        }
+
     }
 
 }

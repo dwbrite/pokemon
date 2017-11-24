@@ -3,15 +3,18 @@ package entities.characters
 import entities.AbstractEntity
 import entities.Animation
 import entities.EntityManager
-import entities.particles.*
+import entities.particles.DirtJump
+import entities.particles.GrassJump
+import entities.particles.JumpShadow
+import entities.particles.NormalGrassParticle
 import handlers.controls.ControlMap
 import handlers.controls.Controls.InputDir
+import handlers.controls.Controls.InputDir.*
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.Image
 import region.RegionManager
 import region.area.Area.Collide
-import handlers.controls.Controls.InputDir.*
 
 open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x, y) {
 
@@ -31,14 +34,16 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     protected var current = arrayOfNulls<Animation>(4)
     protected var currentAnimation: Animation?
 
-    protected var frameNum = 0
-    protected var transportMode = TransportMode.WALK
+    var frameNum = 0
+    var animationFrames = 0
+    var animations = 0
+    var moveSpeed = 0
+    var transportMode = TransportMode.WALK
 
 
     // Collisions
-    protected var blocked = false
-    protected var forwardCollisionType: Int = 0
-    protected var belowCollisionType: Int = 0
+    var blocked = false
+    var forwardCollisionType: Int = 0
 
     init {
         //setMapOffset(0, 0)
@@ -67,7 +72,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
             swim[i] = Animation(swimFrames, *swimming[i])
         }
 
-        //TODO: Fishing! Should this only apply to the player? No... There are fishermen, right?
+        //TODO("Fishing!")
         //final Image[][] fishing = standardAnimation(0, 32, 32);
         //for(int i = 0; i < 4; i++) {
         //	fish[i] = new Animation(standardFrames, fishing[i]);
@@ -79,7 +84,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     }
 
     private fun standardAnimation(yOffset: Int, width: Int, height: Int): Array<Array<Image>> {
-        //TODO: Is this code quality up-to-par?
+        //TODO("Is this code quality up-to-par?")
         return arrayOf(
                 arrayOf(this.spriteSheet.getSubImage(width, yOffset + height, width, height),
                         this.spriteSheet.getSubImage(0, yOffset + height, width, height),
@@ -117,13 +122,14 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     protected fun checkInput() {
         if (!busy) {
             var controlled = false
-            for(dir in InputDir.values()){
-                if(controls[dir]) {
+            for (dir in InputDir.values()) {
+                if (controls[dir]) {
                     controlled = true
-                    direction = dir
                     currentAction = if (direction != dir && currentAction == Action.IDLING) {
+                        direction = dir
                         Action.TURNING
                     } else {
+                        direction = dir
                         checkCollisions()
                         if (controls[DOWN] && forwardCollisionType == 6) {
                             Action.JUMPING
@@ -177,11 +183,6 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     private fun finalizeMovement(moveSpeed: Int) {
         checkGrassCollision()
 
-        if (frameNum == 0 && !blocked) {
-            //TODO: This may not be being used for anything.
-            belowCollisionType = forwardCollisionType
-        }
-
         when (direction) {
             UP -> {
                 currentAnimation = current[UP.ordinal]
@@ -204,16 +205,16 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
 
     private fun finalizeAnimations(animationFrames: Int) {
         if (currentAction == Action.JUMPING) {
-            val n = frameNum
-
-            if (n == 0) {
+            if (frameNum == 0) {
                 EntityManager.add(JumpShadow(this))
-            } else if (n == 15) {
+            } else if (frameNum == 15) {
                 var tempForwardCollisionType = 0
                 when (direction) {
                     DOWN -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(x / 16, Math.floor(y / 16.0).toInt() + 2)
                     LEFT -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.ceil(x / 16.0).toInt() - 2, y / 16)
                     RIGHT -> tempForwardCollisionType = RegionManager.currentArea.getCollisionValue(Math.floor(x / 16.0).toInt() + 2, y / 16)
+                    else -> {
+                    }
                 }
                 if (tempForwardCollisionType == Collide.GRASS.ordinal) {
                     var xOffset = 0
@@ -222,28 +223,32 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
                         DOWN -> yOffset = 16
                         LEFT -> xOffset = -16
                         RIGHT -> xOffset = 16
+                        else -> {
+                        }
                     }
 
-                    EntityManager.add(GrassJump(x+xOffset, y+yOffset, this))
+                    EntityManager.add(GrassJump(x + xOffset, y + yOffset, this))
                 } else {
-                    EntityManager.add(DirtJump(x,y,this))
+                    EntityManager.add(DirtJump(x, y, this))
                 }
             }
 
             if (transportMode == TransportMode.BIKE) { //This is effectively +32/6 per frame (rounded down)
-                if (n == 0 || n == 5 || n == 10 || n == 16 || n == 21 || n == 26) {
+                //((frameNum/6f)*(32f/6f)%(32f/6f))==0f
+                //(n == 0 || n == 5 || n == 10 || n == 16 || n == 21 || n == 26)
+                if ((frameNum / 6f) * (32f / 6f) % (32f / 6f) == 0f) {
                     currentAnimation?.nextFrame()
                 }
             } else if (animationFrames > 0 && frameNum % animationFrames == 0) {
                 currentAnimation?.nextFrame()
             }
-            if (n % 2 == 0 && n <= 13) {
+            if (frameNum % 2 == 0 && frameNum <= 13) {
                 yMapOffset -= 2
-            } else if (n == 14) {
+            } else if (frameNum == 14) {
                 yMapOffset -= 1
-            } else if (n == 18) {
+            } else if (frameNum == 18) {
                 yMapOffset += 1
-            } else if (n % 2 == 0 && n < 32) {
+            } else if (frameNum % 2 == 0 && frameNum < 32) {
                 yMapOffset += 2
             }
         } else if (animationFrames > 0 && frameNum % animationFrames == 0) {
@@ -263,9 +268,9 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     protected fun processCliffJump() {
         busy = true
 
-        val animationFrames = 8
-        val animations = 4
-        val moveSpeed = 1
+        animationFrames = 8
+        animations = 4
+        moveSpeed = 1
 
         if (transportMode == TransportMode.RUN) {
             transportMode = TransportMode.WALK
@@ -288,7 +293,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         updateCurrentAnimation()
         finalizeMovement(0)
         finalizeAnimations(0)
-        //TODO: Swim idle animation things
+        //TODO("Swim idle animation things")
         //frameNum++;
         //if(frameNum >= 16)
         //{
@@ -298,9 +303,9 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
 
     protected fun processMovement() {
         busy = true
-        var animationFrames = 8
-        var animations = 2
-        var moveSpeed = 1
+        animationFrames = 8
+        animations = 2
+        moveSpeed = 1
 
         if (transportMode == TransportMode.BIKE) {
             animationFrames = 2
@@ -354,17 +359,18 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     protected fun processTurn() {
         busy = true
 
-        var animationFrames = 4
-        var animations = 2
-        val moveSpeed = 0
+        animationFrames = 4
+        animations = 2
+        moveSpeed = 0
 
-        if (transportMode == TransportMode.BIKE) {
-            animationFrames = 0
-            animations = 0
-        }
-
-        if (transportMode == TransportMode.RUN) {
-            transportMode = TransportMode.WALK
+        when (transportMode) {
+            TransportMode.BIKE -> {
+                animationFrames = 0
+                animations = 0
+            }
+            TransportMode.RUN -> transportMode = TransportMode.WALK
+            GameCharacter.TransportMode.WALK -> {/*TODO("WALK")*/}
+            GameCharacter.TransportMode.SWIM -> {/*TODO("SWIM")*/}
         }
 
         if (frameNum < animations * animationFrames) {
@@ -375,9 +381,6 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         }
 
         if (frameNum >= animationFrames * animations) {
-            if (RegionManager.currentArea.getCollisionValue(x / 16, y / 16) == 2) {
-                //TODO: wild battle, player only
-            }
             frameNum = 0
             busy = false
         }
@@ -388,7 +391,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         checkInput()
         identifyAction()
         currentImage = currentAnimation?.currentFrame
-        depth = y / 16.0
+        updateDepth()
     }
 
     enum class Action {

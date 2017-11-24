@@ -1,7 +1,6 @@
 package handlers
 
 import entities.AbstractEntity
-import entities.characters.GameCharacter
 import main.Main
 import region.RegionManager
 

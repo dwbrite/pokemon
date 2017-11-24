@@ -15,7 +15,7 @@ class nvtsParalyze(self: Pokemon) : NonVolatileStatus() {
     }
 
     override fun beginTurnUpdate() {
-        //TODO: Paralyze
+        //TODO("Paralyze")
         if (Math.random().toInt() * 4 == 0) {
             //skip turn
             //animate
@@ -25,7 +25,7 @@ class nvtsParalyze(self: Pokemon) : NonVolatileStatus() {
     }
 
     override fun init() {
-        /* TODO: ...
+        /*
         if (self.getType1() === TYPE_ELECTRIC || self.getType2() === TYPE_ELECTRIC) {
             self.removeNonVolatileStatus()
         }

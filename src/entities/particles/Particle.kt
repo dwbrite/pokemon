@@ -37,10 +37,10 @@ open class Particle(x: Int, y: Int, spriteSheet: Image, protected var depthOffse
 
     override fun update(gc: GameContainer) {
         uniqueUpdates()
-        if(isDead()) {
+        if (isDead()) {
             EntityManager.remove(this.toString())
         }
-        depth = y / 16.0 + depthOffset
+        updateDepth()
         currentImage = animation.currentFrame
     }
 
@@ -61,5 +61,9 @@ open class Particle(x: Int, y: Int, spriteSheet: Image, protected var depthOffse
 
     fun setSwitchTicks(frames: Int) {
         tickSwitch = frames.toLong()
+    }
+
+    override fun updateDepth() {
+        depth = y / 16.0 + depthOffset
     }
 }

@@ -19,34 +19,6 @@ class NormalGrassParticle(x: Int, y: Int, private val parent: GameCharacter) : P
             hasParentFinishedStep = true
         }
 
-        /* TODO: Remove this. This __should__ be elsewhere - probably in the gamestatemachine?
-        if (parent is Player && hasParentFinishedStep && !pokemonChecked) {
-            /* TODO: create transition effects
-	         * Water: Wave Distort
-             * 		Wave "Shadow"
-             * Grass: Black horizontal lines
-             *		White thick lines
-             * Cave: Pixelate
-             * 		Boxes closing ish
-             */
-
-            pokemonChecked = true
-
-            val f = Math.random()
-
-            if (f < 0.1) {
-                //Enters a Pokemon Battle
-                val mon = Pokemon.generateWildPokemon(0, RegionManager.currentArea.wildlifeData)
-                BattleManager.currentBattle = WildBattle(Resources.ARENA["Grass 2"], mon, EntityManager.getEntity("player") as Trainer)
-                println(mon)
-                val transition = 0
-                GameStateMachine.transitionToBattle(transition)
-                parent.busy = true
-                parent.currentAction = GameCharacter.Action.IDLING
-            }
-        }
-        */
-
         if (Main.ticks - startingTick >= 52 && !isStepOffActivated && (parent.x != x || parent.y != y)) {
             stepOffTick = Main.ticks + 11
             isStepOffActivated = true

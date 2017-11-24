@@ -11,7 +11,7 @@ open class Trainer(x: Int, y: Int, spritesheet: Image) : GameCharacter(x, y, spr
     internal var party = arrayOfNulls<Pokemon?>(6)
 
     open val firstConsciousMonster: Pokemon?
-        get() { //TODO: check if this works.
+        get() {
             return party.indices
                     .firstOrNull { party[it] != null && party[it]!!.isConscious }
                     ?.let { party[it]!! }
@@ -22,13 +22,13 @@ open class Trainer(x: Int, y: Int, spritesheet: Image) : GameCharacter(x, y, spr
     }
 
     fun getPartyMember(position: Int): Pokemon? {
-        //TODO: Error checking
+        //TODO("Error checking")
         return party[position]
     }
 
     fun setParty(party: Array<Pokemon>) {
         if (party.size > 6)
-            println("FUCK YOU.") //TODO: this
+        //TODO("don't let the player cheat?")
         else {
             for (i in party.indices) {
                 setPartyMember(i, party[i])

@@ -4,7 +4,7 @@ import entities.characters.GameCharacter
 import handlers.Resources
 import main.Main
 
-public class GrassJump(x: Int, y: Int, private var parent: GameCharacter): Particle(x, y, Resources.PARTICLE["Grass Jump"]!!, 0.1) {
+class GrassJump(x: Int, y: Int, private var parent: GameCharacter) : Particle(x, y, Resources.PARTICLE["Grass Jump"]!!, 0.1) {
 
     private var isStepOffActivated = false
     private var stepOffTick: Long = 0

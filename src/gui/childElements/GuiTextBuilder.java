@@ -51,7 +51,7 @@ public class GuiTextBuilder {
 	
 	private static Color[] defaultColorset;
 	
-	//TODO: figure out this
+	//TODO("fix broken file")
 // static... Setting color sets... It *might* just be "static { ... }, even.  Maybe init?
 	static {
 		colorSets.set(KEY_CS_FEMALEDATA, new Color[]{new Color(248, 24, 168), new Color(208, 208, 200)});

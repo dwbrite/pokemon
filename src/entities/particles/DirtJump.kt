@@ -4,9 +4,11 @@ import entities.characters.GameCharacter
 import handlers.Resources
 import main.Main
 
-public class DirtJump(x: Int, y: Int, private var parent: GameCharacter): Particle(x, y, Resources.PARTICLE["Dirt Jump"]!!, -1.0) {
+class DirtJump(x: Int, y: Int, private var parent: GameCharacter) : Particle(x, y, Resources.PARTICLE["Dirt Jump"]!!, -1.0) {
 
-    init { setTickLimit(32) }
+    init {
+        setTickLimit(32)
+    }
 
     override fun uniqueUpdates() {
         if (Main.ticks - startingTick < 16) {

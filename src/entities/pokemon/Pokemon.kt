@@ -1,12 +1,14 @@
 package entities.pokemon
 
-import entities.characters.Player
 import battle.status.nonVt.NonVolatileStatus
 import battle.status.volatileStatus.VolatileStatus
 import battle.status.vtBattle.VolatileBattleStatus
+import entities.characters.Player
 import org.apache.commons.csv.CSVRecord
-
 import java.util.ArrayList
+import kotlin.collections.HashMap
+import kotlin.collections.List
+import kotlin.collections.indices
 
 class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, protected var pokerusInfection: Boolean, level: Int, protected var abilitySlot: Int, protected var individualGender: Gender, protected var individualNature: Nature) {
     // Species
@@ -83,7 +85,6 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
      *
      * @return the amount of XP left until the next level up
      */
-    //TODO: fix the heck out of this crap. ??
     val levelUpExp: Int
         get() {
             val n = this.level + 1
@@ -116,7 +117,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         }
 
     val name: String
-        get() = nickname?:Species.getData(species, Species.Column.POKEMON_NAME)
+        get() = nickname ?: Species.getData(species, Species.Column.POKEMON_NAME)
 
     init {
         this.species = species
@@ -136,8 +137,8 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         updateStats()
     }
 
-    fun catchPokemon(p: Player) {
-        //TODO: Catch pokemon, assign pokemon to player (or player's box)
+    fun catchPokemon(player: Player) {
+        //TODO("Catch pokemon, assign pokemon to player (or player's box)")
     }
 
     private fun updateAbility() {
@@ -190,7 +191,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         this.level++
         this.updateStats()
         this.checkEvolve()
-        //TODO: Update moves / ask *player* if they want new moves.
+        //TODO("Update moves / ask *player* if they want new moves.")
         //If the Pokemon does not belong to a PLAYER don't do anything.
         //New comment: Does this ^ even need to be said? Can non-player 'mon even level up?
     }
@@ -209,7 +210,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
 
         for (stat in SpeciesStat.values()) {
             this.totalValue[stat.ordinal] = (this.iVs[stat.ordinal] + Integer.valueOf(Species.getData(species, Species.Column.getStatCol(stat)))!! + (Math.sqrt(this.eVs[stat.ordinal].toDouble()) / 8).toInt()) * this.level / 50 + 10
-            //this.totalValue[stat.ordinal()] = (int) (this.totalValue[stat.ordinal()] * this.natureModifier[stat.ordinal()]); // TODO read modifiers from CSV
+            //this.totalValue[stat.ordinal()] = (int) (this.totalValue[stat.ordinal()] * this.natureModifier[stat.ordinal()]); // TODO("read modifiers from CSV")
             gainedValues[stat.ordinal] = this.totalValue[stat.ordinal] - oldValues[stat.ordinal]
             this.currentValue[stat.ordinal] += gainedValues[stat.ordinal]
         }
@@ -231,7 +232,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
             statStage[stat.ordinal] = 6
         else if (statVal < -6)
             statStage[stat.ordinal] = -6
-        else { //TODO: battle stats?
+        else { //TODO("battle stats?")
             when (stat) {
                 Pokemon.BattleStat.ATK, Pokemon.BattleStat.DEF, Pokemon.BattleStat.SPATK, Pokemon.BattleStat.SPDEF, Pokemon.BattleStat.SPEED -> {
                     numerator = if (statVal > 0) 2f + statVal else 2f
@@ -387,7 +388,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         fun generateWildPokemon(ecosystem: Int, wildlifeRecord: List<CSVRecord>): Pokemon {
             val speciesList = ArrayList<String>()
             val numWildlife = wildlifeRecord.size
-            //TODO: check for time. For now we're going to assume daytime
+            //TODO("check for time. For now we're going to assume it's daytime")
             val chances = DoubleArray(numWildlife - 3)
 
             //Species

@@ -25,7 +25,7 @@ class nvtsBurn(self: Pokemon) : NonVolatileStatus() {
     }
 
     override fun init() {
-        /*TODO: Fix type getting
+        /*TODO("Fix type getting")
 		if ((self.getType1() == TYPE_FIRE || self.getType2() == TYPE_FIRE
 				     || self.getAbility().equals("Water Veil"))) {
 			self.removeNonVolatileStatus();

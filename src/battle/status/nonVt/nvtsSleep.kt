@@ -23,7 +23,7 @@ class nvtsSleep : NonVolatileStatus {
     }
 
     override fun beginTurnUpdate() {
-        //TODO: Wake up or sleep
+        //TODO("Wake up or sleep")
         if (turnsSlept == numSleepTurns) {
             //Wake up
             remove()

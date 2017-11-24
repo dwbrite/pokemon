@@ -89,4 +89,6 @@ public abstract class AbstractEntity {
 		this.width = width;
 		this.height = height;
 	}
+	
+	public void updateDepth() { depth = y / 16.0; }
 }

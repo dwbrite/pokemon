@@ -20,12 +20,12 @@ class nvtsFreeze(self: Pokemon) : NonVolatileStatus() {
         //play animation
         /* ... */
 
-        //TODO: Skip turn
+        //TODO("Skip turn")
     }
 
     override fun init() {
-        //TODO: sunny battle
-        /* TODO: what even is this?
+        //TODO("sunny battle")
+        /*
 		if (self.getType1() == TYPE_ICE || self.getType2() == TYPE_ICE) {
 			self.removeNonVolatileStatus();
 		}*/

@@ -1,9 +1,9 @@
 package region
 
-import region.area.Area
 import handlers.Camera
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
+import region.area.Area
 
 object RegionManager {
     val KANTO = 0
@@ -42,7 +42,7 @@ object RegionManager {
     }
 
     fun setCurrentArea(areaKey: Pair<String, String>) {
-        /*TODO:*/
+        currentArea = area[areaKey]!!
     }
 
     fun addArea(area: Area) {
