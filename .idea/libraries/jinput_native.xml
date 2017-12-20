@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jinput_native">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dep/native" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/dep/native" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>
