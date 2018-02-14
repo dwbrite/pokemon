@@ -26,13 +26,11 @@ class InGameState : AbstractGameState() {
 
     override fun render(gc: GameContainer, g: Graphics) {
         RegionManager.render(gc, g)
-        guiman.render(gc, g)
     }
 
     override fun update(gc: GameContainer) {
         RegionManager.update(gc)
         Camera.update()
-        guiman.update(gc)
 
         fun ClosedRange<Int>.random() = Random().nextInt(endInclusive - start) + start
 

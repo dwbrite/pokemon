@@ -2,6 +2,9 @@
   <code_scheme name="Project" version="173">
     <option name="AUTODETECT_INDENTS" value="false" />
     <option name="LINE_SEPARATOR" value="&#10;" />
+    <MarkdownNavigatorCodeStyleSettings>
+      <option name="RIGHT_MARGIN" value="72" />
+    </MarkdownNavigatorCodeStyleSettings>
     <codeStyleSettings language="JAVA">
       <option name="BLANK_LINES_AROUND_FIELD_IN_INTERFACE" value="1" />
       <option name="KEEP_SIMPLE_BLOCKS_IN_ONE_LINE" value="true" />

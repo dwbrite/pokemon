@@ -1,6 +1,5 @@
 package main;
 
-import battle.Move;
 import gamestate.GameStateMachine;
 import handlers.Resources;
 import org.newdawn.slick.BasicGame;
@@ -29,9 +28,6 @@ public class Game extends BasicGame {
 	public void update(GameContainer gc, int delta) throws SlickException {
 		if (!Resources.isReady()) {
 			Resources.initPool();
-			Move m = new Move(8);
-			m.selectTarget();
-			m.execute();
 			GameStateMachine.init(gc);
 			Resources.setReady(true);
 		} else {
