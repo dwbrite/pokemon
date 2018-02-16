@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="8" tileheight="8">
- <tileset firstgid="1" name="1" tilewidth="8" tileheight="8">
+<map version="1.0" tiledversion="1.1.0" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="8" tileheight="8" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" name="1" tilewidth="8" tileheight="8" tilecount="9" columns="9">
   <image source="../TileSets/Borders/1.png" width="72" height="8"/>
  </tileset>
- <tileset firstgid="10" name="dialogue" tilewidth="8" tileheight="8">
+ <tileset firstgid="10" name="dialogue" tilewidth="8" tileheight="8" tilecount="17" columns="17">
   <image source="../TileSets/Borders/dialogue.png" width="136" height="8"/>
  </tileset>
  <layer name="Tile Layer 1" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJzt00cKwDAMRFE5vfd+/4Nm1gZDUBx5EQnezuiDwIaIIqaY+JNAypRpV7va/aRr6Nlf99117bPfhurmUDCVL7q+J1TXdT/7NhXU0AhpoYMeZmHDD7sjTILNBVbYYIdDyAkX3AokEZ4=
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3TRwrAMAxEUTm9937/g2bWBkNQHHkRCd7O6IPAhogippj4k0DKlGlXu9r9pGvo2V/33XXts9+G6uZQMJUvur4nVNd1P/s2FdTQCGmhgx5mYcMPuyNMgs0FVthgh0PICRfcNi6iDGAJAAA=
   </data>
  </layer>
 </map>

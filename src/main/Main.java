@@ -9,13 +9,13 @@ import org.newdawn.slick.SlickException;
 import java.io.File;
 
 public class Main {
-	public static final int WIDTH = 400;
+	public static final int WIDTH = 240;
 	
-	public static final int HEIGHT = 240;
+	public static final int HEIGHT = 160;
 	
 	public static long ticks;
 	
-	public static int scale = 1;
+	public static int scale = 2;
 	
 	public static AppGameContainer app;
 	

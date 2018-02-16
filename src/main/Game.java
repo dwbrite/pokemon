@@ -1,6 +1,7 @@
 package main;
 
 import gamestate.GameStateMachine;
+import gui.GuiManager;
 import handlers.Resources;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -17,7 +18,7 @@ public class Game extends BasicGame {
 		if (!Resources.isReady()) {
 			Resources.getSplashImage().draw();
 		} else {
-			GameStateMachine.render(gc, g);
+			GameStateMachine.INSTANCE.render(gc, g);
 		}
 	}
 	
@@ -28,10 +29,11 @@ public class Game extends BasicGame {
 	public void update(GameContainer gc, int delta) throws SlickException {
 		if (!Resources.isReady()) {
 			Resources.initPool();
-			GameStateMachine.init(gc);
+			GameStateMachine.INSTANCE.init(gc);
+			GuiManager.init(gc);
 			Resources.setReady(true);
 		} else {
-			GameStateMachine.update(gc);
+			GameStateMachine.INSTANCE.update(gc);
 		}
 		Main.ticks++;
 	}

@@ -3,6 +3,7 @@ package gamestate
 import entities.EntityManager
 import entities.characters.GameCharacter
 import entities.characters.Player
+import gui.GuiManager
 import handlers.Camera
 import handlers.Resources
 import handlers.controls.Controls
@@ -26,6 +27,7 @@ class InGameState : AbstractGameState() {
 
     override fun render(gc: GameContainer, g: Graphics) {
         RegionManager.render(gc, g)
+        GuiManager.render(gc, g)
     }
 
     override fun update(gc: GameContainer) {

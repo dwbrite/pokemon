@@ -4,7 +4,7 @@ import entities.AbstractEntity
 import entities.EntityManager
 import entities.characters.GameCharacter
 import handlers.Camera
-import handlers.Misc
+import handlers.Resources
 import handlers.controls.Controls.InputDir.*
 import main.Main
 import org.apache.commons.csv.CSVFormat
@@ -162,15 +162,15 @@ class Area(var areaKey: Pair<String, String>,
 
     fun updateAnimationFrames() {
         if (Main.ticks % 16 == 1L) {
-            Misc.flowerFrame = Misc.flowerFrame + 1
-            if (Misc.flowerFrame > 4) {
-                Misc.flowerFrame = 0
+            Resources.flowerFrame = Resources.flowerFrame + 1
+            if (Resources.flowerFrame > 4) {
+                Resources.flowerFrame = 0
             }
         }
         if (Main.ticks % 16 == 0L) {
-            Misc.waterFrame = Misc.waterFrame + 1
-            if (Misc.waterFrame > 7) {
-                Misc.waterFrame = 0
+            Resources.waterFrame = Resources.waterFrame + 1
+            if (Resources.waterFrame > 7) {
+                Resources.waterFrame = 0
             }
         }
     }
@@ -184,19 +184,19 @@ class Area(var areaKey: Pair<String, String>,
 
                 if (floorTile in 52..57) {
                     floorTile = 52
-                    area.setTileId(j, i, area.getLayerIndex("Floor"), floorTile + Misc.flowerFrame)
+                    area.setTileId(j, i, area.getLayerIndex("Floor"), floorTile + Resources.flowerFrame)
                 }
                 if (floorTile in 44..51) {
                     floorTile = 44
-                    area.setTileId(j, i, area.getLayerIndex("Floor"), floorTile + Misc.waterFrame)
+                    area.setTileId(j, i, area.getLayerIndex("Floor"), floorTile + Resources.waterFrame)
                 }
                 if (interactiveTile in 64..79) {
                     interactiveTile = if (interactiveTile % 2 == 0) 64 else 65
-                    area.setTileId(j, i, area.getLayerIndex("Interactive"), interactiveTile + 2 * Misc.waterFrame)
+                    area.setTileId(j, i, area.getLayerIndex("Interactive"), interactiveTile + 2 * Resources.waterFrame)
                 }
                 if (interactiveTile in 84..99) {
                     interactiveTile = if (interactiveTile % 2 == 0) 84 else 85
-                    area.setTileId(j, i, area.getLayerIndex("Interactive"), interactiveTile + 2 * Misc.waterFrame)
+                    area.setTileId(j, i, area.getLayerIndex("Interactive"), interactiveTile + 2 * Resources.waterFrame)
                 }
             }
         }

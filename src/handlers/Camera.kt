@@ -23,7 +23,7 @@ object Camera {
         if (isFollowing) {
             Camera.setPosition(followedEntity!!.x - (Main.WIDTH / 2 - 8), followedEntity!!.y - (Main.HEIGHT / 2 - 8))
         }
-        RegionManager.currentArea.setPosition(-x, -y)
+        RegionManager.currentArea.setPosition(- x, -y)
     }
 
     fun isEntityInBounds(entity: AbstractEntity): Boolean {
