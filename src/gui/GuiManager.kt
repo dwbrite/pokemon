@@ -10,12 +10,15 @@ object GuiManager {
 
     @JvmStatic
     fun init(gc: GameContainer) {
-        var text = Text("RED used SURF or something.\n" +
-                "The quick brown fox jumps over the lazy dog.", 4, 0)
-        var mb = MappedBox(TiledMap("Maps/chooseapkmn.tmx"))
+        //*/
+        var text = Text("RED used SURF (or something)*&^!@#$%.\n" +
+                "The quick brown fox jumps over the lazy dog.", 12, 124)
+        var mb = MappedBox(TiledMap("Maps/battleTextArea.tmx"))
 
-        elements.add(text)
+
         elements.add(mb)
+        elements.add(text)
+        // */
     }
 
     @JvmStatic
@@ -25,6 +28,7 @@ object GuiManager {
 
     @JvmStatic
     fun update(gc: GameContainer) {
+        //
         elements.forEach({ it.update(gc) })
     }
 }

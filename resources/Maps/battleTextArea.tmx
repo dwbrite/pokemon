@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="8" tileheight="8">
- <tileset firstgid="1" name="battle" tilewidth="8" tileheight="8">
+<map version="1.0" tiledversion="1.1.0" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="8" tileheight="8" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" name="battle" tilewidth="8" tileheight="8" tilecount="13" columns="13">
   <image source="../TileSets/Borders/battle.png" width="104" height="8"/>
  </tileset>
  <layer name="Tile Layer 1" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJztzccNACAAw0B6Z/918RThE0v3dgjOOefc/yISskhBRUMXG/7KvhMLW+Tg4gHhqwTt
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3Nxw0AIADDQHpn/3XxFOETS/d2CM4559z/IhKySEFFQxcb/sq+Ewtb5ODiAVODIeRgCQAA
   </data>
  </layer>
 </map>

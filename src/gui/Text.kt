@@ -30,7 +30,7 @@ open class Text(text: String, private var x: Int, private var y: Int) : GuiEleme
     override fun render(gc: GameContainer, g: Graphics) {
         for ( i in 0 until textArray.size) {
             FONT.drawString(x.toFloat(),
-                    y.toFloat() + FONT.lineHeight + i * height, textArray[i], Color(0,0,0))
+                    y.toFloat() - FONT.lineHeight + (i * height) - 3, textArray[i], Color(0,0,0))
         }
 
         //FONT.drawString(x.toFloat(), y.toFloat(), text, Color(0,0,0))
