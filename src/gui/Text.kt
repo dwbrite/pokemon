@@ -11,16 +11,29 @@ import java.io.FileInputStream
 
 }*/
 
-open class Text(private var text: String, private var x: Int, private var y: Int) : GuiElement {
+open class Text(text: String, private var x: Int, private var y: Int) : GuiElement {
     private var shadow =  true
-    private val width = Main.WIDTH / 8
-    private val height = 6
+    private val width = Main.WIDTH / 8 //???
+    private val height = 15
 
+    private var textArray: ArrayList<String> = ArrayList()
+
+    init {
+        textArray = text.split("\n") as ArrayList<String>
+        for ( i in 0 until textArray.size) {
+            textArray[i] = " \n" + textArray[i]
+        }
+    }
 
     override fun update(gc: GameContainer) {}
 
     override fun render(gc: GameContainer, g: Graphics) {
-        FONT.drawString(x.toFloat(), y.toFloat(), text, Color(0,0,0))
+        for ( i in 0 until textArray.size) {
+            FONT.drawString(x.toFloat(),
+                    y.toFloat() + FONT.lineHeight + i * height, textArray[i], Color(0,0,0))
+        }
+
+        //FONT.drawString(x.toFloat(), y.toFloat(), text, Color(0,0,0))
     }
 }
 

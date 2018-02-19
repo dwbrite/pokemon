@@ -19,7 +19,7 @@ object Resources {
     @JvmStatic var userBorder = 26 //TODO(check that this is never over 28 at some point. Maybe.
 
     //@JvmStatic val FONT = generateFontFromName("Power Red and Green", 11)
-    @JvmStatic val FONT = generateFontFromUrl("resources/Fonts/PowerRedandGreen.ttf", 12f)!!
+    @JvmStatic val FONT = generateFontFromUrl("resources/Fonts/PocketPower.ttf", 10f)!!
 
     @JvmStatic var isReady = false
     @JvmStatic val SPRITESHEET: HashMap<String, Image> = HashMap()
@@ -87,7 +87,13 @@ object Resources {
 
             val uf = UnicodeFont(f)
             uf.addAsciiGlyphs()
-            uf.addGlyphs("""ßé0123456789!-…‥«»<'"♂♀$,*/ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\u20BD:ÄÖÜ""")
+            uf.addGlyphs("""ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                abcdefghijklmnopqrstuvwxyz
+                0123456789
+                .,“”‘’"'?!@_*#${'$'}%&()+-/:;<=>[\]^`{|}~¡¿
+                ÀÁÂÄÇÈÉÊËÌÍÎÏÑÒÓÔÖ×ÙÚÛÜß
+                àáâäçèéêëìíîïñòóôöùúûüŒœʟ…
+                ₽℠℡℻←↑→↓►◄♂♀""")
             uf.effects.add(ColorEffect())
             uf.loadGlyphs()
             uf
