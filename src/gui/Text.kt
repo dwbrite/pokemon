@@ -1,17 +1,13 @@
 package gui
 
+import handlers.Resources.FontColor
 import handlers.Resources.FONT
 import main.Main
 import org.newdawn.slick.*
-import org.newdawn.slick.font.effects.ColorEffect
-import java.awt.Font
-import java.io.FileInputStream
 
-/*object Text {
+open class Text(text: String, private var x: Int, private var y: Int, var color: FontColor) : GuiElement {
 
-}*/
 
-open class Text(text: String, private var x: Int, private var y: Int) : GuiElement {
     private var shadow =  true
     private val width = Main.WIDTH / 8 //???
     private val height = 15
@@ -28,12 +24,18 @@ open class Text(text: String, private var x: Int, private var y: Int) : GuiEleme
     override fun update(gc: GameContainer) {}
 
     override fun render(gc: GameContainer, g: Graphics) {
-        for ( i in 0 until textArray.size) {
-            FONT.drawString(x.toFloat(),
-                    y.toFloat() - FONT.lineHeight + (i * height) - 3, textArray[i], Color(0,0,0))
+        if(shadow) {
+            drawText(x.toFloat()+1, y.toFloat(), color.background)
+            drawText(x.toFloat(), y.toFloat()+1, color.background)
+            drawText(x.toFloat()+1, y.toFloat()+1, color.background)
         }
+        drawText(x.toFloat(), y.toFloat(), color.foreground)
+    }
 
-        //FONT.drawString(x.toFloat(), y.toFloat(), text, Color(0,0,0))
+    private fun drawText(x: Float, y: Float, color: Color) {
+        for ( i in 0 until textArray.size) {
+            FONT.drawString(x, y - FONT.lineHeight + (i * height) - 3, textArray[i], color)
+        }
     }
 }
 

@@ -3,6 +3,7 @@ package handlers
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import org.apache.commons.csv.CSVRecord
+import org.newdawn.slick.Color
 import org.newdawn.slick.Image
 import org.newdawn.slick.SpriteSheet
 import org.newdawn.slick.UnicodeFont
@@ -18,8 +19,23 @@ object Resources {
     @JvmStatic var waterFrame: Int = 0
     @JvmStatic var userBorder = 26 //TODO(check that this is never over 28 at some point. Maybe.
 
-    //@JvmStatic val FONT = generateFontFromName("Power Red and Green", 11)
     @JvmStatic val FONT = generateFontFromUrl("resources/Fonts/PocketPower.ttf", 10f)!!
+
+    enum class FontColor(val foreground: Color, val background: Color) {
+        NORMAL(             Color(96,96,96),    Color(208,208,200)),
+        NORMAL_VARIATION(   Color(64,64,64),    Color(216,216,192)),
+
+        LIGHT(              Color(248,248,248), Color(96,96,96)),
+        LIGHT_VARIATION(    Color(248,248,248), Color(120,128,144)),
+
+        MALE(               Color(48,80,200),   Color(208,208,200)),
+        MALE_VARIATION(     Color(32,128,248),  Color(208,208,200)),
+
+        FEMALE(             Color(224,8,8),     Color(208,208,200)),
+        FEMALE_VARIATION(   Color(248,24,168),  Color(208,208,200)),
+
+        OPTION(             Color(248,184,112), Color(224,8,8))
+    }
 
     @JvmStatic var isReady = false
     @JvmStatic val SPRITESHEET: HashMap<String, Image> = HashMap()
