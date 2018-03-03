@@ -14,10 +14,9 @@ object GuiManager {
     fun init(gc: GameContainer) {
         var text = Text("RED used SURF (or something).\n" +
                 "The quick brown fox jumps over the...", 12, 124, Resources.FontColor.LIGHT)
-        var mb = MappedBox(TiledMap("Maps/battleTextArea.tmx"))
-
-        elements.add(mb)
-        elements.add(text)
+        var box = Box(16, 6, 0,64)
+        elements.add(box)
+        //elements.add(text)
     }
 
     @JvmStatic

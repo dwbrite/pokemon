@@ -40,23 +40,22 @@ open class Box(private var w: Int, private var h: Int, private var x: Int, priva
     }
 
     override fun render(gc: GameContainer, g: Graphics) {
-        for (i: Int in 0..w) for (j: Int in 0..h) {
-            val X = x+i*8
-            val Y = y+j*8
-            when {
-                i == 0 && j == 0 -> Tile.TOP_LEFT.draw(X, Y)
-                i == 0 && j == h -> Tile.BOT_LEFT.draw(X, Y)
-                i == w && j == 0 -> Tile.TOP_RIGHT.draw(X, Y)
-                i == w && j == h -> Tile.BOT_RIGHT.draw(X, Y)
+        Tile.TOP_LEFT.draw(x, y)
+        Tile.TOP_RIGHT.draw(x + (8 * w), y)
+        Tile.BOT_LEFT.draw(x, y + (8 * h))
+        Tile.BOT_RIGHT.draw(x + (8 * w), y + (8 * h))
 
-                i == 0 -> Tile.LEFT.draw(X, Y)
-                i == w -> Tile.RIGHT.draw(X, Y)
-                j == 0 -> Tile.TOP.draw(X, Y)
-                j == h -> Tile.BOT.draw(X, Y)
-
-                else -> Tile.CENTER.draw(X, Y)
-            }
+        for (i: Int in 1 until w) {
+            Tile.TOP.draw(x + (8 * i), y)
+            Tile.BOT.draw(x + (8 * i), y + (8 * h))
         }
+
+        for (i: Int in 1 until h) {
+            Tile.LEFT.draw(x, y + (8 * i))
+            Tile.RIGHT.draw(x + (8 * w), y + (8 * i))
+        }
+
+        Tile.CENTER.image.draw(x+8f,y+8f,w*8-8f, h*8-8f)
     }
 
     override fun update(gc: GameContainer) {
