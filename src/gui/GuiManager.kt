@@ -6,8 +6,6 @@ import org.newdawn.slick.Graphics
 import org.newdawn.slick.tiled.TiledMap
 
 object GuiManager {
-
-
     val elements = ArrayList<GuiElement>()
 
     @JvmStatic
@@ -24,7 +22,7 @@ object GuiManager {
         elements.forEach({ it.render(gc, g) })
     }
 
-    @JvmStatic
+        @JvmStatic
     fun update(gc: GameContainer) {
         elements.forEach({ it.update(gc) })
     }

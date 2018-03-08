@@ -4,23 +4,20 @@ import handlers.Camera
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import region.area.Area
+import region.area.Cardinality
+import region.area.Cardinality.*
 
 object RegionManager {
-    val KANTO = 0
-
     val area = HashMap<Pair<String, String>, Area>()
     lateinit var currentArea: Area
 
-    val northArea: Area get() = getArea(currentArea.northArea)
-    val southArea: Area get() = getArea(currentArea.southArea)
-    val westArea: Area get() = getArea(currentArea.westArea)
-    val eastArea: Area get() = getArea(currentArea.eastArea)
+    fun getNeighbor(dir: Cardinality): Area
+    { return currentArea.neighbor[dir]!! }
 
     @JvmStatic
     fun init(gc: GameContainer) {
         Kanto.init()
-        for (name in area.keys)
-            area[name]!!.init(gc)
+        for (area in area.values) area.init()
         currentArea = getArea(Pair("Kanto", "Pallet Town"))
         Camera.update()
     }

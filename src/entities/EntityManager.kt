@@ -7,6 +7,7 @@ import handlers.controls.Controls.InputDir.*
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import region.RegionManager
+import region.area.Cardinality
 
 object EntityManager {
     private val entityMap = EntityMap()
@@ -33,17 +34,13 @@ object EntityManager {
     }
 
     fun update(gc: GameContainer) {
-        for (key in entityMap.entityList) {
-            if (Camera.isEntityInBounds(entityMap[key]!!)) {
-                entityMap[key]!!.setCollision()
-            }
-        }
+        entityMap.entityList
+                .filter { Camera.isEntityInBounds(entityMap[it]!!) }
+                .forEach { entityMap[it]!!.setCollision() }
 
-        for (key in entityMap.entityList) {
-            if (entityMap[key] is Particle || Camera.isEntityInBounds(entityMap[key]!!)) {
-                entityMap[key]!!.update(gc)
-            }
-        }
+        entityMap.entityList
+                .filter { entityMap[it] is Particle || Camera.isEntityInBounds(entityMap[it]!!) }
+                .forEach { entityMap[it]!!.update(gc) }
 
         entityMap.update()
     }
@@ -59,20 +56,20 @@ object EntityManager {
     fun getEntity(name: String) = entityMap[name]
 
     fun areaSwitch(direction: Controls.InputDir) {
-        var yOffset = when (direction) {
+        val yOffset = when (direction) {
             UP -> RegionManager.currentArea.height * 16
-            DOWN -> -RegionManager.northArea.height * 16
+            DOWN -> -RegionManager.getNeighbor(Cardinality.NORTH).height * 16
             else -> 0
         }
 
-        var xOffset = when (direction) {
-            LEFT -> RegionManager.westArea.height * 16
+        val xOffset = when (direction) {
+            LEFT -> RegionManager.getNeighbor(Cardinality.WEST).height * 16
             RIGHT -> -RegionManager.currentArea.height * 16
             else -> 0
         }
 
         for (key in entityMap.entityList) {
-            var temp = entityMap[key]!!
+            val temp = entityMap[key]!!
             temp.setPosition(temp.getX() + xOffset, temp.getY() + yOffset)
             temp.updateDepth()
         }

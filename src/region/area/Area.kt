@@ -14,28 +14,49 @@ import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.tiled.TiledMap
 import region.RegionManager
-import region.RegionManager.getArea
 import java.io.File
 import java.nio.charset.Charset
 import java.util.*
+import region.area.Cardinality.*
+
+enum class Cardinality {
+    NORTH,
+    SOUTH,
+    EAST,
+    WEST
+}
 
 class Area(var areaKey: Pair<String, String>,
            path: String,
            wildlifeCsv: String,
-           var northArea: Pair<String, String>,
-           var southArea: Pair<String, String>,
-           var eastArea: Pair<String, String>,
-           var westArea: Pair<String, String>) {
+           var areaKeyPair: HashMap<Cardinality, Pair<String, String>>) {
 
     constructor (areaKey: Pair<String, String>,
                  path: String,
-                 wildlifeCsv: String) : this(areaKey, path, wildlifeCsv,
-            Pair(areaKey.first, "Clear"),
-            Pair(areaKey.first, "Clear"),
-            Pair(areaKey.first, "Clear"),
-            Pair(areaKey.first, "Clear"))
+                 wildlifeCsv: String) : this(areaKey, path, wildlifeCsv, HashMap<Cardinality, Pair<String, String>>()) {
+        areaKeyPair[NORTH] = Pair(areaKey.first, "Clear")
+        areaKeyPair[SOUTH] = Pair(areaKey.first, "Clear")
+        areaKeyPair[EAST] = Pair(areaKey.first, "Clear")
+        areaKeyPair[WEST] = Pair(areaKey.first, "Clear")
+    }
 
-    protected lateinit var area: TiledMap
+    constructor (areaKey: Pair<String, String>,
+                 path: String,
+                 wildlifeCsv: String,
+                 northAreaKey: Pair<String, String>? = Pair(areaKey.first, "Clear"),
+                 southAreaKey: Pair<String, String>? = Pair(areaKey.first, "Clear"),
+                 westAreaKey: Pair<String, String>? = Pair(areaKey.first, "Clear"),
+                 eastAreaKey: Pair<String, String>? = Pair(areaKey.first, "Clear")
+                 ) : this(areaKey, path, wildlifeCsv, HashMap<Cardinality, Pair<String, String>>()) {
+        areaKeyPair[NORTH] = northAreaKey!!
+        areaKeyPair[SOUTH] = southAreaKey!!
+        areaKeyPair[EAST] = eastAreaKey!!
+        areaKeyPair[WEST] = westAreaKey!!
+    }
+
+    private lateinit var map: TiledMap
+
+    internal val neighbor = HashMap<Cardinality, Area>()
 
     var name = ""
 
@@ -52,7 +73,6 @@ class Area(var areaKey: Pair<String, String>,
     lateinit var collisionMap: Array<IntArray>
     lateinit var wildlifeData: List<CSVRecord>
     var entities = HashMap<String, AbstractEntity>()
-    var entityList = ArrayList<String>()
 
     lateinit var region: String
 
@@ -71,7 +91,7 @@ class Area(var areaKey: Pair<String, String>,
 
     init {
         try {
-            area = TiledMap(path)
+            map = TiledMap(path)
 
             val csvData = File(wildlifeCsv)
             val parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.EXCEL)
@@ -80,40 +100,40 @@ class Area(var areaKey: Pair<String, String>,
             e.printStackTrace()
         }
 
-        width = area.width
-        height = area.height
+        width = map.width
+        height = map.height
         name = areaKey.second
     }
 
     fun render(gc: GameContainer, g: Graphics) {
-        getArea(northArea).updateRenderedAnimations()
-        getArea(westArea).updateRenderedAnimations()
+        neighbor[NORTH]!!.updateRenderedAnimations()
+        neighbor[WEST]!!.updateRenderedAnimations()
         updateRenderedAnimations()
-        getArea(eastArea).updateRenderedAnimations()
-        getArea(southArea).updateRenderedAnimations()
+        neighbor[EAST]!!.updateRenderedAnimations()
+        neighbor[SOUTH]!!.updateRenderedAnimations()
 
-        getArea(northArea).renderFloor(x, y - getArea(northArea).height * 16)
+        neighbor[NORTH]!!.renderFloor(x, y - neighbor[NORTH]!!.height * 16)
         renderFloor(x, y)
-        getArea(southArea).renderFloor(x, y + height * 16)
+        neighbor[SOUTH]!!.renderFloor(x, y + height * 16)
 
         EntityManager.render(gc, g)
 
-        getArea(northArea).renderSky(x, y - getArea(northArea).height * 16)
+        neighbor[NORTH]!!.renderSky(x, y - neighbor[NORTH]!!.height * 16)
         renderSky(x, y)
-        getArea(southArea).renderSky(x, y + height * 16)
+        neighbor[SOUTH]!!.renderSky(x, y + height * 16)
     }
 
-    fun renderFloor(x: Int, y: Int) {
-        area.render(x, y, area.getLayerIndex("Floor"))
-        area.render(x, y, area.getLayerIndex("Interactive"))
+    private fun renderFloor(x: Int, y: Int) {
+        map.render(x, y, map.getLayerIndex("Floor"))
+        map.render(x, y, map.getLayerIndex("Interactive"))
     }
 
-    fun renderSky(x: Int, y: Int) {
-        area.render(x, y, area.getLayerIndex("Sky"))
+    private fun renderSky(x: Int, y: Int) {
+        map.render(x, y, map.getLayerIndex("Sky"))
     }
 
     fun getCollisionValue(x: Int, y: Int): Int {
-        return collisionMap[x + getArea(westArea).width][y + getArea(northArea).height]
+        return collisionMap[x + neighbor[WEST]!!.width][y + neighbor[NORTH]!!.height]
     }
 
     fun update(gc: GameContainer) {
@@ -124,80 +144,68 @@ class Area(var areaKey: Pair<String, String>,
     }
 
     private fun updateCollisionMap() {
-        collisionMap = Array(width + getArea(westArea).width + getArea(eastArea).width) { IntArray(height + getArea(southArea).height + getArea(northArea).height) }
+        neighbor[NORTH]!!.updateCollisionMap(neighbor[WEST]!!.width, 0)
+        neighbor[WEST]!!.updateCollisionMap(0, neighbor[NORTH]!!.height)
+        updateCollisionMap(neighbor[WEST]!!.width, neighbor[NORTH]!!.height)
+        neighbor[EAST]!!.updateCollisionMap(neighbor[WEST]!!.width + width, neighbor[NORTH]!!.height)
+        neighbor[SOUTH]!!.updateCollisionMap(neighbor[WEST]!!.width, neighbor[NORTH]!!.height + height)
+    }
 
-        for (z in 0..4) {
-            val tempArea = if (z == 0) getArea(northArea) else if (z == 1) getArea(westArea) else if (z == 2) this else if (z == 3) getArea(eastArea) else getArea(southArea)
-            val xOffset = if (z == 0) getArea(westArea).width else if (z == 1) 0 else if (z == 2) getArea(westArea).width else if (z == 3) getArea(westArea).width + width else getArea(westArea).width
-            val yOffset = if (z == 0) 0 else if (z == 1) getArea(northArea).height else if (z == 2) getArea(northArea).height else if (z == 3) getArea(northArea).height else getArea(northArea).height + height
-
-            for (i in 0 until tempArea.height) {
-                for (j in 0 until tempArea.width) {
-                    when (tempArea.getTileId(j, i, tempArea.getLayerIndex("Interactive"))) {
-                    // No collision
-                        0 -> collisionMap[j + xOffset][i + yOffset] = Collide.NONE.ordinal
-                    //Cliff left
-                        7, 11 //4
-                        -> collisionMap[j + xOffset][i + yOffset] = Collide.LEFT_CLIFF.ordinal
-                    //Cliff right
-                        10, 12 //5
-                        -> collisionMap[j + xOffset][i + yOffset] = Collide.RIGHT_CLIFF.ordinal
-                    //Cliff down // 6
-                        27, 28, 29, 30 -> collisionMap[j + xOffset][i + yOffset] = Collide.DOWN_CLIFF.ordinal
-                        else -> collisionMap[j + xOffset][i + yOffset] = Collide.NORMAL.ordinal
-                    }
-                    when (tempArea.getTileId(j, i, tempArea.getLayerIndex("Floor"))) {
-                    //Grass
-                        3 ->
-                            //this.addEntity("Grass_"+j+"."+i+this, new Grass(j * 16, i * 16, "resources/TileSets/Sprites/grassRustle"));
-                            collisionMap[j + xOffset][i + yOffset] = 2
-                    //Dark grass
-                        6 -> {
-                        }
-                    }//this.addEntity("Grass_"+j+"."+i+this, new Grass(j * 16, i * 16, "resources/TileSets/Sprites/grassRustle"));
-                }
+    private fun updateCollisionMap(xOffset: Int, yOffset: Int) {
+        //TODO("Define collision and tile animations elsewhere")
+        for (y in 0 until height) for (x in 0 until width) {
+            when (map.getTileId(x, y, map.getLayerIndex("Interactive"))) {
+                0 -> collisionMap[x + xOffset][y + yOffset] = Collide.NONE.ordinal
+                7, 11 -> collisionMap[x + xOffset][y + yOffset] = Collide.LEFT_CLIFF.ordinal
+                10, 12 -> collisionMap[x + xOffset][y + yOffset] = Collide.RIGHT_CLIFF.ordinal
+                27, 28, 29, 30 -> collisionMap[x + xOffset][y + yOffset] = Collide.DOWN_CLIFF.ordinal
+                else -> collisionMap[x + xOffset][y + yOffset] = Collide.NORMAL.ordinal
+            }
+            when (map.getTileId(x, y, map.getLayerIndex("Floor"))) {
+                3 -> collisionMap[x + xOffset][y + yOffset] = Collide.GRASS.ordinal
+                6 -> collisionMap[x + xOffset][y + yOffset] = Collide.DARK_GRASS.ordinal
             }
         }
     }
 
-    fun updateAnimationFrames() {
-        if (Main.ticks % 16 == 1L) {
-            Resources.flowerFrame = Resources.flowerFrame + 1
-            if (Resources.flowerFrame > 4) {
-                Resources.flowerFrame = 0
-            }
-        }
+    private fun updateAnimationFrames() {
+        //TODO("Rename function to reflect proper purpose")
         if (Main.ticks % 16 == 0L) {
             Resources.waterFrame = Resources.waterFrame + 1
             if (Resources.waterFrame > 7) {
                 Resources.waterFrame = 0
             }
         }
+        if (Main.ticks % 16 == 1L) {
+            Resources.flowerFrame = Resources.flowerFrame + 1
+            if (Resources.flowerFrame > 4) {
+                Resources.flowerFrame = 0
+            }
+        }
     }
 
-    fun updateRenderedAnimations() {
-        for (i in 0 until height) {
-            for (j in 0 until width) {
-                var floorTile = area.getTileId(j, i, area.getLayerIndex("Floor"))
-                var interactiveTile = area.getTileId(j, i, area.getLayerIndex("Interactive"))
-                val skyTile = area.getTileId(j, i, area.getLayerIndex("Sky"))
+    private fun updateRenderedAnimations() {
+        //TODO("Rename function to reflect proper purpose")
+        for (y in 0 until height) for (x in 0 until width) {
+            var floorTile = map.getTileId(x, y, map.getLayerIndex("Floor"))
+            var interactiveTile = map.getTileId(x, y, map.getLayerIndex("Interactive"))
+            val skyTile = map.getTileId(x, y, map.getLayerIndex("Sky"))
 
-                if (floorTile in 52..57) {
-                    floorTile = 52
-                    area.setTileId(j, i, area.getLayerIndex("Floor"), floorTile + Resources.flowerFrame)
-                }
-                if (floorTile in 44..51) {
-                    floorTile = 44
-                    area.setTileId(j, i, area.getLayerIndex("Floor"), floorTile + Resources.waterFrame)
-                }
-                if (interactiveTile in 64..79) {
-                    interactiveTile = if (interactiveTile % 2 == 0) 64 else 65
-                    area.setTileId(j, i, area.getLayerIndex("Interactive"), interactiveTile + 2 * Resources.waterFrame)
-                }
-                if (interactiveTile in 84..99) {
-                    interactiveTile = if (interactiveTile % 2 == 0) 84 else 85
-                    area.setTileId(j, i, area.getLayerIndex("Interactive"), interactiveTile + 2 * Resources.waterFrame)
-                }
+            if (floorTile in 52..57) {
+                floorTile = 52
+                map.setTileId(x, y, map.getLayerIndex("Floor"), floorTile + Resources.flowerFrame)
+            }
+            if (floorTile in 44..51) {
+                floorTile = 44
+                map.setTileId(x, y, map.getLayerIndex("Floor"), floorTile + Resources.waterFrame)
+            }
+            if (interactiveTile in 64..79) {
+                interactiveTile = if (interactiveTile % 2 == 0) 64 else 65
+                map.setTileId(x, y, map.getLayerIndex("Interactive"), interactiveTile + 2 * Resources.waterFrame)
+            }
+            if (interactiveTile in 84..99) {
+                interactiveTile = if (interactiveTile % 2 == 0) 84 else 85
+                map.setTileId(x, y, map.getLayerIndex("Interactive"), interactiveTile + 2 * Resources.waterFrame)
             }
         }
     }
@@ -205,24 +213,16 @@ class Area(var areaKey: Pair<String, String>,
     private fun checkAreaSwitch() {
         val entity = (Camera.followedEntity!! as? GameCharacter)!!
         when (entity.direction) {
-            UP -> if (entity.y < 0) areaSwitch(getArea(northArea))
-            DOWN -> if (entity.y > (RegionManager.currentArea.height - 1) * 16) areaSwitch(getArea(southArea))
-            LEFT -> if (entity.x < 0) areaSwitch(getArea(westArea))
-            RIGHT -> if (entity.x > (RegionManager.currentArea.width - 1) * 16) areaSwitch(getArea(eastArea))
+            UP -> if (entity.y < 0) areaSwitch(neighbor[NORTH]!!)
+            DOWN -> if (entity.y > (RegionManager.currentArea.height - 1) * 16) areaSwitch(neighbor[SOUTH]!!)
+            LEFT -> if (entity.x < 0) areaSwitch(neighbor[WEST]!!)
+            RIGHT -> if (entity.x > (RegionManager.currentArea.width - 1) * 16) areaSwitch(neighbor[EAST]!!)
         }
     }
 
     private fun areaSwitch(nextArea: Area) {
         RegionManager.currentArea = nextArea
         EntityManager.areaSwitch((Camera.followedEntity!! as? GameCharacter)!!.direction)
-    }
-
-    fun getTileId(x: Int, y: Int, layer: Int): Int {
-        return area.getTileId(x, y, layer)
-    }
-
-    fun getLayerIndex(str: String): Int {
-        return area.getLayerIndex(str)
     }
 
     fun setPosition(x: Int, y: Int) {
@@ -235,43 +235,22 @@ class Area(var areaKey: Pair<String, String>,
     }
 
     fun addEntity(name: String, entity: AbstractEntity) {
-        entities.put(name, entity)
-        entityList.add(name)
+        entities[name] = entity
     }
 
     fun removeEntity(name: String) {
         entities.remove(name)
-        entityList.remove(name)
-    }
-
-    fun setActiveEntities() {
-        for (i in entityList.indices) {
-            val name = entityList[i]
-            val entity = entities[name]!!
-            entity.setMapOffset(0, 0)
-            EntityManager.add(name, entity)
-        }
-
-        for (i in getArea(northArea).entityList.indices) {
-            val name = getArea(northArea).entityList[i]
-            val entity = getArea(northArea).entities[name]!!
-            entity.setMapOffset(northOffsetX, -(getArea(northArea).height * 16))
-            EntityManager.add(name, entity)
-        }
-
-        for (i in getArea(southArea).entityList.indices) {
-            val name = getArea(southArea).entityList[i]
-            val entity = getArea(southArea).entities[name]
-            entity!!.setMapOffset(southOffsetX, height * 16)
-            EntityManager.add(name, entity)
-        }
     }
 
     fun setCollisionValue(x: Int, y: Int, type: Int) {
-        collisionMap[x + getArea(westArea).width][y + getArea(northArea).height] = type
+        collisionMap[x + neighbor[WEST]!!.width][y + neighbor[NORTH]!!.height] = type
     }
 
-    fun init(gc: GameContainer) {
+    fun init() {
+        for (direction in Cardinality.values())
+            neighbor[direction] = RegionManager.getArea(areaKeyPair[direction]!!)
 
+        collisionMap = Array(width + neighbor[WEST]!!.width + neighbor[EAST]!!.width)
+        {IntArray(height + neighbor[SOUTH]!!.height + neighbor[NORTH]!!.height)}
     }
 }

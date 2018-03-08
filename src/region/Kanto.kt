@@ -57,5 +57,7 @@ object Kanto {
         addArea(Area(Pair(kanto, "Water"), "Maps/Clear.tmx", "resources/Kanto Region - Route 1.csv"))
         addArea(Area(Pair(kanto, "Trees"), "Maps/Clear.tmx", "resources/Kanto Region - Route 1.csv"))
         addArea(Area(Pair(kanto, "Mountains"), "Maps/Clear.tmx", "resources/Kanto Region - Route 1.csv"))
+
+
     }
 }
