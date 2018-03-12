@@ -26,6 +26,20 @@ enum class Cardinality {
     WEST
 }
 
+
+enum class CollisionType {
+    NONE,
+    NORMAL,
+    GRASS,
+    DARK_GRASS,
+    LEFT_CLIFF,
+    RIGHT_CLIFF,
+    DOWN_CLIFF,
+    SIGN,
+    PLAYER,
+    NPC
+}
+
 class Area(var areaKey: Pair<String, String>,
            path: String,
            wildlifeCsv: String,
@@ -76,19 +90,6 @@ class Area(var areaKey: Pair<String, String>,
 
     lateinit var region: String
 
-    enum class Collide {
-        NONE,
-        NORMAL,
-        GRASS,
-        DARK_GRASS,
-        LEFT_CLIFF,
-        RIGHT_CLIFF,
-        DOWN_CLIFF,
-        SIGN,
-        PLAYER,
-        NPC
-    }
-
     init {
         try {
             map = TiledMap(path)
@@ -132,7 +133,7 @@ class Area(var areaKey: Pair<String, String>,
         map.render(x, y, map.getLayerIndex("Sky"))
     }
 
-    fun getCollisionValue(x: Int, y: Int): Int {
+    fun getCollisionValue (x: Int, y: Int): Int {
         return collisionMap[x + neighbor[WEST]!!.width][y + neighbor[NORTH]!!.height]
     }
 
@@ -155,15 +156,15 @@ class Area(var areaKey: Pair<String, String>,
         //TODO("Define collision and tile animations elsewhere")
         for (y in 0 until height) for (x in 0 until width) {
             when (map.getTileId(x, y, map.getLayerIndex("Interactive"))) {
-                0 -> collisionMap[x + xOffset][y + yOffset] = Collide.NONE.ordinal
-                7, 11 -> collisionMap[x + xOffset][y + yOffset] = Collide.LEFT_CLIFF.ordinal
-                10, 12 -> collisionMap[x + xOffset][y + yOffset] = Collide.RIGHT_CLIFF.ordinal
-                27, 28, 29, 30 -> collisionMap[x + xOffset][y + yOffset] = Collide.DOWN_CLIFF.ordinal
-                else -> collisionMap[x + xOffset][y + yOffset] = Collide.NORMAL.ordinal
+                0 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.NONE.ordinal
+                7, 11 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.LEFT_CLIFF.ordinal
+                10, 12 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.RIGHT_CLIFF.ordinal
+                27, 28, 29, 30 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.DOWN_CLIFF.ordinal
+                else -> collisionMap[x + xOffset][y + yOffset] = CollisionType.NORMAL.ordinal
             }
             when (map.getTileId(x, y, map.getLayerIndex("Floor"))) {
-                3 -> collisionMap[x + xOffset][y + yOffset] = Collide.GRASS.ordinal
-                6 -> collisionMap[x + xOffset][y + yOffset] = Collide.DARK_GRASS.ordinal
+                3 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.GRASS.ordinal
+                6 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.DARK_GRASS.ordinal
             }
         }
     }

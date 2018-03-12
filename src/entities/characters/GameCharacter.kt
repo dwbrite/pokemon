@@ -14,7 +14,7 @@ import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.Image
 import region.RegionManager
-import region.area.Area.Collide
+import region.area.CollisionType
 
 open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x, y) {
 
@@ -100,12 +100,12 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
                         .getFlippedCopy(true, false),
                         this.spriteSheet.getSubImage(0, yOffset, width, height)
                                 .getFlippedCopy(true, false),
-                        this.spriteSheet.getSubImage(2 * width, yOffset + 0, width, height)
+                        this.spriteSheet.getSubImage(2 * width, yOffset, width, height)
                                 .getFlippedCopy(true, false)),
 
                 arrayOf(this.spriteSheet.getSubImage(width, yOffset, width, height),
                         this.spriteSheet.getSubImage(0, yOffset, width, height),
-                        this.spriteSheet.getSubImage(2 * width, yOffset + 0, width, height))
+                        this.spriteSheet.getSubImage(2 * width, yOffset, width, height))
         )
     }
 
@@ -116,7 +116,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
             LEFT -> RegionManager.currentArea.getCollisionValue(Math.ceil((x + xMapOffset) / 16.0).toInt() - 1, (y + yMapOffset) / 16)
             RIGHT -> RegionManager.currentArea.getCollisionValue(Math.floor((x + xMapOffset) / 16.0).toInt() + 1, (y + yMapOffset) / 16)
         }
-        blocked = !(forwardCollisionType == Collide.NONE.ordinal || forwardCollisionType == Collide.GRASS.ordinal || forwardCollisionType == Collide.DARK_GRASS.ordinal)
+        blocked = !(forwardCollisionType == CollisionType.NONE.ordinal || forwardCollisionType == CollisionType.GRASS.ordinal || forwardCollisionType == CollisionType.DARK_GRASS.ordinal)
     }
 
     protected fun checkInput() {
@@ -160,7 +160,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     private fun checkGrassCollision() {
         if (currentAction == Action.MOVING) {
             //step
-            if (forwardCollisionType == Collide.GRASS.ordinal) {
+            if (forwardCollisionType == CollisionType.GRASS.ordinal) {
                 var xOffset = 0
                 var yOffset = 0
                 if (currentAction == Action.MOVING) {
@@ -216,7 +216,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
                     else -> {
                     }
                 }
-                if (tempForwardCollisionType == Collide.GRASS.ordinal) {
+                if (tempForwardCollisionType == CollisionType.GRASS.ordinal) {
                     var xOffset = 0
                     var yOffset = 0
                     when (direction) {

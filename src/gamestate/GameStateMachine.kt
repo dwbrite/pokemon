@@ -34,13 +34,15 @@ object GameStateMachine {
     fun update(gc: GameContainer) {
         gameStates[currentState].update(gc)
         Controls.update(gc)
+
+        //TODO("Move transitions elsewhere | Complete transitions")
         if (isTransitioning) {
             if (Main.ticks >= transitionStartTicks + 32 + 128) {
                 //Done transitioning
-                isTransitioning = false //TODO(" Maybe use more bools to show which part of the transition we're in")
+                isTransitioning = false
             } else if (Main.ticks >= transitionStartTicks + 128) {
-                //TODO(" Transition In")
-            } else if (Main.ticks >= transitionStartTicks + 64) {//TODO(" Set proper transition effect")
+                //Transition In
+            } else if (Main.ticks >= transitionStartTicks + 64) {
                 //Transition Out
                 setGameState(battleState)
             }

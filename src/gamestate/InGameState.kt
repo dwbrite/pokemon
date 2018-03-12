@@ -2,7 +2,7 @@ package gamestate
 
 import entities.EntityManager
 import entities.characters.GameCharacter
-import entities.characters.Player
+import entities.characters.Trainer
 import gui.GuiManager
 import handlers.Camera
 import handlers.Resources
@@ -14,11 +14,10 @@ import region.RegionManager
 import java.util.*
 
 class InGameState : AbstractGameState() {
-    var player: Player
+    var player = Trainer(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!)
 
     init {
         //TODO(" (re)move this?")
-        player = Player(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!)
         EntityManager.initAdd("player", player)
         Controls.controllers.put("player", PlayerController(player as GameCharacter))
         Controls.givePriority(Controls.controllers["player"]!!)

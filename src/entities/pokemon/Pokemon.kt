@@ -3,7 +3,7 @@ package entities.pokemon
 import battle.status.nonVt.NonVolatileStatus
 import battle.status.volatileStatus.VolatileStatus
 import battle.status.vtBattle.VolatileBattleStatus
-import entities.characters.Player
+import entities.characters.Trainer
 import org.apache.commons.csv.CSVRecord
 import java.util.ArrayList
 import kotlin.collections.HashMap
@@ -137,7 +137,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         updateStats()
     }
 
-    fun catchPokemon(player: Player) {
+    fun catch(player: Trainer) {
         //TODO("Catch pokemon, assign pokemon to player (or player's box)")
     }
 
