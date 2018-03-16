@@ -10,11 +10,12 @@ object GuiManager {
 
     @JvmStatic
     fun init(gc: GameContainer) {
-        var text = Text("RED used SURF (or something).\n" +
+        /*var text = Text("RED used SURF (or something).\n" +
                 "The quick brown fox jumps over the...", 12, 124, Resources.FontColor.LIGHT)
-        var box = Box(16, 6, 0,64)
+        var box = Box(29, 5, 0,112)
         elements.add(box)
-        //elements.add(text)
+        elements.add(text)
+        */
     }
 
     @JvmStatic
