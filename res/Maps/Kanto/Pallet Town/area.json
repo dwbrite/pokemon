@@ -1,0 +1,10 @@
+{
+  "region": "Kanto",
+  "area": "Pallet Town",
+  "description": "",
+
+  "neighbors": {
+    "north": { "area": "Route 01" },
+    "south": { "area": "Route 21" }
+  }
+}

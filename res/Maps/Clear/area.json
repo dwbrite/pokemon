@@ -1,0 +1,12 @@
+{
+  "region": "Parent",
+  "area": "Clear",
+  "description": "It appears to be just woods... There's no exit in sight!",
+
+  "neighbors": {
+    "north": { "area": "Clear" },
+    "south": { "area": "Clear" },
+    "east":  { "area": "Clear" },
+    "west":  { "area": "Clear" }
+  }
+}

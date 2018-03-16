@@ -5,7 +5,6 @@ import org.apache.commons.csv.CSVParser
 import org.apache.commons.csv.CSVRecord
 import org.newdawn.slick.Color
 import org.newdawn.slick.Image
-import org.newdawn.slick.SpriteSheet
 import org.newdawn.slick.UnicodeFont
 import org.newdawn.slick.font.effects.ColorEffect
 import java.awt.Font
@@ -140,5 +139,27 @@ object Resources {
         val parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.EXCEL)
         CSV[hashname] = parser.records
         parser.close()
+    }
+
+    fun findResource(name: String, dir: String): ArrayList<File> {
+        return findResource(name, File(dir))
+    }
+
+    fun findResource(name: String): ArrayList<File> {
+        return findResource(name, "res")
+    }
+
+    private fun findResource(name: String, root: File): ArrayList<File> {
+        val files = ArrayList<File>()
+
+        for (file in root.listFiles()) {
+            if (file.isDirectory) {
+                files.addAll(findResource(name, file))
+            } else if (file.name == name) {
+                files.add(file)
+            }
+        }
+
+        return files
     }
 }

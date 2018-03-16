@@ -10,7 +10,7 @@ object Kanto {
     @JvmStatic
     fun init() {
         val kanto = "Kanto"
-        addArea(Area(Pair(kanto, "Clear"), "Maps/Clear.tmx", "res/Maps/Kanto/Route 01/pokemon.csv"))
+        addArea(Area(Pair(kanto, "Clear"), "Maps/Clear/Clear.tmx", "res/Maps/Kanto/Route 01/pokemon.csv"))
         addArea(Area(Pair(kanto, "Route 01"), "Maps/Kanto/Route 01/map.tmx", "res/Maps/Kanto/Route 01/pokemon.csv",
                 Pair(kanto, "Viridian City"), Pair(kanto, "Pallet Town"), Pair(kanto, "Clear"), Pair(kanto, "Clear")))
         addArea(Area(Pair(kanto, "Route 02"), "Maps/Kanto/Route 01/map.tmx", "res/Maps/Kanto/Route 01/pokemon.csv"))
@@ -54,9 +54,9 @@ object Kanto {
         addArea(Area(Pair(kanto, "Cinnabar Island"), "Maps/Kanto/Pallet Town/map.tmx", "res/Maps/Kanto/Route 01/pokemon.csv")) //Cinnabar
         addArea(Area(Pair(kanto, "Indigo Plateau"), "Maps/Kanto/Pallet Town/map.tmx", "res/Maps/Kanto/Route 01/pokemon.csv")) //Indigo
 
-        addArea(Area(Pair(kanto, "Water"), "Maps/Clear.tmx", "res/Maps/Kanto/Route 01/pokemon.csv"))
-        addArea(Area(Pair(kanto, "Trees"), "Maps/Clear.tmx", "res/Maps/Kanto/Route 01/pokemon.csv"))
-        addArea(Area(Pair(kanto, "Mountains"), "Maps/Clear.tmx", "res/Maps/Kanto/Route 01/pokemon.csv"))
+        addArea(Area(Pair(kanto, "Water"), "Maps/Clear/Clear.tmx", "res/Maps/Kanto/Route 01/pokemon.csv"))
+        addArea(Area(Pair(kanto, "Trees"), "Maps/Clear/Clear.tmx", "res/Maps/Kanto/Route 01/pokemon.csv"))
+        addArea(Area(Pair(kanto, "Mountains"), "Maps/Clear/Clear.tmx", "res/Maps/Kanto/Route 01/pokemon.csv"))
 
 
     }

@@ -1,0 +1,24 @@
+{
+  "region": "",
+  "area": "",
+  "description": "",
+
+  "neighbors": {
+    "north": {
+      "area": "",
+      "offset": 0
+    },
+    "south": {
+      "area": "",
+      "offset": 0
+    },
+    "east": {
+      "area": "",
+      "offset": 0
+    },
+    "west": {
+      "area": "",
+      "offset": 0
+    }
+  }
+}

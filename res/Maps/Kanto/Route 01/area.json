@@ -1,0 +1,16 @@
+{
+  "region": "Kanto",
+  "area": "Route 01",
+  "description": "",
+
+  "neighbors": {
+    "north": {
+      "area": "Viridian City",
+      "offset": 0
+    },
+    "south": {
+      "area": "Pallet Town",
+      "offset": 0
+    }
+  }
+}

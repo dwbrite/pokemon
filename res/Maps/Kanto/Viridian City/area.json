@@ -1,0 +1,10 @@
+{
+  "region": "Kanto",
+  "area": "Viridian City",
+  "description": "",
+
+  "neighbors": {
+    "north": { },
+    "south": { "area": "Route 01" }
+  }
+}
