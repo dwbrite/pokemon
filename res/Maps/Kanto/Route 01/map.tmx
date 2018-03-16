@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="36" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" name="MasterTileset" tilewidth="16" tileheight="16" tilecount="4000" columns="20">
+  <image source="../../MasterTileset.png" width="320" height="3200"/>
+ </tileset>
+ <layer name="Floor" width="36" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+1YiQ3CMAwMMANM0oWhM/CNUJ6dSCQsuVZiJ7WT8vQkyyqq1Os1dzFxjsfa14rpR1+nd50z7tdi52vLdMpHul8LC3061LUo0efh68BUb8BH0mfwdWPq6sb6aSHpI3XM927Ah1sP4XpTWFqEZ+P3pdet+VA9Fn3GkPzVmk/QoXN5ftq7+vkTuHD64A7ZeHHxLLLwe4k+kDXhuXOtn9J1pcXUXF70Sfurr8gHv7fk56eLz0HgUev5B886KU+Dv2ieQ9cili+gwZR1pUVKH2kWbDEfSrPgN8yH9Btroc0baz7aPP4HfTrS59QHZ+sn6CPtEVLBHmLFJydzcMZI+4gWOf6i36TF+Qb3nyG1r9Wcf0r4gB41+HA8wHf0zCB2L/izJh+cR/BbShfILy1K87nl/JOzf819fvjr+rwAMquyuoAWAAA=
+  </data>
+ </layer>
+ <layer name="Interactive" width="36" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2XYQ7CIAyFSYyn0HmfOa8w3Z+dQM/kPIPxcGICSYOlnRSWDPuS5i2DwfjSddBtjDnZ6BI9VCsc72JjiPjZxpVoH5D36e29m3sO854Zj3rfIzKfVBw/jk9uleLTJvKT8tnZMfYuGhcHt07Y3gTt/8KHWmdKfikfWlI+sXxWPlqf18jH5y2sw95hXodeig+Xt9j+guqv+UOrNj6fPPb7B5jTcE8BazgWYV2viU9uKR9aueoz50vx4c533mMKv0nNH1rKh1au8yl27hy33/v9mMNzbU18ckv50JLymQwfDzDfnem7BJ8XuH4W5vPr/3RO/1Q+cx1y5NbP+RtdfkVSgBYAAA==
+  </data>
+ </layer>
+ <layer name="Sky" width="36" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3V0Q2AIAwA0SbMpPuP5gSeDSK2yb0fvxR6MRBRyzEiznH/7L7eW7P7nZ3HPt+s9xf7MPswz2fWrU/2v141R7c+u9mH2YfZh3Xr8/T+6n1367ObfZh9mH2YfZh9WPa+zM616jtVVOtzARppGLSAFgAA
+  </data>
+ </layer>
+</map>

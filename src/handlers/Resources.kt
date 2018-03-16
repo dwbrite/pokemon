@@ -19,7 +19,15 @@ object Resources {
     @JvmStatic var waterFrame: Int = 0
     @JvmStatic var userBorder = 26 //TODO(check that this is never over 28 at some point. Maybe.
 
-    @JvmStatic val FONT = generateFontFromUrl("resources/Fonts/PocketPower.ttf", 10f)!!
+    @JvmStatic val FONT = generateFontFromUrl("res/Fonts/PocketPower.ttf", 10f)!!
+
+    val GLYPHS = """ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                abcdefghijklmnopqrstuvwxyz
+                0123456789
+                .,“”‘’"'?!@_*#${'$'}%&()+-/:;<=>[\]^`{|}~¡¿
+                ÀÁÂÄÇÈÉÊËÌÍÎÏÑÒÓÔÖ×ÙÚÛÜß
+                àáâäçèéêëìíîïñòóôöùúûüŒœʟ…
+                ₽℠℡℻←↑→↓►◄♂♀"""
 
     enum class FontColor(val foreground: Color, val background: Color) {
         NORMAL(             Color(96,96,96),    Color(208,208,200)),
@@ -82,10 +90,10 @@ object Resources {
             //*/
 
             //TODO("Fix csv data")
-            generateCsvData("Pokemon",  "resources/Pokemon - Species Data.csv")
-            //generateCsvData("Evolution","resources/Pokemon - Evolution Data.csv")
-            //generateCsvData("Types",    "resources/Pokemon - Type Data.csv")
-            generateCsvData("Moves",    "resources/Pokemon - Move Data.csv")
+            generateCsvData("Pokemon",  "res/Pokemon/species.csv")
+            //generateCsvData("Evolution","res/Pokemon/evolutions.csv")
+            //generateCsvData("Types",    "res/Pokemon/types.csv")
+            generateCsvData("Moves",    "res/Pokemon/moves.csv")
 
             for (i in 1..28) {
                 BORDERS.add(Image("TileSets/Borders/" + i + ".png", false, Image.FILTER_NEAREST))
@@ -103,13 +111,7 @@ object Resources {
 
             val uf = UnicodeFont(f)
             uf.addAsciiGlyphs()
-            uf.addGlyphs("""ABCDEFGHIJKLMNOPQRSTUVWXYZ
-                abcdefghijklmnopqrstuvwxyz
-                0123456789
-                .,“”‘’"'?!@_*#${'$'}%&()+-/:;<=>[\]^`{|}~¡¿
-                ÀÁÂÄÇÈÉÊËÌÍÎÏÑÒÓÔÖ×ÙÚÛÜß
-                àáâäçèéêëìíîïñòóôöùúûüŒœʟ…
-                ₽℠℡℻←↑→↓►◄♂♀""")
+            uf.addGlyphs(GLYPHS)
             uf.effects.add(ColorEffect())
             uf.loadGlyphs()
             uf
@@ -122,7 +124,7 @@ object Resources {
     fun generateFontFromName(name: String, defaultSize: Int): UnicodeFont {
         val uf = UnicodeFont(Font(name, Font.PLAIN, defaultSize))
         uf.addAsciiGlyphs()
-        uf.addGlyphs("""ßé0123456789!-…‥«»<'"♂♀$,*/ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\u20BD:ÄÖÜ""")
+        uf.addGlyphs(GLYPHS)
         uf.effects.add(ColorEffect())
         try {
             uf.loadGlyphs()

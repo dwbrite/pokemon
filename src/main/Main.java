@@ -33,7 +33,7 @@ public class Main {
 			app.setUpdateOnlyWhenVisible(true);
 			app.setAlwaysRender(false);
 			app.setShowFPS(true);
-			app.setIcons(new String[]{"master16.png", "master32.png", "master48.png", "master64.png"});
+			app.setIcons(new String[]{"Icons/master64.png"});
 			Display.setInitialBackground(1, 1, 1);
 			app.start();
 		} catch (SlickException e) {
