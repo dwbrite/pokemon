@@ -141,23 +141,17 @@ object Resources {
         parser.close()
     }
 
-    fun findResource(name: String, dir: String): ArrayList<File> {
-        return findResource(name, File(dir))
-    }
+    fun findResources(name: String, root: File): ArrayList<File> =
+            findResources(root, { file -> file.name == name } )
+    fun findResources(name: String): ArrayList<File> = findResources(name, File("res"))
 
-    fun findResource(name: String): ArrayList<File> {
-        return findResource(name, "res")
-    }
-
-    private fun findResource(name: String, root: File): ArrayList<File> {
+    fun findResources(root: File, match: (file: File) -> Boolean): ArrayList<File> {
         val files = ArrayList<File>()
 
         for (file in root.listFiles()) {
             if (file.isDirectory) {
-                files.addAll(findResource(name, file))
-            } else if (file.name == name) {
-                files.add(file)
-            }
+                files.addAll(findResources(file, match))
+            } else if(match(file)) { files.add(file) }
         }
 
         return files
