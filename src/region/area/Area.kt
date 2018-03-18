@@ -13,6 +13,7 @@ import org.apache.commons.csv.CSVRecord
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.tiled.TiledMap
+import org.newdawn.slick.util.ResourceLoader.getResourceAsStream
 import region.RegionManager
 import java.io.File
 import java.nio.charset.Charset
@@ -94,7 +95,7 @@ class Area(var areaKey: Pair<String, String>,
         try {
             map = TiledMap(path)
 
-            val csvData = File(wildlifeCsv)
+            val csvData = getResourceAsStream(wildlifeCsv)
             val parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.EXCEL)
             wildlifeData = parser.records
         } catch (e: Exception) {

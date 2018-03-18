@@ -1,0 +1,55 @@
+plugins {
+    id 'idea'
+    id 'java'
+    id 'application'
+    id "org.jetbrains.kotlin.jvm" version "1.2.30"
+    id "com.github.johnrengelman.shadow" version "2.0.2"
+}
+
+group 'com.dwbrite'
+version '1.0'
+
+sourceSets {
+    main.kotlin.srcDirs += 'src'
+    main.java.srcDirs += 'src'
+    main.resources.srcDirs += 'dep'
+}
+
+
+sourceCompatibility = 1.8
+mainClassName = "main.Main"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    compile group: 'org.apache.commons', name: 'commons-csv', version: '1.5'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "org.jetbrains.kotlin:kotlin-reflect"
+
+    compile files('dep/lwjgl.jar', 'dep/slick.jar')
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'main.Main'
+    }
+}
+
+idea.module { excludeDirs += file('target/')}
+
+task gameZip(type: Zip) {
+    shadowJar
+
+    from '.'
+    include 'native/**'
+    include 'res/**'
+
+    from 'build/libs'
+    include 'pokemon*all.jar'
+
+    archiveName 'pkmn.zip'
+    destinationDir(file('target/'))
+}

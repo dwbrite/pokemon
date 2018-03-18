@@ -7,9 +7,9 @@ import org.newdawn.slick.Color
 import org.newdawn.slick.Image
 import org.newdawn.slick.UnicodeFont
 import org.newdawn.slick.font.effects.ColorEffect
+import org.newdawn.slick.util.ResourceLoader.getResourceAsStream
 import java.awt.Font
 import java.io.File
-import java.io.FileInputStream
 import java.nio.charset.Charset
 
 object Resources {
@@ -18,7 +18,7 @@ object Resources {
     @JvmStatic var waterFrame: Int = 0
     @JvmStatic var userBorder = 26 //TODO(check that this is never over 28 at some point. Maybe.
 
-    @JvmStatic val FONT = generateFontFromUrl("res/Fonts/PocketPower.ttf", 10f)!!
+    @JvmStatic val FONT = generateFontFromUrl("res/PocketPower.ttf", 10f)!!
 
     val GLYPHS = """ABCDEFGHIJKLMNOPQRSTUVWXYZ
                 abcdefghijklmnopqrstuvwxyz
@@ -55,37 +55,37 @@ object Resources {
 
     @JvmStatic
     fun init() {
-        splashImage = Image("Splash.png", false, Image.FILTER_NEAREST)
+        splashImage = Image("res/Splash.png", false, Image.FILTER_NEAREST)
     }
 
     @JvmStatic
     fun initPool() {
         try {
-            SPRITESHEET["Player Brendan"] = Image("TileSets/Sprites/Player/player.gif", false, Image.FILTER_NEAREST)
+            SPRITESHEET["Player Brendan"] = Image("res/TileSets/Sprites/Player/player.gif", false, Image.FILTER_NEAREST)
 
-            PARTICLE["Grass"] = Image("TileSets/Sprites/grassRustle.gif", false, Image.FILTER_NEAREST)
-            PARTICLE["Jump Shadow"] = Image("TileSets/Sprites/shadow.png", false, Image.FILTER_NEAREST)
-            PARTICLE["Grass Jump"] = Image("TileSets/Sprites/grassjump.png", false, Image.FILTER_NEAREST)
-            PARTICLE["Dirt Jump"] = Image("TileSets/Sprites/dirtjump.png", false, Image.FILTER_NEAREST)
+            PARTICLE["Grass"] = Image("res/TileSets/Sprites/grassRustle.gif", false, Image.FILTER_NEAREST)
+            PARTICLE["Jump Shadow"] = Image("res/TileSets/Sprites/shadow.png", false, Image.FILTER_NEAREST)
+            PARTICLE["Grass Jump"] = Image("res/TileSets/Sprites/grassjump.png", false, Image.FILTER_NEAREST)
+            PARTICLE["Dirt Jump"] = Image("res/TileSets/Sprites/dirtjump.png", false, Image.FILTER_NEAREST)
 
             //*/
-            ARENA["1"] = Image("TileSets/Arenas/arena1.png", false, Image.FILTER_NEAREST)
-            ARENA["2"] = Image("TileSets/Arenas/arena2.png", false, Image.FILTER_NEAREST)
-            ARENA["3"] = Image("TileSets/Arenas/arena3.png", false, Image.FILTER_NEAREST)
-            ARENA["4"] = Image("TileSets/Arenas/arena4.png", false, Image.FILTER_NEAREST)
-            ARENA["5"] = Image("TileSets/Arenas/arena5.png", false, Image.FILTER_NEAREST)
-            ARENA["Cave"] = Image("TileSets/Arenas/cave.png", false, Image.FILTER_NEAREST)
-            ARENA["Desert"] = Image("TileSets/Arenas/desert.png", false, Image.FILTER_NEAREST)
-            ARENA["Grass 1"] = Image("TileSets/Arenas/grass1.png", false, Image.FILTER_NEAREST)
-            ARENA["Grass 2"] = Image("TileSets/Arenas/bgtest1.png", false, Image.FILTER_NEAREST)
-            ARENA["Grass 3"] = Image("TileSets/Arenas/grass3.png", false, Image.FILTER_NEAREST)
-            ARENA["Land 1"] = Image("TileSets/Arenas/land1.png", false, Image.FILTER_NEAREST)
-            ARENA["Land 2"] = Image("TileSets/Arenas/land2.png", false, Image.FILTER_NEAREST)
-            ARENA["Swamp"] = Image("TileSets/Arenas/swamp.png", false, Image.FILTER_NEAREST)
-            ARENA["Underwater"] = Image("TileSets/Arenas/underwater.png", false, Image.FILTER_NEAREST)
-            ARENA["Water"] = Image("TileSets/Arenas/water.png", false, Image.FILTER_NEAREST)
-            ARENA["Test 1"] = Image("TileSets/Arenas/bgtest1.png", false, Image.FILTER_NEAREST)
-            ARENA["Test 2"] = Image("TileSets/Arenas/bgtest2.png", false, Image.FILTER_NEAREST)
+            ARENA["1"] = Image("res/TileSets/Arenas/arena1.png", false, Image.FILTER_NEAREST)
+            ARENA["2"] = Image("res/TileSets/Arenas/arena2.png", false, Image.FILTER_NEAREST)
+            ARENA["3"] = Image("res/TileSets/Arenas/arena3.png", false, Image.FILTER_NEAREST)
+            ARENA["4"] = Image("res/TileSets/Arenas/arena4.png", false, Image.FILTER_NEAREST)
+            ARENA["5"] = Image("res/TileSets/Arenas/arena5.png", false, Image.FILTER_NEAREST)
+            ARENA["Cave"] = Image("res/TileSets/Arenas/cave.png", false, Image.FILTER_NEAREST)
+            ARENA["Desert"] = Image("res/TileSets/Arenas/desert.png", false, Image.FILTER_NEAREST)
+            ARENA["Grass 1"] = Image("res/TileSets/Arenas/grass1.png", false, Image.FILTER_NEAREST)
+            ARENA["Grass 2"] = Image("res/TileSets/Arenas/bgtest1.png", false, Image.FILTER_NEAREST)
+            ARENA["Grass 3"] = Image("res/TileSets/Arenas/grass3.png", false, Image.FILTER_NEAREST)
+            ARENA["Land 1"] = Image("res/TileSets/Arenas/land1.png", false, Image.FILTER_NEAREST)
+            ARENA["Land 2"] = Image("res/TileSets/Arenas/land2.png", false, Image.FILTER_NEAREST)
+            ARENA["Swamp"] = Image("res/TileSets/Arenas/swamp.png", false, Image.FILTER_NEAREST)
+            ARENA["Underwater"] = Image("res/TileSets/Arenas/underwater.png", false, Image.FILTER_NEAREST)
+            ARENA["Water"] = Image("res/TileSets/Arenas/water.png", false, Image.FILTER_NEAREST)
+            ARENA["Test 1"] = Image("res/TileSets/Arenas/bgtest1.png", false, Image.FILTER_NEAREST)
+            ARENA["Test 2"] = Image("res/TileSets/Arenas/bgtest2.png", false, Image.FILTER_NEAREST)
             //*/
 
             //TODO("Fix csv data")
@@ -95,7 +95,7 @@ object Resources {
             generateCsvData("Moves",    "res/Pokemon/moves.csv")
 
             for (i in 1..28) {
-                BORDERS.add(Image("TileSets/Borders/" + i + ".png", false, Image.FILTER_NEAREST))
+                BORDERS.add(Image("res/TileSets/Borders/" + i + ".png", false, Image.FILTER_NEAREST))
             }
 
         } catch (e: Exception) {
@@ -105,7 +105,7 @@ object Resources {
 
     fun generateFontFromUrl(url: String, defaultSize: Float): UnicodeFont? {
         return try {
-            var f = Font.createFont(Font.TRUETYPE_FONT, FileInputStream(url))
+            var f = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream(url))
             f = f.deriveFont(defaultSize)
 
             val uf = UnicodeFont(f)
@@ -135,7 +135,7 @@ object Resources {
     }
 
     fun generateCsvData(hashname: String, resource: String) {
-        val csvData = File(resource)
+        val csvData = getResourceAsStream(resource)
         val parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.EXCEL)
         CSV[hashname] = parser.records
         parser.close()

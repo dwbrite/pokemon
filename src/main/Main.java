@@ -20,7 +20,8 @@ public class Main {
 	public static AppGameContainer app;
 	
 	public static void main(String[] args) {
-		System.setProperty("org.lwjgl.librarypath", new File(new File(System.getProperty("user.dir"), "dep/native"), LWJGLUtil.getPlatformName()).getAbsolutePath());
+		System.setProperty("org.lwjgl.librarypath",
+				System.getProperty("user.dir") + "/native/" + LWJGLUtil.getPlatformName());
 		
 		try {
 			app = new AppGameContainer(new ScalableGame(new Game("Pokemon"), WIDTH, HEIGHT, true));
@@ -33,7 +34,7 @@ public class Main {
 			app.setUpdateOnlyWhenVisible(true);
 			app.setAlwaysRender(false);
 			app.setShowFPS(true);
-			app.setIcons(new String[]{"Icons/master64.png"});
+			app.setIcons(new String[]{"res/Icons/master64.png"});
 			Display.setInitialBackground(1, 1, 1);
 			app.start();
 		} catch (SlickException e) {
