@@ -1,9 +1,7 @@
 package gui
 
-import handlers.Resources
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
-import org.newdawn.slick.tiled.TiledMap
 
 object GuiManager {
     val elements = ArrayList<GuiElement>()

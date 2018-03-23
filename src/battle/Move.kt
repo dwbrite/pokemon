@@ -1,7 +1,7 @@
 package battle
 
 import entities.pokemon.EffectCategory
-import handlers.Resources
+import util.Resources
 import kotlin.reflect.full.functions
 
 

@@ -4,7 +4,7 @@
   "description": "",
 
   "neighbors": {
-    "north": { },
-    "south": { "area": "Route 01" }
+    "up": { },
+    "down": { "area": "Route 01", "offset": 6 }
   }
 }

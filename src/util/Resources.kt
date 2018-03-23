@@ -1,5 +1,6 @@
-package handlers
+package util
 
+import main.Main
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import org.apache.commons.csv.CSVRecord
@@ -8,17 +9,17 @@ import org.newdawn.slick.Image
 import org.newdawn.slick.UnicodeFont
 import org.newdawn.slick.font.effects.ColorEffect
 import org.newdawn.slick.util.ResourceLoader.getResourceAsStream
+import region.RegionManager
 import java.awt.Font
 import java.io.File
 import java.nio.charset.Charset
 
 object Resources {
-    //TODO(" Remove @JvmStatic after conversion to Kotlin is complete.")
-    @JvmStatic var flowerFrame: Int = 0
-    @JvmStatic var waterFrame: Int = 0
-    @JvmStatic var userBorder = 26 //TODO(check that this is never over 28 at some point. Maybe.
+    var flowerFrame: Int = 0
+    var waterFrame: Int = 0
+    var userBorder = 26 //TODO(check that this is never over 28 at some point.
 
-    @JvmStatic val FONT = generateFontFromUrl("res/PocketPower.ttf", 10f)!!
+    val FONT = generateFontFromUrl("res/PocketPower.ttf", 10f)!!
 
     val GLYPHS = """ABCDEFGHIJKLMNOPQRSTUVWXYZ
                 abcdefghijklmnopqrstuvwxyz
@@ -155,5 +156,21 @@ object Resources {
         }
 
         return files
+    }
+
+    fun update() {
+        updateAnimationFrames()
+        RegionManager.currentArea.updateRenderedAnimations()
+        for (dir in Direction.values()) RegionManager.getNeighbor(dir).updateRenderedAnimations()
+    }
+
+
+    private fun updateAnimationFrames() {
+        when ((Main.ticks % 16).toInt()) {
+            0 -> waterFrame++
+            1 -> flowerFrame++
+        }
+        if (waterFrame >= 8) waterFrame = 0
+        if (flowerFrame >= 5) flowerFrame = 0
     }
 }

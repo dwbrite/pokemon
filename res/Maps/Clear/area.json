@@ -1,7 +1,7 @@
 {
-  "region": "Parent",
+  "region": "Clear",
   "area": "Clear",
   "description": "It appears to be just woods... There's no exit in sight!",
 
-  "neighbors": { }
+  "neighbors": {}
 }

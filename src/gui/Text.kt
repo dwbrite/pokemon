@@ -1,7 +1,7 @@
 package gui
 
-import handlers.Resources.FontColor
-import handlers.Resources.FONT
+import util.Resources.FontColor
+import util.Resources.FONT
 import main.Main
 import org.newdawn.slick.*
 

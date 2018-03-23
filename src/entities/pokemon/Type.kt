@@ -1,6 +1,6 @@
 package entities.pokemon
 
-import handlers.Resources
+import util.Resources
 
 /**
  * Created by dwbrite on 4/13/16.

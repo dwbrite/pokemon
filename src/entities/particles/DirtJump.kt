@@ -1,7 +1,7 @@
 package entities.particles
 
 import entities.characters.GameCharacter
-import handlers.Resources
+import util.Resources
 import main.Main
 
 class DirtJump(x: Int, y: Int, private var parent: GameCharacter) : Particle(x, y, Resources.PARTICLE["Dirt Jump"]!!, -1.0) {

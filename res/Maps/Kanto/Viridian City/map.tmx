@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="48" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.3" orientation="orthogonal" renderorder="right-down" width="48" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
  <tileset firstgid="1" name="MasterTileset" tilewidth="16" tileheight="16" tilecount="4000" columns="20">
   <image source="../../MasterTileset.png" width="320" height="3200"/>
  </tileset>
@@ -15,7 +15,7 @@
  </layer>
  <layer name="Sky" width="48" height="40">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+2ZSwqDQBBEC0RXXsV8Fsm1zGcdP1eMHii1CwQDQVqr4/SDYnb28KZp0QGW5ZQB5+y9rs1n/W+r9fOs685F7d8LKv9e8NaHXvw/S2CYyFja1knVf1UAO2bPHJhjsXzNKVL174XwryX8/ydW89O7/yYHWqZj+ly9G3tU/h/sl4ZpmY7pRe9fNd77f+vM8W9xVjVnyYW5MjfmLp4t3v6DBOsQ/rWEfy3hX0tq/tXfu7/uZ6tY34tY37uE//AfAC/fy3FbAB4AAA==
+   H4sIAAAAAAAAA+2ZSwqDQBBEC0RXXiW/RXKt/Nbxc8UkB0rtAsGASI/VOv2gmJ09vGladIC0HAvgVHzXufmt/2+1fp513amo/XtB5d8L3vrQi/9nDbwG8q5t6+Tqf1MBW2bH7JlDlb7mELn690L41xL+l4nV/PTuvymBlumYvlTvxh6V/wf7pWFapmN60ftXjff+XztT/Fuc1Zmz5MJcmRtzF88Wb/9BgnkI/1rCv5bwryU3/+rv3bH7WSvW9yLW9y7hP/ynZCn+P6zakyAAHgAA
   </data>
  </layer>
 </map>

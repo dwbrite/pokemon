@@ -46,6 +46,6 @@ class EntityMap {
     }
 
     fun sort() {
-        Collections.sort(entityList, { p1, p2 -> compareValues(entities[p1]!!.getDepth(), entities[p2]!!.getDepth()) })
+        Collections.sort(entityList, { p1, p2 -> compareValues(entities[p1]!!.depth, entities[p2]!!.depth) })
     }
 }

@@ -1,11 +1,12 @@
 package gamestate
 
 import gui.GuiManager
-import handlers.controls.Controls
+import util.controls.Controls
 import main.Main
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import region.RegionManager
+import util.Resources
 
 import java.util.ArrayList
 
@@ -32,8 +33,11 @@ object GameStateMachine {
         get() = gameStates[currentState]
 
     fun update(gc: GameContainer) {
-        gameStates[currentState].update(gc)
+        Resources.update()
         Controls.update(gc)
+
+        gameStates[currentState].update(gc)
+
 
         //TODO("Move transitions elsewhere | Complete transitions")
         if (isTransitioning) {
@@ -64,8 +68,8 @@ object GameStateMachine {
     }
 
     fun init(gc: GameContainer) {
-        gameStates.add(InGameState()) //0
-        gameStates.add(BattleState()) //1
+        gameStates.add(InGameState) //0
+        gameStates.add(BattleState) //1
         currentState = inGameState
         RegionManager.init(gc)
     }

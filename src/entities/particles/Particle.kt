@@ -18,13 +18,18 @@ open class Particle(x: Int, y: Int, spriteSheet: Image, protected var depthOffse
     protected var tickSwitch: Long = 0
 
     init {
-        this.setSpriteSheet(spriteSheet)
+        this.spriteSheet = spriteSheet
 
         val images = arrayOfNulls<Image>(this.spriteSheet.width / width)
         for (i in images.indices) {
             images[i] = this.spriteSheet.getSubImage(i * width, 0, 16, 16)
         }
-        this.animation = Animation(*images)
+        val imgz: ArrayList<Image> = ArrayList()
+        for(i in images.indices) {
+            imgz.add(images[i]!!)
+        }
+
+        this.animation = Animation(*imgz.toTypedArray())
         this.currentImage = animation.currentFrame
         this.collisionType = 0
 
@@ -45,10 +50,10 @@ open class Particle(x: Int, y: Int, spriteSheet: Image, protected var depthOffse
     }
 
     override fun render(gc: GameContainer, g: Graphics) {
-        currentImage.draw((x + RegionManager.currentArea.x).toFloat(), (y + RegionManager.currentArea.y).toFloat())
+        currentImage!!.draw((x + RegionManager.currentArea.x).toFloat(), (y + RegionManager.currentArea.y).toFloat())
     }
 
-    public override fun uniqueUpdates() {
+    protected open fun uniqueUpdates() {
         if ((Main.ticks - startingTick) % tickSwitch == 0L && Main.ticks - startingTick != 0L) {
             animation.nextFrame()
         }

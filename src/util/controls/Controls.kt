@@ -1,36 +1,22 @@
-package handlers.controls
+package util.controls
 
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Input.*
+import util.Direction
+import util.InputKey
 import java.util.*
 
 object Controls {
-
-    enum class InputKey {
-        A,
-        B,
-        SEL,
-        START,
-        L,
-        R
-    }
-
-    enum class InputDir {
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT
-    }
 
     private val input = ControlMap()
     private val controlPriority = ArrayList<Controller>()
     val controllers = HashMap<String, Controller>()
 
     fun update(gc: GameContainer) {
-        input[InputDir.UP] = gc.input.isKeyDown(KEY_UP)
-        input[InputDir.DOWN] = gc.input.isKeyDown(KEY_DOWN)
-        input[InputDir.LEFT] = gc.input.isKeyDown(KEY_LEFT)
-        input[InputDir.RIGHT] = gc.input.isKeyDown(KEY_RIGHT)
+        input[Direction.UP] = gc.input.isKeyDown(KEY_UP)
+        input[Direction.DOWN] = gc.input.isKeyDown(KEY_DOWN)
+        input[Direction.LEFT] = gc.input.isKeyDown(KEY_LEFT)
+        input[Direction.RIGHT] = gc.input.isKeyDown(KEY_RIGHT)
 
         input[InputKey.A] = gc.input.isKeyPressed(KEY_X)
         input[InputKey.B] = gc.input.isKeyPressed(KEY_Z)
@@ -45,7 +31,7 @@ object Controls {
     }
 
     fun getInput(obj: Controller, button: InputKey): Boolean = hasPriority(obj) && input[button]
-    fun getInput(obj: Controller, button: InputDir): Boolean = hasPriority(obj) && input[button]
+    fun getInput(obj: Controller, button: Direction): Boolean = hasPriority(obj) && input[button]
 
     fun hasPriority(obj: Controller): Boolean = controlPriority[0] === obj
     fun givePriority(obj: Controller) {

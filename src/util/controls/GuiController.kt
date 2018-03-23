@@ -1,9 +1,6 @@
-package handlers.controls
+package util.controls
 
 import entities.characters.GameCharacter
-import handlers.controls.Controls.InputDir.*
-import handlers.controls.Controls.InputKey.SEL
-import handlers.controls.Controls.InputKey.START
 import org.newdawn.slick.GameContainer
 
 class GuiController(private var player: GameCharacter) : Controller() {

@@ -1,8 +1,7 @@
 package gui
 
-import handlers.Resources
-import handlers.Resources.BORDERS
-import handlers.Resources.userBorder
+import util.Resources.BORDERS
+import util.Resources.userBorder
 import org.newdawn.slick.*
 
 /*object Text {

@@ -4,11 +4,11 @@
   "description": "",
 
   "neighbors": {
-    "north": {
+    "up": {
       "area": "Viridian City",
-      "offset": 0
+      "offset": -6
     },
-    "south": {
+    "down": {
       "area": "Pallet Town",
       "offset": 0
     }

@@ -4,7 +4,7 @@
   "description": "",
 
   "neighbors": {
-    "north": { "area": "Route 01" },
-    "south": { "area": "Route 21" }
+    "up": { "area": "Route 01" },
+    "down": { "area": "Route 21" }
   }
 }

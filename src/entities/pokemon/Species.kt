@@ -1,6 +1,6 @@
 package entities.pokemon
 
-import handlers.Resources
+import util.Resources
 
 object Species {
     fun getData(pkmn_id: Int, `val`: Column): String {

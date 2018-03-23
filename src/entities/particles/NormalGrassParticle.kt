@@ -1,7 +1,7 @@
 package entities.particles
 
 import entities.characters.GameCharacter
-import handlers.Resources
+import util.Resources
 import main.Main
 
 /**

@@ -1,13 +1,12 @@
 package entities
 
 import entities.particles.Particle
-import handlers.Camera
-import handlers.controls.Controls
-import handlers.controls.Controls.InputDir.*
+import util.Camera
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import region.RegionManager
-import region.area.Cardinality
+import util.Direction
+import util.Direction.*
 
 object EntityManager {
     private val entityMap = EntityMap()
@@ -55,22 +54,24 @@ object EntityManager {
 
     fun getEntity(name: String) = entityMap[name]
 
-    fun areaSwitch(direction: Controls.InputDir) {
-        val yOffset = when (direction) {
-            UP -> RegionManager.currentArea.height * 16
-            DOWN -> -RegionManager.getNeighbor(Cardinality.NORTH).height * 16
-            else -> 0
+    fun areaSwitch(dir: Direction) {
+        val yOffset = when (dir) {
+            UP -> RegionManager.currentArea.map.height * 16
+            DOWN -> -RegionManager.getNeighbor(UP).map.height * 16
+            LEFT -> -RegionManager.getNeighbor(RIGHT).getOffset(dir)
+            RIGHT -> -RegionManager.getNeighbor(LEFT).getOffset(dir)
         }
 
-        val xOffset = when (direction) {
-            LEFT -> RegionManager.getNeighbor(Cardinality.WEST).height * 16
-            RIGHT -> -RegionManager.currentArea.height * 16
-            else -> 0
+        val xOffset = when (dir) {
+            LEFT -> RegionManager.getNeighbor(LEFT).map.width * 16
+            RIGHT -> -RegionManager.currentArea.map.width * 16
+            UP -> -RegionManager.getNeighbor(DOWN).getOffset(dir)
+            DOWN -> -RegionManager.getNeighbor(UP).getOffset(dir)
         }
 
         for (key in entityMap.entityList) {
             val temp = entityMap[key]!!
-            temp.setPosition(temp.getX() + xOffset, temp.getY() + yOffset)
+            temp.setPosition(temp.x + xOffset, temp.y + yOffset)
             temp.updateDepth()
         }
         entityMap.update()
