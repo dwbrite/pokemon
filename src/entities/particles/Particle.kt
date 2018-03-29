@@ -8,6 +8,7 @@ import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.Image
 import region.RegionManager
+import util.CollisionType
 
 open class Particle(x: Int, y: Int, spriteSheet: Image, protected var depthOffset: Double) : AbstractEntity(x, y) {
     protected var animation: Animation
@@ -31,7 +32,7 @@ open class Particle(x: Int, y: Int, spriteSheet: Image, protected var depthOffse
 
         this.animation = Animation(*imgz.toTypedArray())
         this.currentImage = animation.currentFrame
-        this.collisionType = 0
+        this.collisionType = CollisionType.NONE
 
         this.startingTick = Main.ticks
         this.tickSwitch = tickLimit

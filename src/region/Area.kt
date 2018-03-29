@@ -17,7 +17,7 @@ class Area(val metadata: File) {
     val map: TiledMap
     val wildlife: WildlifeParser
 
-    val collisionMap: Array<IntArray>
+    val collisionMap: CollisionMap
 
     val region: String get() = jsonMetadata.get("region").asString
     val name: String get() = jsonMetadata.get("area").asString
@@ -46,8 +46,7 @@ class Area(val metadata: File) {
         wildlife = WildlifeParser(findResources("pokemon.csv", metadata.parentFile).firstOrNull())
         jsonMetadata = JsonParser().parse(metadata.reader()).asJsonObject
 
-        collisionMap = Array(map.width) {IntArray(map.height)}
-        initCollisionMap()
+        collisionMap = CollisionMap(map)
     }
 
     fun getNeighbor(dir: Direction): Pair<String, String> {
@@ -92,23 +91,6 @@ class Area(val metadata: File) {
         } catch(e: Exception) {
             System.err.println("Couldn't find " + getNeighbor(dir))
             clear
-        }
-    }
-
-    private fun initCollisionMap() {
-        //TODO("Define collision and tile animations elsewhere")
-        for (y in 0 until map.height) for (x in 0 until map.width) {
-            when (map.getTileId(x, y, map.getLayerIndex("Interactive"))) {
-                0               -> collisionMap[x][y] = CollisionType.NONE.ordinal
-                7, 11           -> collisionMap[x][y] = CollisionType.LEFT_CLIFF.ordinal
-                10, 12          -> collisionMap[x][y] = CollisionType.RIGHT_CLIFF.ordinal
-                27, 28, 29, 30  -> collisionMap[x][y] = CollisionType.DOWN_CLIFF.ordinal
-                else -> collisionMap[x][y] = CollisionType.NORMAL.ordinal
-            }
-            when (map.getTileId(x, y, map.getLayerIndex("Floor"))) {
-                3               -> collisionMap[x][y] = CollisionType.GRASS.ordinal
-                6               -> collisionMap[x][y] = CollisionType.DARK_GRASS.ordinal
-            }
         }
     }
 

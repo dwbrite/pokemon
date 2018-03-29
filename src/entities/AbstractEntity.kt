@@ -4,7 +4,7 @@ import gamestate.InGameState
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.Image
-import region.RegionManager
+import util.CollisionType.*
 
 abstract class AbstractEntity(x: Int, y: Int) {
     var x: Int = 0
@@ -21,7 +21,7 @@ abstract class AbstractEntity(x: Int, y: Int) {
     var yMapOffset: Int = 0
         protected set
 
-    protected var collisionType = 1
+    protected var collisionType = PLAYER
 
     protected lateinit var spriteSheet: Image
 
@@ -45,17 +45,17 @@ abstract class AbstractEntity(x: Int, y: Int) {
     }
 
     fun setCollision() {
-        if (collisionType != 0) {
+        if (collisionType != NONE) {
             val x1 = (x + xMapOffset) / 16
             val y1 = (y + yMapOffset) / 16
 
             val x2 = (x + xMapOffset + (width - 1)) / 16
             val y2 = (y + yMapOffset + (height - 1)) / 16
 
-            InGameState.setCollisionValue(x1, y1, collisionType)
-			InGameState.setCollisionValue(x1, y2, collisionType)
-			InGameState.setCollisionValue(x2, y1, collisionType)
-			InGameState.setCollisionValue(x2, y2, collisionType)
+            InGameState.collisionMap.setCollisionValue(x1, y1, collisionType)
+			InGameState.collisionMap.setCollisionValue(x1, y2, collisionType)
+			InGameState.collisionMap.setCollisionValue(x2, y1, collisionType)
+			InGameState.collisionMap.setCollisionValue(x2, y2, collisionType)
         }
     }
 

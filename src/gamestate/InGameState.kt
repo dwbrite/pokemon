@@ -4,6 +4,7 @@ import entities.EntityManager
 import entities.characters.GameCharacter
 import entities.characters.Trainer
 import gui.GuiManager
+import main.Main.ticks
 import util.Camera
 import util.Resources
 import util.Direction.*
@@ -12,16 +13,22 @@ import util.controls.PlayerController
 import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 import org.newdawn.slick.tiled.TiledMap
+import region.CollisionMap
 import region.RegionManager
-import util.CollisionType
-import util.Direction
+import util.CollisionType.*
 import java.util.*
 
 object InGameState : AbstractGameState() {
 
-    var collisionMap: Array<IntArray> = emptyArray()
+    lateinit var collisionMap: CollisionMap
 
     var player = Trainer(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!)
+
+    private lateinit var northMap: TiledMap
+    private lateinit var southMap: TiledMap
+    private lateinit var centerMap: TiledMap
+    private lateinit var eastMap: TiledMap
+    private lateinit var westMap: TiledMap
 
     init {
         //TODO(" (re)move this?")
@@ -42,16 +49,16 @@ object InGameState : AbstractGameState() {
     }
 
     override fun update(gc: GameContainer) {
-        collisionMap = Array(RegionManager.fullWidth) { IntArray(RegionManager.fullHeight) }
-        updateCollisionMap()
+        if(ticks == 1L) { refreshMaps() }
+
+        collisionMap = CollisionMap(northMap, westMap, centerMap, eastMap, southMap)
         EntityManager.update(gc)
         if(areaShouldSwitch()) {
             val dir = (Camera.followedEntity!! as? GameCharacter)!!.direction
             RegionManager.currentArea = RegionManager.getNeighbor(dir)
             EntityManager.areaSwitch(dir)
+            refreshMaps()
         }
-
-        //collisionMap = Array(RegionManager.fullWidth) { IntArray(RegionManager.fullHeight) }
 
         Camera.update()
 
@@ -60,7 +67,7 @@ object InGameState : AbstractGameState() {
 
         if (player.frameNum == 0 && player.currentAction != GameCharacter.Action.IDLING) {
             when (player.forwardCollisionType) {
-                2 -> {
+                GRASS, DARK_GRASS -> {
                     //TODO(" implement proper RNG")
                     if ((1..32).random() == 1) {
                         println("battle")
@@ -73,44 +80,6 @@ object InGameState : AbstractGameState() {
         }
     }
 
-    private fun updateCollisionMap() {
-        val north: TiledMap = RegionManager.getNeighbor(UP).map
-        val south: TiledMap = RegionManager.getNeighbor(DOWN).map
-        val current: TiledMap = RegionManager.currentArea.map
-        val east: TiledMap = RegionManager.getNeighbor(RIGHT).map
-        val west: TiledMap = RegionManager.getNeighbor(LEFT).map
-
-        updateCollisionFrom(north, west.width + RegionManager.currentArea.getOffset(UP)/16, 0)
-        updateCollisionFrom(west, 0, north.height + RegionManager.currentArea.getOffset(LEFT)/16)
-        updateCollisionFrom(current, west.width, north.height)
-        updateCollisionFrom(east, west.width + current.width, north.height + RegionManager.currentArea.getOffset(RIGHT)/16)
-        updateCollisionFrom(south, west.width + RegionManager.currentArea.getOffset(DOWN)/16, north.height + current.height)
-    }
-
-    private fun updateCollisionFrom(map: TiledMap, xOffset: Int, yOffset: Int) {
-        for (y in 0 until map.height) for (x in 0 until map.width) {
-            when (map.getTileId(x, y, map.getLayerIndex("Interactive"))) {
-                0 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.NONE.ordinal
-                7, 11 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.LEFT_CLIFF.ordinal
-                10, 12 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.RIGHT_CLIFF.ordinal
-                27, 28, 29, 30 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.DOWN_CLIFF.ordinal
-                else -> collisionMap[x + xOffset][y + yOffset] = CollisionType.NORMAL.ordinal
-            }
-            when (map.getTileId(x, y, map.getLayerIndex("Floor"))) {
-                3 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.GRASS.ordinal
-                6 -> collisionMap[x + xOffset][y + yOffset] = CollisionType.DARK_GRASS.ordinal
-            }
-        }
-    }
-
-    fun getCollisionValue (x: Int, y: Int): Int {
-        return collisionMap[x + RegionManager.getNeighbor(LEFT).width][y + RegionManager.getNeighbor(UP).height]
-    }
-
-    fun setCollisionValue(x: Int, y: Int, type: Int) {
-        collisionMap[x + RegionManager.getNeighbor(LEFT).width][y + RegionManager.getNeighbor(UP).height] = type
-    }
-
     private fun areaShouldSwitch(): Boolean {
         val entity = (Camera.followedEntity!! as? GameCharacter)!!
         return when (entity.direction) {
@@ -119,6 +88,14 @@ object InGameState : AbstractGameState() {
             LEFT -> (entity.x < 0)
             RIGHT -> (entity.x > (RegionManager.currentArea.map.width - 1) * 16)
         }
+    }
+
+    private fun refreshMaps() {
+        northMap = RegionManager.getNeighbor(UP).map
+        southMap = RegionManager.getNeighbor(DOWN).map
+        centerMap = RegionManager.currentArea.map
+        eastMap = RegionManager.getNeighbor(RIGHT).map
+        westMap = RegionManager.getNeighbor(LEFT).map
     }
 
 }
