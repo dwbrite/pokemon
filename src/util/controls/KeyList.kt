@@ -2,20 +2,9 @@ package util.controls
 
 import java.util.ArrayList
 
-/**
- * Created by dwbrite on 5/6/16.
- */
 class KeyList<T> {
-    internal var values: ArrayList<T>
-
-    internal var keys: ArrayList<String>
-
-    private val t: T? = null
-
-    init {
-        this.values = ArrayList()
-        this.keys = ArrayList()
-    }
+    private var values: ArrayList<T> = ArrayList()
+    private var keys: ArrayList<String> = ArrayList()
 
     operator fun get(key: String): T {
         return values[keys.indexOf(key)]

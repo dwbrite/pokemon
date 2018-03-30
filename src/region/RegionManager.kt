@@ -33,7 +33,7 @@ object RegionManager {
         return area[areaKey]!!
     }
 
-    fun addArea(area: Area) {
+    private fun addArea(area: Area) {
         this.area[area.keyPair] = area
     }
 }

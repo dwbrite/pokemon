@@ -5,7 +5,7 @@ import util.Resources.FONT
 import main.Main
 import org.newdawn.slick.*
 
-open class Text(text: String, private var x: Int, private var y: Int, var color: FontColor) : GuiElement {
+open class Text(text: String, private var x: Int, private var y: Int, private var color: FontColor) : GuiElement {
 
 
     private var shadow =  true

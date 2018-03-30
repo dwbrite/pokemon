@@ -56,7 +56,7 @@ class Move(private var id: Int) {
     }
 
     fun selectTarget() {
-        var target: Target = Target.valueOf(Resources.CSV["Moves"]!![id][Column.TARGET.ordinal].trim())
+        val target: Target = Target.valueOf(Resources.CSV["Moves"]!![id][Column.TARGET.ordinal].trim())
         println(target)
     }
 }

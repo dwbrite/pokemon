@@ -2,9 +2,6 @@ package entities.pokemon
 
 import util.Resources
 
-/**
- * Created by dwbrite on 4/13/16.
- */
 object Type {
 
     internal enum class Types {

@@ -21,7 +21,7 @@ object Resources {
 
     val FONT = generateFontFromUrl("res/PocketPower.ttf", 10f)!!
 
-    val GLYPHS = """ABCDEFGHIJKLMNOPQRSTUVWXYZ
+    private const val GLYPHS = """ABCDEFGHIJKLMNOPQRSTUVWXYZ
                 abcdefghijklmnopqrstuvwxyz
                 0123456789
                 .,“”‘’"'?!@_*#${'$'}%&()+-/:;<=>[\]^`{|}~¡¿
@@ -48,7 +48,8 @@ object Resources {
     @JvmStatic var isReady = false
     @JvmStatic val SPRITESHEET: HashMap<String, Image> = HashMap()
     @JvmStatic val PARTICLE: HashMap<String, Image> = HashMap()
-    @JvmStatic val ARENA: HashMap<String, Image> = HashMap()
+    @JvmStatic
+    private val ARENA: HashMap<String, Image> = HashMap()
     @JvmStatic val CSV: HashMap<String, List<CSVRecord>> = HashMap()
     @JvmStatic val BORDERS: ArrayList<Image> = ArrayList()
 
@@ -96,7 +97,7 @@ object Resources {
             generateCsvData("Moves",    "res/Pokemon/moves.csv")
 
             for (i in 1..28) {
-                BORDERS.add(Image("res/TileSets/Borders/" + i + ".png", false, Image.FILTER_NEAREST))
+                BORDERS.add(Image("res/TileSets/Borders/$i.png", false, Image.FILTER_NEAREST))
             }
 
         } catch (e: Exception) {
@@ -104,7 +105,7 @@ object Resources {
         }
     }
 
-    fun generateFontFromUrl(url: String, defaultSize: Float): UnicodeFont? {
+    private fun generateFontFromUrl(url: String, defaultSize: Float): UnicodeFont? {
         return try {
             var f = Font.createFont(Font.TRUETYPE_FONT, getResourceAsStream(url))
             f = f.deriveFont(defaultSize)
@@ -135,7 +136,7 @@ object Resources {
         return uf
     }
 
-    fun generateCsvData(hashname: String, resource: String) {
+    private fun generateCsvData(hashname: String, resource: String) {
         val csvData = getResourceAsStream(resource)
         val parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.EXCEL)
         CSV[hashname] = parser.records

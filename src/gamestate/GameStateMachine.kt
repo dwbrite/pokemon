@@ -11,22 +11,21 @@ import util.Resources
 import java.util.ArrayList
 
 object GameStateMachine {
-    val EFFECT_GRASS_A = 0
-    val EFFECT_GRASS_B = 1
-    val EFFECT_WATER_A = 2
-    val EFFECT_WATER_B = 3
-    val EFFECT_CAVE_A = 4
-    val EFFECT_CAVE_B = 5
+    const val EFFECT_GRASS_A = 0
+    const val EFFECT_GRASS_B = 1
+    const val EFFECT_WATER_A = 2
+    const val EFFECT_WATER_B = 3
+    const val EFFECT_CAVE_A = 4
+    const val EFFECT_CAVE_B = 5
 
-    val inGameState = 0
-    val battleState = 1
+    private const val inGameState = 0
+    private const val battleState = 1
 
     private val gameStates = ArrayList<AbstractGameState>()
     private var currentState: Int = 0
 
     private var transitionStartTicks: Long = 0
-    var isTransitioning = false
-        private set
+    private var isTransitioning = false
     private var transitionEffect: Int = 0
 
     val gameState: AbstractGameState
@@ -41,14 +40,14 @@ object GameStateMachine {
 
         //TODO("Move transitions elsewhere | Complete transitions")
         if (isTransitioning) {
-            if (Main.ticks >= transitionStartTicks + 32 + 128) {
-                //Done transitioning
-                isTransitioning = false
-            } else if (Main.ticks >= transitionStartTicks + 128) {
-                //Transition In
-            } else if (Main.ticks >= transitionStartTicks + 64) {
-                //Transition Out
-                setGameState(battleState)
+            when {
+                Main.ticks >= transitionStartTicks + 32 + 128 -> //Done transitioning
+                    isTransitioning = false
+                Main.ticks >= transitionStartTicks + 128 -> {
+                    //Transition In
+                }
+                Main.ticks >= transitionStartTicks + 64 -> //Transition Out
+                    setGameState(battleState)
             }
         }
 
@@ -74,7 +73,7 @@ object GameStateMachine {
         RegionManager.init(gc)
     }
 
-    fun setGameState(state: Int) {
+    private fun setGameState(state: Int) {
         currentState = state
     }
 

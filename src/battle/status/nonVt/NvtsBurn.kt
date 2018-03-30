@@ -2,12 +2,9 @@ package battle.status.nonVt
 
 import entities.pokemon.Pokemon
 
-/**
- * Created by dwbrite on 4/16/16.
- */
-class nvtsBurn(self: Pokemon) : NonVolatileStatus() {
+class NvtsBurn(self: Pokemon) : NonVolatileStatus() {
 
-    internal var atkModifier: Int = 0
+    private var atkModifier: Int = 0
 
     init {
         this.self = self

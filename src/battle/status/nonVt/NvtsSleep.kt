@@ -2,14 +2,11 @@ package battle.status.nonVt
 
 import entities.pokemon.Pokemon
 
-/**
- * Created by dwbrite on 4/27/16.
- */
-class nvtsSleep : NonVolatileStatus {
+class NvtsSleep : NonVolatileStatus {
 
-    internal var numSleepTurns: Int = 0
+    private var numSleepTurns: Int = 0
 
-    internal var turnsSlept: Int = 0
+    private var turnsSlept: Int = 0
 
     constructor(self: Pokemon) {
         this.self = self

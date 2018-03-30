@@ -9,11 +9,11 @@ object Camera {
     var y: Int = 0
         private set
 
-    private var isFollowing = false
+    var isFollowing = false
     var followedEntity: AbstractEntity? = null
         private set
 
-    fun setPosition(x: Int, y: Int) {
+    private fun setPosition(x: Int, y: Int) {
         Camera.x = x
         Camera.y = y
     }
@@ -35,9 +35,5 @@ object Camera {
     fun followEntity(entity: AbstractEntity) {
         followedEntity = entity
         isFollowing = true
-    }
-
-    fun stopFollowing() {
-        isFollowing = false
     }
 }

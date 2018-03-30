@@ -10,106 +10,97 @@ import kotlin.collections.HashMap
 import kotlin.collections.List
 import kotlin.collections.indices
 
-class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, protected var pokerusInfection: Boolean, level: Int, protected var abilitySlot: Int, protected var individualGender: Gender, protected var individualNature: Nature) {
+class Pokemon(species: Int, IVs: IntArray, private var isShiny: Boolean, private var pokerusInfection: Boolean, level: Int, private var abilitySlot: Int, private var individualGender: Gender, private var individualNature: Nature) {
     // Species
-    var species: Int = 0
-        protected set
+    private var species: Int = 0
 
     // Contest stat
-    protected var contestValue = IntArray(5)
-    protected var currentHeldItem: Int = 0
+    private var contestValue = IntArray(5)
+    private var currentHeldItem: Int = 0
 
     // Battle stats
-    protected var currentValue = IntArray(6)
+    private var currentValue = IntArray(6)
 
     // EVs
-    var eVs = IntArray(6)
-        protected set
+    private var eVs = IntArray(6)
 
     // ?? Individual stats
-    protected var exp: Int = 0
-    protected var individualForm: Int = 0
-    protected var individualFriendship: Int = 0
-    protected var individualHeight: Int = 0
-    protected var individualWeight: Int = 0
-    protected var level: Int = 0
-    protected var individualMoves = IntArray(4)
-    var nickname: String? = null
-    protected var individualPokeball: Int = 0
+    private var exp: Int = 0
+    private var individualForm: Int = 0
+    private var individualFriendship: Int = 0
+    private var individualHeight: Int = 0
+    private var individualWeight: Int = 0
+    private var level: Int = 0
+    private var individualMoves = IntArray(4)
+    private var nickname: String? = null
+    private var individualPokeball: Int = 0
 
     // IVs
-    var iVs = IntArray(6)
-        protected set
-    protected var isEgg: Boolean = false
+    private var iVs = IntArray(6)
+    private var isEgg: Boolean = false
 
     // Markers
-    protected var marker = HashMap<Marker, Boolean>()
+    private var marker = HashMap<Marker, Boolean>()
 
     // First contact
-    protected var contactLevel: Int = 0
-    protected var contactLocation: String? = null
-    protected var contactType: String? = null
+    private var contactLevel: Int = 0
+    private var contactLocation: String? = null
+    private var contactType: String? = null
 
     // Origin
-    protected var originalTrainerId: Int = 0
-    protected var originalTrainerName: String? = null
-    protected var originalTrainerSecretId: Int = 0
+    private var originalTrainerId: Int = 0
+    private var originalTrainerName: String? = null
+    private var originalTrainerSecretId: Int = 0
 
     var countryOfOrigin: String? = null
-        protected set
+        private set
 
     var regionOfOrigin: String? = null
-        protected set
+        private set
 
-    protected var pokerusEndTime: Long = 0
-    protected var pokerusStartTime: Long = 0
+    private var pokerusEndTime: Long = 0
+    private var pokerusStartTime: Long = 0
 
     // Total stats
-    protected var totalValue = IntArray(6)
+    private var totalValue = IntArray(6)
 
-    var evasion = 0
-    protected var statStage = IntArray(6)
+    private var evasion = 0
+    private var statStage = IntArray(6)
     var isConscious = true
 
-    protected var statusCondition: NonVolatileStatus? = null
-    protected var volatileCondition: Array<VolatileStatus>? = null
-    protected var battleCondition: Array<VolatileBattleStatus>? = null
+    private var statusCondition: NonVolatileStatus? = null
+    private var volatileCondition: Array<VolatileStatus>? = null
+    private var battleCondition: Array<VolatileBattleStatus>? = null
 
     lateinit var ability: String
 
-    var spriteUrl: String
-        protected set
+    private var spriteUrl: String
 
     /**
      * Returns the amount of XP left until the next level up
      *
      * @return the amount of XP left until the next level up
      */
-    val levelUpExp: Int
+    private val levelUpExp: Int
         get() {
             val n = this.level + 1
             var exp = 0
             when (Species.getData(species, Species.Column.GROWTH_RATE)) {
-                "ER" -> if (n <= 50) {
-                    exp = (n xor 3 * (100 - n)) / 50
-                } else if (n <= 68) {
-                    exp = (n xor 3 * (150 - n)) / 100
-                } else if (n <= 98) {
-                    exp = (n xor 3 * ((1911 - 10 * n) / 3)) / 500
-                } else {
-                    exp = (n xor 3 * (160 - n)) / 100
+                "ER" -> exp = when {
+                    n <= 50 -> (n xor 3 * (100 - n)) / 50
+                    n <= 68 -> (n xor 3 * (150 - n)) / 100
+                    n <= 98 -> (n xor 3 * ((1911 - 10 * n) / 3)) / 500
+                    else -> (n xor 3 * (160 - n)) / 100
                 }
 
                 "FA" -> exp = (4 * n xor 3) / 5
                 "MF" -> exp = n xor 3
                 "MS" -> exp = (1.2 * (n xor 3)).toInt() - (15 * n xor 2) + 100 * n - 140
                 "SL" -> exp = (5 * n xor 3) / 4
-                "FL" -> if (n <= 15) {
-                    exp = n xor 3 * ((n + 1) / 3 + 24 / 50)
-                } else if (n <= 36) {
-                    exp = n xor 3 * ((n + 14) / 50)
-                } else {
-                    exp = n xor 3 * ((n / 2 + 32) / 50)
+                "FL" -> exp = when {
+                    n <= 15 -> n xor 3 * ((n + 1) / 3 + 24 / 50)
+                    n <= 36 -> n xor 3 * ((n + 14) / 50)
+                    else -> n xor 3 * ((n / 2 + 32) / 50)
                 }
             }
 
@@ -142,18 +133,17 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
     }
 
     private fun updateAbility() {
-        val tempc: Species.Column
-        when (abilitySlot) {
-            0 -> tempc = Species.Column.ABILITY_1
-            1 -> tempc = Species.Column.ABILITY_2
-            2 -> tempc = Species.Column.ABILITY_HIDDEN
-            else -> tempc = Species.Column.ABILITY_1
+        val tempc: Species.Column = when (abilitySlot) {
+            0 -> Species.Column.ABILITY_1
+            1 -> Species.Column.ABILITY_2
+            2 -> Species.Column.ABILITY_HIDDEN
+            else -> Species.Column.ABILITY_1
         }
         ability = Species.getData(species, tempc)
 
     }
 
-    fun checkEvolve() {
+    private fun checkEvolve() {
         //Stone, Trade, Level, Friendship
         val str = Species.getEvolutionCondition(species, 1)
         val type = str.substring(0, str.indexOf(':'))
@@ -175,7 +165,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         checkLevelUp()
     }
 
-    fun checkLevelUp() {
+    private fun checkLevelUp() {
         if (this.exp >= this.levelUpExp) {
             this.grantLevelUp()
         }
@@ -187,7 +177,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         this.checkLevelUp()
     }
 
-    fun grantLevelUp() {
+    private fun grantLevelUp() {
         this.level++
         this.updateStats()
         this.checkEvolve()
@@ -196,7 +186,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         //New comment: Does this ^ even need to be said? Can non-player 'mon even level up?
     }
 
-    fun updateStats() {
+    private fun updateStats() {
         val oldValues = this.totalValue
         val gainedValues = IntArray(6)
 
@@ -228,27 +218,26 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         val numerator: Float
         val denominator: Float
         var multiplier = 1f
-        if (statVal > 6)
-            statStage[stat.ordinal] = 6
-        else if (statVal < -6)
-            statStage[stat.ordinal] = -6
-        else { //TODO("battle stats?")
-            when (stat) {
-                Pokemon.BattleStat.ATK, Pokemon.BattleStat.DEF, Pokemon.BattleStat.SPATK, Pokemon.BattleStat.SPDEF, Pokemon.BattleStat.SPEED -> {
-                    numerator = if (statVal > 0) 2f + statVal else 2f
-                    denominator = if (statVal < 0) 2f + statVal else 2f
-                    multiplier = numerator / denominator
-                    currentValue[stat.ordinal] = (totalValue[stat.ordinal] * multiplier).toInt()
+        when {
+            statVal > 6 -> statStage[stat.ordinal] = 6
+            statVal < -6 -> statStage[stat.ordinal] = -6
+            else -> //TODO("battle stats?")
+                when (stat) {
+                    Pokemon.BattleStat.ATK, Pokemon.BattleStat.DEF, Pokemon.BattleStat.SPATK, Pokemon.BattleStat.SPDEF, Pokemon.BattleStat.SPEED -> {
+                        numerator = if (statVal > 0) 2f + statVal else 2f
+                        denominator = if (statVal < 0) 2f + statVal else 2f
+                        multiplier = numerator / denominator
+                        currentValue[stat.ordinal] = (totalValue[stat.ordinal] * multiplier).toInt()
+                    }
+                    Pokemon.BattleStat.EVADE -> {
+                        numerator = if (statVal < 0) 3f + statVal else 3f
+                        denominator = if (statVal > 0) 3f + statVal else 3f
+                        multiplier = numerator / denominator
+                        evasion = (100 * multiplier).toInt()
+                    }
+                    else -> {
+                    }
                 }
-                Pokemon.BattleStat.EVADE -> {
-                    numerator = if (statVal < 0) 3f + statVal else 3f
-                    denominator = if (statVal > 0) 3f + statVal else 3f
-                    multiplier = numerator / denominator
-                    evasion = (100 * multiplier).toInt()
-                }
-                else -> {
-                }
-            }
         }
     }
 
@@ -279,7 +268,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
     override fun toString(): String {
         val sb = StringBuilder()
         sb.append(Species.getData(species, Species.Column.POKEMON_NAME))
-        sb.append((if (isShiny) "*" else "") + if (nickname != null) " \"" + nickname + "\"" else "")
+        sb.append((if (isShiny) "*" else "") + if (nickname != null) " \"$nickname\"" else "")
 
         sb.append(" lv $level | ")
 
@@ -361,7 +350,7 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
         CEPHALOFORM, // Pokemon consisting of only a head.
         SERPENTINE, // Pokemon with a serpentine body.
         PINNIPED, // Pokemon with fins.
-        BRACHIOCEPHALOFORM, // Pokemon consistong of a head and arms.
+        BRACHIOCEPHALOFORM, // Pokemon consisting of a head and arms.
         SOMATOID, // Pokemon consisting of a head and base.
         ANDROCAUDAL, // Pokemon with a bipedal, tailed form.
         ASOMATICCEPHALOPOD, // Pokemon consisting of a head and legs.
@@ -442,14 +431,14 @@ class Pokemon(species: Int, IVs: IntArray, protected var isShiny: Boolean, prote
             //Gender
             rng = Math.random()
             val gender: Gender
-            if (Species.getData(species, Species.Column.GENDER) != "-1") {
+            gender = if (Species.getData(species, Species.Column.GENDER) != "-1") {
                 if (rng <= java.lang.Double.valueOf(Species.getData(species, Species.Column.GENDER))) {
-                    gender = Gender.MALE
+                    Gender.MALE
                 } else {
-                    gender = Gender.FEMALE
+                    Gender.FEMALE
                 }
             } else {
-                gender = Gender.GENDERLESS
+                Gender.GENDERLESS
             }
 
             //Nature

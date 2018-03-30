@@ -2,12 +2,9 @@ package battle.status.nonVt
 
 import entities.pokemon.Pokemon
 
-/**
- * Created by dwbrite on 4/27/16.
- */
-class nvtsParalyze(self: Pokemon) : NonVolatileStatus() {
+class NvtsParalyze(self: Pokemon) : NonVolatileStatus() {
 
-    internal var spdModifier: Int = 0
+    private var spdModifier: Int = 0
 
     init {
         this.self = self
@@ -30,10 +27,10 @@ class nvtsParalyze(self: Pokemon) : NonVolatileStatus() {
             self.removeNonVolatileStatus()
         }
         */
-        if (self!!.ability == "Quick Feet") {
-            spdModifier = (self!!.getBattleStat(Pokemon.SpeciesStat.SPEED) * 0.5f).toInt()
+        spdModifier = if (self!!.ability == "Quick Feet") {
+            (self!!.getBattleStat(Pokemon.SpeciesStat.SPEED) * 0.5f).toInt()
         } else {
-            spdModifier = (self!!.getBattleStat(Pokemon.SpeciesStat.SPEED) * -0.25f).toInt()
+            (self!!.getBattleStat(Pokemon.SpeciesStat.SPEED) * -0.25f).toInt()
         }
         self!!.modifyBattleStat(Pokemon.SpeciesStat.SPEED, spdModifier)
     }

@@ -33,7 +33,7 @@ object Controls {
     fun getInput(obj: Controller, button: InputKey): Boolean = hasPriority(obj) && input[button]
     fun getInput(obj: Controller, button: Direction): Boolean = hasPriority(obj) && input[button]
 
-    fun hasPriority(obj: Controller): Boolean = controlPriority[0] === obj
+    private fun hasPriority(obj: Controller): Boolean = controlPriority[0] === obj
     fun givePriority(obj: Controller) {
         controlPriority.add(0, obj)
     }

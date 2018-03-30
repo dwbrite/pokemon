@@ -4,9 +4,6 @@ import entities.characters.GameCharacter
 import util.Resources
 import main.Main
 
-/**
- * Created by dwbrite on 5/15/16.
- */
 class NormalGrassParticle(x: Int, y: Int, private val parent: GameCharacter) : Particle(x, y, Resources.PARTICLE["Grass"]!!, -1.0) {
 
     private var hasParentFinishedStep = false

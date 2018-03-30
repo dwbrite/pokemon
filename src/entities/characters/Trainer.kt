@@ -3,12 +3,9 @@ package entities.characters
 import entities.pokemon.Pokemon
 import org.newdawn.slick.Image
 
-/**
- * Created by dwbrite on 4/28/16.
- */
 open class Trainer(x: Int, y: Int, spritesheet: Image) : GameCharacter(x, y, spritesheet) {
 
-    internal var party = arrayOfNulls<Pokemon?>(6)
+    private var party = arrayOfNulls<Pokemon?>(6)
 
     open val firstConsciousMonster: Pokemon?
         get() {
@@ -17,7 +14,7 @@ open class Trainer(x: Int, y: Int, spritesheet: Image) : GameCharacter(x, y, spr
                     ?.let { party[it]!! }
         }
 
-    fun setPartyMember(position: Int, member: Pokemon?) {
+    private fun setPartyMember(position: Int, member: Pokemon?) {
         party[position] = member
     }
 

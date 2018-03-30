@@ -11,7 +11,7 @@ class EntityMap {
     operator fun get(name: String) = entities[name]
 
     fun add(name: String, entity: AbstractEntity) {
-        entitiesToAdd.put(name, entity)
+        entitiesToAdd[name] = entity
     }
 
     fun remove(name: String) {
@@ -25,7 +25,7 @@ class EntityMap {
 
     private fun doAdd() {
         for (e in entitiesToAdd.entries) {
-            entities.put(e.key, e.value)
+            entities[e.key] = e.value
             entityList.add(e.key)
         }
         entitiesToAdd.clear()
@@ -45,7 +45,7 @@ class EntityMap {
         sort()
     }
 
-    fun sort() {
-        Collections.sort(entityList, { p1, p2 -> compareValues(entities[p1]!!.depth, entities[p2]!!.depth) })
+    private fun sort() {
+        entityList.sortWith(Comparator { p1, p2 -> compareValues(entities[p1]!!.depth, entities[p2]!!.depth) })
     }
 }

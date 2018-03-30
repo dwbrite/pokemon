@@ -25,7 +25,7 @@ open class Box(private var w: Int, private var h: Int, private var x: Int, priva
         lateinit var image: Image
 
         fun setTile(image: Image) {
-            this.image = image;
+            this.image = image
         }
 
         fun draw(x: Int, y: Int) {

@@ -6,18 +6,15 @@ import org.newdawn.slick.AppGameContainer
 import org.newdawn.slick.ScalableGame
 import org.newdawn.slick.SlickException
 
-import java.io.File
-
 object Main {
-    val WIDTH = 240
-
-    val HEIGHT = 160
+    const val WIDTH = 240
+    const val HEIGHT = 160
 
     var ticks: Long = 0
 
-    var scale = 2
+    private var scale = 2
 
-    lateinit var app: AppGameContainer
+    private lateinit var app: AppGameContainer
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -44,7 +41,7 @@ object Main {
 
     }
 
-    fun resizeGame(width: Int, height: Int) {
+    private fun resizeGame(width: Int, height: Int) {
         try {
             app.setDisplayMode(width, height, false)
             app.setVSync(true)

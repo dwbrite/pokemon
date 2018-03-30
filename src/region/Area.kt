@@ -2,25 +2,24 @@ package region
 
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import util.Camera
-import util.Resources.findResources
-import java.io.File
 import org.newdawn.slick.tiled.TiledMap
-import java.io.FileNotFoundException
-import util.CollisionType
+import util.Camera
 import util.Direction
 import util.Direction.*
 import util.Resources
+import util.Resources.findResources
+import java.io.File
+import java.io.FileNotFoundException
 
 
-class Area(val metadata: File) {
+class Area(metadata: File) {
     val map: TiledMap
-    val wildlife: WildlifeParser
+    private val wildlife: WildlifeParser
 
-    val collisionMap: CollisionMap
+    private val collisionMap: CollisionMap
 
     val region: String get() = jsonMetadata.get("region").asString
-    val name: String get() = jsonMetadata.get("area").asString
+    private val name: String get() = jsonMetadata.get("area").asString
     val description: String get() = jsonMetadata.get("description").asString
 
     val keyPair: Pair<String, String> get() = Pair(region, name)
@@ -94,7 +93,7 @@ class Area(val metadata: File) {
         }
     }
 
-    public fun updateRenderedAnimations() {
+    fun updateRenderedAnimations() {
         //TODO("Rename function to reflect proper purpose")
         for (y in 0 until height) for (x in 0 until width) {
             var floorTile = map.getTileId(x, y, map.getLayerIndex("Floor"))

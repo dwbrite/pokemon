@@ -2,13 +2,10 @@ package battle.status.nonVt
 
 import entities.pokemon.Pokemon
 
-/**
- * Created by dwbrite on 4/27/16.
- */
-class nvtsBadPoison(self: Pokemon) : NonVolatileStatus() {
+class NvtsBadPoison(self: Pokemon) : NonVolatileStatus() {
 
     //TODO("Decide if BadPoison belongs in Poison or not.")
-    internal var turn = 0
+    private var turn = 0
 
     init {
         this.self = self

@@ -4,7 +4,7 @@ import org.newdawn.slick.GameContainer
 import org.newdawn.slick.Graphics
 
 object GuiManager {
-    val elements = ArrayList<GuiElement>()
+    private val elements = ArrayList<GuiElement>()
 
     @JvmStatic
     fun init(gc: GameContainer) {

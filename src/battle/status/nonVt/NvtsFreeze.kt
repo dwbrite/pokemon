@@ -2,10 +2,8 @@ package battle.status.nonVt
 
 import entities.pokemon.Pokemon
 
-/**
- * Created by dwbrite on 4/27/16.
- */
-class nvtsFreeze(self: Pokemon) : NonVolatileStatus() {
+
+class NvtsFreeze(self: Pokemon) : NonVolatileStatus() {
 
     init {
         this.self = self

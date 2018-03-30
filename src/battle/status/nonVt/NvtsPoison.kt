@@ -2,12 +2,9 @@ package battle.status.nonVt
 
 import entities.pokemon.Pokemon
 
-/**
- * Created by dwbrite on 4/27/16.
- */
-class nvtsPoison(self: Pokemon) : NonVolatileStatus() {
+class NvtsPoison(self: Pokemon) : NonVolatileStatus() {
 
-    internal var steps = 0
+    private var steps = 0
 
     init {
         this.self = self

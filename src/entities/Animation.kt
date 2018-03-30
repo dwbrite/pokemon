@@ -1,18 +1,16 @@
 package entities
 
 import org.newdawn.slick.Image
-import org.newdawn.slick.SpriteSheet
 
 class Animation {
     private var frames: ArrayList<Image> = ArrayList()
 
     private var frameOrder: IntArray? = null
 
-    var currentFrameNum: Int = 0
-        private set
+    private var currentFrameNum: Int = 0
 
     val currentFrame: Image
-        get() = frames!![frameOrder!![currentFrameNum]]
+        get() = frames[frameOrder!![currentFrameNum]]
 
     constructor(frameOrder: IntArray, vararg frames: Image) {
         this.frameOrder = frameOrder

@@ -14,9 +14,9 @@ open class Particle(x: Int, y: Int, spriteSheet: Image, protected var depthOffse
     protected var animation: Animation
 
     protected var startingTick: Long = 0
-    protected open var tickLimit: Long = 16
-    protected var endingTick: Long = 0
-    protected var tickSwitch: Long = 0
+    private var tickLimit: Long = 16
+    private var endingTick: Long = 0
+    private var tickSwitch: Long = 0
 
     init {
         this.spriteSheet = spriteSheet

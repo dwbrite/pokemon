@@ -1,6 +1,5 @@
 package region
 
-import gamestate.InGameState
 import org.newdawn.slick.tiled.TiledMap
 import util.CollisionType
 import util.CollisionType.*

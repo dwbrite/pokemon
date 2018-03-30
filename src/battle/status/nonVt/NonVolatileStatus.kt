@@ -2,9 +2,6 @@ package battle.status.nonVt
 
 import entities.pokemon.Pokemon
 
-/**
- * Created by dwbrite on 4/16/16.
- */
 abstract class NonVolatileStatus {
 
 

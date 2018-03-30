@@ -27,23 +27,23 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     var controls = ControlMap()
 
     // Animations
-    protected var walk = arrayOfNulls<Animation>(4)
-    protected var run = arrayOfNulls<Animation>(4)
-    protected var bike = arrayOfNulls<Animation>(4)
-    protected var swim = arrayOfNulls<Animation>(4)
+    private var walk = arrayOfNulls<Animation>(4)
+    private var run = arrayOfNulls<Animation>(4)
+    private var bike = arrayOfNulls<Animation>(4)
+    private var swim = arrayOfNulls<Animation>(4)
     protected var fish = arrayOfNulls<Animation>(4)
-    protected var current = arrayOfNulls<Animation>(4)
-    protected var currentAnimation: Animation?
+    private var current = arrayOfNulls<Animation>(4)
+    private var currentAnimation: Animation?
 
     var frameNum = 0
-    var animationFrames = 0
-    var animations = 0
-    var moveSpeed = 0
+    private var animationFrames = 0
+    private var animations = 0
+    private var moveSpeed = 0
     var transportMode = TransportMode.WALK
         set(value) { if(!busy) field = value }
 
     // Collisions
-    var blocked = false
+    private var blocked = false
     var forwardCollisionType = NONE
 
     init {
@@ -110,7 +110,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         )
     }
 
-    protected fun checkCollisions() {
+    private fun checkCollisions() {
         forwardCollisionType = when (direction) {
             UP -> InGameState.collisionMap.getCollisionValue((x + xMapOffset) / 16, Math.ceil((y + yMapOffset) / 16.0).toInt() - 1)
             DOWN -> InGameState.collisionMap.getCollisionValue((x + xMapOffset) / 16, Math.floor((y + yMapOffset) / 16.0).toInt() + 1)
@@ -121,7 +121,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         blocked = !(forwardCollisionType == NONE || forwardCollisionType == GRASS || forwardCollisionType == DARK_GRASS)
     }
 
-    protected fun checkInput() {
+    private fun checkInput() {
         if (!busy) {
             var controlled = false
             for (dir in Direction.values()) {
@@ -151,11 +151,11 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     }
 
     private fun updateCurrentAnimation() {
-        when (transportMode) {
-            TransportMode.WALK -> current = walk
-            TransportMode.RUN -> current = run
-            TransportMode.BIKE -> current = bike
-            TransportMode.SWIM -> current = swim
+        current = when (transportMode) {
+            TransportMode.WALK -> walk
+            TransportMode.RUN -> run
+            TransportMode.BIKE -> bike
+            TransportMode.SWIM -> swim
         }
     }
 
@@ -266,7 +266,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         }
     }
 
-    protected fun processCliffJump() {
+    private fun processCliffJump() {
         busy = true
 
         animationFrames = 8
@@ -290,7 +290,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         }
     }
 
-    protected fun processIdle() {
+    private fun processIdle() {
         updateCurrentAnimation()
         finalizeMovement(0)
         finalizeAnimations(0)
@@ -302,7 +302,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         //}
     }
 
-    protected fun processMovement() {
+    private fun processMovement() {
         busy = true
         animationFrames = 8
         animations = 2
@@ -357,7 +357,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         currentImage!!.draw((x - 8 + xMapOffset + RegionManager.currentArea.x).toFloat(), (y - 16 + yMapOffset + RegionManager.currentArea.y).toFloat())
     }
 
-    protected fun processTurn() {
+    private fun processTurn() {
         busy = true
 
         animationFrames = 4

@@ -22,7 +22,7 @@ object InGameState : AbstractGameState() {
 
     lateinit var collisionMap: CollisionMap
 
-    var player = Trainer(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!)
+    private var player = Trainer(256 + 32, 0, Resources.SPRITESHEET["Player Brendan"]!!)
 
     private lateinit var northMap: TiledMap
     private lateinit var southMap: TiledMap

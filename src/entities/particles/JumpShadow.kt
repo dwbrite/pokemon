@@ -3,9 +3,6 @@ package entities.particles
 import entities.characters.GameCharacter
 import util.Resources
 
-/**
- * Created by dwbrite on 5/15/16.
- */
 class JumpShadow(x: Int, y: Int, private val parent: GameCharacter) : Particle(x, y, Resources.PARTICLE["Jump Shadow"]!!, -1.0) {
 
     init {
