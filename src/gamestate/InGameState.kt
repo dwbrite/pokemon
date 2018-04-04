@@ -69,11 +69,12 @@ object InGameState : AbstractGameState() {
             when (player.forwardCollisionType) {
                 GRASS, DARK_GRASS -> {
                     //TODO(" implement proper RNG")
-                    if ((1..32).random() == 1) {
+                    if ((1..64).random() == 1) {
                         println("battle")
                         player.frameNum = 0
                         player.busy = true
                         player.currentAction = GameCharacter.Action.IDLING
+                        //GameStateMachine.transitionToBattle(0)
                     }
                 }
             }

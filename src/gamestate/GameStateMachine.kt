@@ -1,5 +1,7 @@
 package gamestate
 
+import entities.characters.Trainer
+import entities.pokemon.Pokemon
 import gui.GuiManager
 import util.controls.Controls
 import main.Main
@@ -81,7 +83,13 @@ object GameStateMachine {
         return gameStates[stateId]
     }
 
-    fun transitionToBattle(transition: Int) {
+    fun transitionToBattle(transition: Int, trainer: Trainer, opponent: Trainer) {
+        isTransitioning = true
+        transitionEffect = transition
+        transitionStartTicks = Main.ticks
+    }
+
+    fun transitionToBattle(transition: Int, trainer: Trainer, opponent: Pokemon) {
         isTransitioning = true
         transitionEffect = transition
         transitionStartTicks = Main.ticks
