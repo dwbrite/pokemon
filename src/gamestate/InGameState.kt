@@ -2,6 +2,7 @@ package gamestate
 
 import entities.EntityManager
 import entities.characters.GameCharacter
+import entities.characters.Idle
 import entities.characters.Trainer
 import gui.GuiManager
 import main.Main.ticks
@@ -65,7 +66,7 @@ object InGameState : AbstractGameState() {
         fun ClosedRange<Int>.random() = Random().nextInt(endInclusive - start) + start
 
 
-        if (player.frameNum == 0 && player.currentAction != GameCharacter.Action.IDLING) {
+        if (player.frameNum == 0 && player.currentAction != Idle) {
             when (player.forwardCollisionType) {
                 GRASS, DARK_GRASS -> {
                     //TODO(" implement proper RNG")
@@ -73,7 +74,7 @@ object InGameState : AbstractGameState() {
                         println("battle")
                         player.frameNum = 0
                         player.busy = true
-                        player.currentAction = GameCharacter.Action.IDLING
+                        player.currentAction = Idle
                         //GameStateMachine.transitionToBattle(0)
                     }
                 }

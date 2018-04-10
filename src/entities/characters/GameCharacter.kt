@@ -19,7 +19,7 @@ import region.RegionManager
 
 open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x, y) {
 
-    var currentAction = Action.IDLING
+    internal var currentAction: State = Idle
     var busy = false
     var direction = DOWN
 
@@ -33,17 +33,16 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     private var swim = arrayOfNulls<Animation>(4)
     protected var fish = arrayOfNulls<Animation>(4)
     private var current = arrayOfNulls<Animation>(4)
-    private var currentAnimation: Animation?
+    internal var currentAnimation: Animation?
 
     var frameNum = 0
-    private var animationFrames = 0
-    private var animations = 0
-    private var moveSpeed = 0
+    internal var animationFrames = 0
+    internal var moveSpeed = 0
     var transportMode = TransportMode.WALK
         set(value) { if(!busy) field = value }
 
     // Collisions
-    private var blocked = false
+    internal var blocked = false
     var forwardCollisionType = NONE
 
     init {
@@ -127,16 +126,16 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
             for (dir in Direction.values()) {
                 if (controls[dir]) {
                     controlled = true
-                    currentAction = if (direction != dir && currentAction == Action.IDLING) {
+                    currentAction = if (direction != dir && currentAction == Idle) {
                         direction = dir
-                        Action.TURNING
+                        Turning
                     } else {
                         direction = dir
                         checkCollisions()
                         if (controls[DOWN] && forwardCollisionType == DOWN_CLIFF) {
-                            Action.JUMPING
+                            Jumping
                         } else {
-                            Action.MOVING
+                            Moving
                         }
                     }
                 }
@@ -145,12 +144,12 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
             if (controlled) {
                 frameNum = 0
             } else {
-                currentAction = Action.IDLING
+                currentAction = Idle
             }
         }
     }
 
-    private fun updateCurrentAnimation() {
+    internal fun updateCurrentAnimation() {
         current = when (transportMode) {
             TransportMode.WALK -> walk
             TransportMode.RUN -> run
@@ -160,29 +159,28 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
     }
 
     private fun checkGrassCollision() {
-        if (currentAction == Action.MOVING) {
+        if (currentAction == Moving) {
             //step
             if (forwardCollisionType == GRASS) {
                 var xOffset = 0
                 var yOffset = 0
-                if (currentAction == Action.MOVING) {
-                    when (direction) {
-                        UP -> yOffset = -16
-                        DOWN -> yOffset = 16
-                        LEFT -> xOffset = -16
-                        RIGHT -> xOffset = 16
-                    }
+                when (direction) {
+                    UP -> yOffset = -16
+                    DOWN -> yOffset = 16
+                    LEFT -> xOffset = -16
+                    RIGHT -> xOffset = 16
+                }
 
-                    if (frameNum == 0) {
-                        val temp = NormalGrassParticle(x + xOffset, y + yOffset, this)
-                        EntityManager.add(temp.toString(), temp)
-                    }
+                //TODO("Move grass spawning elsewhere - perhaps to InGameState")
+                if (frameNum == 0) {
+                    val temp = NormalGrassParticle(x + xOffset, y + yOffset, this)
+                    EntityManager.add(temp.toString(), temp)
                 }
             }
         }
     }
 
-    private fun finalizeMovement(moveSpeed: Int) {
+    internal fun finalizeMovement(moveSpeed: Int) {
         checkGrassCollision()
 
         when (direction) {
@@ -192,7 +190,7 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
             }
             DOWN -> {
                 currentAnimation = current[DOWN.ordinal]
-                y += if (blocked && currentAction != Action.JUMPING) 0 else moveSpeed
+                y += if (blocked && currentAction != Jumping) 0 else moveSpeed
             }
             LEFT -> {
                 currentAnimation = current[LEFT.ordinal]
@@ -205,8 +203,8 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         }
     }
 
-    private fun finalizeAnimations(animationFrames: Int) {
-        if (currentAction == Action.JUMPING) {
+    internal fun finalizeAnimations(animationFrames: Int) {
+        if (currentAction == Jumping) {
             if (frameNum == 0) {
                 EntityManager.add(JumpShadow(this))
             } else if (frameNum == 15) {
@@ -257,148 +255,15 @@ open class GameCharacter(x: Int, y: Int, spritesheet: Image) : AbstractEntity(x,
         }
     }
 
-    private fun identifyAction() {
-        when (currentAction) {
-            Action.IDLING -> processIdle()
-            Action.TURNING -> processTurn()
-            Action.MOVING -> processMovement()
-            Action.JUMPING -> processCliffJump()
-        }
-    }
-
-    private fun processCliffJump() {
-        busy = true
-
-        animationFrames = 8
-        animations = 4
-        moveSpeed = 1
-
-        if (transportMode == TransportMode.RUN) {
-            transportMode = TransportMode.WALK
-        }
-
-        if (frameNum < animations * animationFrames) {
-            updateCurrentAnimation()
-            finalizeMovement(moveSpeed)
-            finalizeAnimations(animationFrames)
-            frameNum++
-        }
-
-        if (frameNum >= animationFrames * animations) {
-            frameNum = 0
-            busy = false
-        }
-    }
-
-    private fun processIdle() {
-        updateCurrentAnimation()
-        finalizeMovement(0)
-        finalizeAnimations(0)
-        //TODO("Swim idle animation things")
-        //frameNum++;
-        //if(frameNum >= 16)
-        //{
-        //	frameNum = 0;
-        //}
-    }
-
-    private fun processMovement() {
-        busy = true
-        animationFrames = 8
-        animations = 2
-        moveSpeed = 1
-
-        if (transportMode == TransportMode.BIKE) {
-            animationFrames = 2
-            animations = 3
-            moveSpeed = Math.round(2 + (frameNum + 1) * 0.33 % 1).toInt()
-        }
-
-        if (transportMode == TransportMode.RUN) {
-            animationFrames = 4
-            animations = 2
-            moveSpeed = 2
-            if (blocked) {
-                transportMode = TransportMode.WALK
-            }
-        }
-
-        if (blocked) {
-            animationFrames *= 2
-            moveSpeed = 0
-        }
-
-        if (frameNum < animations * animationFrames) {
-            updateCurrentAnimation()
-            finalizeMovement(moveSpeed)
-            finalizeAnimations(animationFrames)
-            frameNum++
-        }
-
-        if (blocked) {
-            if (frameNum >= animationFrames * animations) {
-                frameNum = 0
-                busy = false
-            } else if (direction == UP && (controls[DOWN] || controls[LEFT] || controls[RIGHT])
-                    || direction == DOWN && (controls[UP] || controls[LEFT] || controls[RIGHT])
-                    || direction == LEFT && (controls[UP] || controls[DOWN] || controls[RIGHT])
-                    || direction == RIGHT && (controls[UP] || controls[DOWN] || controls[LEFT])) {
-                frameNum = 0
-                busy = false
-                currentAnimation?.setFrame(0)
-            }
-        } else if (frameNum >= animationFrames * animations) {
-            frameNum = 0
-            busy = false
-        }
-    }
-
     override fun render(gc: GameContainer, g: Graphics) {
         currentImage!!.draw((x - 8 + xMapOffset + RegionManager.currentArea.x).toFloat(), (y - 16 + yMapOffset + RegionManager.currentArea.y).toFloat())
     }
 
-    private fun processTurn() {
-        busy = true
-
-        animationFrames = 4
-        animations = 2
-        moveSpeed = 0
-
-        when (transportMode) {
-            TransportMode.BIKE -> {
-                animationFrames = 0
-                animations = 0
-            }
-            TransportMode.RUN -> transportMode = TransportMode.WALK
-            GameCharacter.TransportMode.WALK -> {/*TODO("WALK")*/}
-            GameCharacter.TransportMode.SWIM -> {/*TODO("SWIM")*/}
-        }
-
-        if (frameNum < animations * animationFrames) {
-            updateCurrentAnimation()
-            finalizeMovement(moveSpeed)
-            finalizeAnimations(animationFrames)
-            frameNum++
-        }
-
-        if (frameNum >= animationFrames * animations) {
-            frameNum = 0
-            busy = false
-        }
-    }
-
     override fun update(gc: GameContainer) {
         checkInput()
-        identifyAction()
+        currentAction.update(this)
         currentImage = currentAnimation?.currentFrame
         updateDepth()
-    }
-
-    enum class Action {
-        IDLING,
-        TURNING,
-        MOVING,
-        JUMPING
     }
 
     enum class TransportMode {
