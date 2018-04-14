@@ -4,9 +4,10 @@ A classic remake of Pokemon gen 3 with extra features and modifications.
 
 ## Getting Started with Development
 
-1. Install and configure JDK 8 and 9 (required for Kotlin).
+1. Install and configure JDK 8.
 2. Install and configure Gradle version 4+: https://gradle.org/install/
-  * (Note: Do not install gradle from your system's base package manager. It's almost guaranteed not to work.)
+    * (Note: Do not install gradle from your system's base package manager. It's almost guaranteed not to work.)
+    * (If you're using IntelliJ, just click "Use gradler 'wrapper' task configuration" when importing)
 3. Clone the project: `git clone https://github.com/dwbrite/pokemon.git`
 4. Run the game with `gradle run`, or
 create a distributable zip file with `gradle gameZip`.
