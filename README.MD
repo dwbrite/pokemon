@@ -6,7 +6,7 @@ A classic remake of Pokemon gen 3 with extra features and modifications.
 
 1. Install and configure JDK 8.
 2. Install and configure Gradle version 4+: https://gradle.org/install/
-    * (Note: Do not install gradle from your system's base package manager. It's almost guaranteed not to work.)
+    * (Note: Do not install gradle from your system's **default** package manager. It's almost guaranteed not to work. The AUR may work.)
     * (You can use a Gradle wrapper instead of installing gradle to your system. In IntelliJ IDEA, just click "Use gradle 'wrapper' task configuration" when importing)
 3. Clone the project: `git clone https://github.com/dwbrite/pokemon.git`
 4. Run the game with `gradle run`, or
@@ -18,5 +18,4 @@ Congrats, you can compile and run the game!
 
 ___
 
-TODO: Add mind-map explaining the structure of the game.
-That might actually call for a Wiki.
+Check out the [Wiki](https://github.com/dwbrite/pokemon/wiki) for more information on how the engine works!
