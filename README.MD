@@ -1,6 +1,8 @@
 # Pokemon
 
-A classic remake of Pokemon gen 3 with extra features and modifications.
+A classic remake of Pokemon gen 3 with extra features and modifications - started June 2015.
+
+![Ledge Hopping](https://github.com/dwbrite/pokemon/blob/master/ledge-hopping.gif)
 
 ## Getting Started with Development
 
@@ -16,6 +18,12 @@ You may want to save these commands as configurations in your IDE.
 
 Congrats, you can compile and run the game!
 
+![VBA Comparison](https://github.com/dwbrite/pokemon/blob/master/cmp-frlg.gif)
+
+^ Comparison between this project and vba. Can you tell which is which?
+
 ___
 
-Check out the [Wiki](https://github.com/dwbrite/pokemon/wiki) for more information on how the engine works!
+~~Check out the [Wiki](https://github.com/dwbrite/pokemon/wiki) for more information on how the engine works!~~
+
+
